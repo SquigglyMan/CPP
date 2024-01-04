@@ -6,7 +6,7 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 07:46:47 by llarue            #+#    #+#              #
-#    Updated: 2024/01/04 09:33:30 by llarue           ###   ########.fr        #
+#    Updated: 2024/01/04 11:58:53 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ VAL_FLAGS	=	-g3
 
 CPP_FLAGS	=	-std=c++98
 
-DEPS_FLAG	=	-MMD -MF
+DEPS_FLAGS	=	-MMD -MF
 
 #########
 # FILES #
@@ -59,12 +59,12 @@ DEPS_PATH 	=	$(addprefix $(DEPS_DIR)/, $(DEPS))
 all: $(NAME)
 
 $(NAME): $(OBJS_PATH)
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJS_PATH)
+		$(CC) $(CFLAGS) $(CPP_FLAGS) -o $(NAME) $(OBJS_PATH)
 
 -include $(DEPS_PATH)
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR) $(DEPS_DIR)
-		$(CC) $(CFLAGS) $(DEPS_FLAGS) $(DEPS_DIR)/$*.d -o $@ -c $<
+$(OBJS_DIR)/%.o: %.cpp | $(OBJS_DIR) $(DEPS_DIR)
+		$(CC) $(CFLAGS) $(CPP_FLAGS) $(DEPS_FLAGS) $(DEPS_DIR)/$*.d -c $< -o $@
 
 $(OBJS_DIR):
 		@mkdir -p $(OBJS_DIR)
