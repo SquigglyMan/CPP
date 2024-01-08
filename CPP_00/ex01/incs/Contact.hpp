@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 12:04:22 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/08 15:56:41 by llarue           ###   ########.fr       */
+/*   Created: 2024/01/07 18:51:45 by llarue            #+#    #+#             */
+/*   Updated: 2024/01/08 15:55:53 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-# include <cstring>
+# include <iostream>
+# include <iomanip>
 
-# include "Contact.hpp"
-
-class	PhoneBook {
+class	Contact {
 	public:
-		Contact	List[8];
-		int		Index;
+		std::string	Index;
+		std::string	First_name;
+		std::string	Last_name;
+		std::string	Nickname;
+		std::string	Phone_number;
+		std::string	Darkset_secret;
 
-		PhoneBook(void);
-		~PhoneBook(void);
-
-		void	Print_command_selector(void);
-		void	Print_contact_list(void);
-		void	Add_contacts(int Index);
+		Contact(void);
+		~Contact(void);
 };
 
 #endif

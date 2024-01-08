@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 12:04:22 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/08 15:56:41 by llarue           ###   ########.fr       */
+/*   Created: 2024/01/08 11:23:26 by llarue            #+#    #+#             */
+/*   Updated: 2024/01/08 16:05:24 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Contact.hpp"
 
-# include <cstring>
+Contact::Contact()
+{
+	this->Index = "0";
+}
 
-# include "Contact.hpp"
-
-class	PhoneBook {
-	public:
-		Contact	List[8];
-		int		Index;
-
-		PhoneBook(void);
-		~PhoneBook(void);
-
-		void	Print_command_selector(void);
-		void	Print_contact_list(void);
-		void	Add_contacts(int Index);
-};
-
-#endif
+Contact::~Contact()
+{
+}
