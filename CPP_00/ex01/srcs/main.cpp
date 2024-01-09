@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:05:21 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/09 11:54:59 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/09 12:50:48 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,30 @@ int	main(void)
 	PhoneBook	List;
 	std::string	input;
 
+	system("clear");
 	List.Print_contact_list();
 	List.Print_command_selector();
-	std::cin >> input;
+	std::getline(std::cin, input);
+	if (std::cin.good() == false)
+		return (1);
 	while (input != "EXIT")
 	{
 		if (input == "ADD")
-		{
 			List.Add_contacts();
-			std::cout << "ADD" << std::endl;
-		}
 		else if (input == "SEARCH")
 		{
-			std::cout << "SEARCH" << std::endl;
 			List.Print_contact_list();
+			List.Select_contact();
 		}
 		else
 			std::cout << "Invalid command" << std::endl;
-		List.Print_command_selector();
-		std::cin >> input;
+		if (std::cin.good() == true)
+		{
+			List.Print_command_selector();
+		}
+		std::getline(std::cin, input);
+		if (std::cin.good() == false)
+			return (1);
 	}
 	return (0);
 }
