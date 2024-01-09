@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:05:21 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/08 18:26:55 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/09 11:54:59 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 	{
 		if (input == "ADD")
 		{
-			List.Add_contacts(List.Index);
+			List.Add_contacts();
 			std::cout << "ADD" << std::endl;
 		}
 		else if (input == "SEARCH")

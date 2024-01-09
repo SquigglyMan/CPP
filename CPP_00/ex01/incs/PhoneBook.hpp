@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:04:22 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/08 15:56:41 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/09 11:54:47 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class	PhoneBook {
 
 		void	Print_command_selector(void);
 		void	Print_contact_list(void);
-		void	Add_contacts(int Index);
+		void	Add_contacts(void);
 };
 
 #endif

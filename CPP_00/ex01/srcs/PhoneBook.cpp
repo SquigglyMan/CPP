@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:23:47 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/08 18:12:39 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/09 11:56:39 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PhoneBook::~PhoneBook()
 void	PhoneBook::Print_contact_list(void)
 {
 	for(int i = 0; i < 8; i++)
-		std::cout	<< std::left << std::setw(10) <<  List[i].Index << " | "
+		std::cout	<< std::left << std::setw(10) <<  i + 1 << " | "
 					<< std::left << std::setw(10) << List[i].First_name << " | "
 					<< std::left << std::setw(10) << List[i].Last_name << " | "
 					<< std::left << std::setw(10) << List[i].Nickname << " | "
@@ -40,7 +40,7 @@ void	PhoneBook::Print_command_selector(void)
 	std::cout << "ADD | SEARCH | EXIT" << std::endl;
 }
 
-void	PhoneBook::Add_contacts(int Index)
+void	PhoneBook::Add_contacts(void)
 {
 	std::cout << "New contact information" << std::endl;
 	std::cout << "First name : " << std::endl;
@@ -53,4 +53,6 @@ void	PhoneBook::Add_contacts(int Index)
 	std::cin >> List[Index].Phone_number;
 	std::cout << "Darkest secret : " << std::endl;
 	std::cin >> List[Index].Darkset_secret;
+	std::cout << Index << std::endl;;
+	Index++;
 }
