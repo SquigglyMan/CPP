@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:05:21 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/09 12:50:48 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/09 17:45:05 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ int	main(void)
 			List.Add_contacts();
 		else if (input == "SEARCH")
 		{
-			List.Print_contact_list();
-			List.Select_contact();
+			system("clear");
+			while (true)
+			{
+				List.Select_contact();
+			}
 		}
 		else
 			std::cout << "Invalid command" << std::endl;
 		if (std::cin.good() == true)
-		{
 			List.Print_command_selector();
-		}
 		std::getline(std::cin, input);
 		if (std::cin.good() == false)
 			return (1);

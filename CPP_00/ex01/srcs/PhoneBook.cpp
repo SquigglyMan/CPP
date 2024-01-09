@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:23:47 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/09 13:24:37 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/09 17:51:24 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ PhoneBook::~PhoneBook()
 
 void	PhoneBook::Print_contact_list(void)
 {
-	system("clear");
+	std::cout << "Contacts" << std::endl;
 	for(int i = 0; i < 8; i++)
 		std::cout	<< std::left << std::setw(10) <<  i + 1 << " | "
 					<< std::left << std::setw(10) << List[i].First_name << " | "
@@ -51,6 +51,8 @@ void	PhoneBook::Add_contacts(void)
 	std::getline(std::cin, List[Index % 8].Nickname);
 	std::cout << "Phone number : " << std::endl;
 	std::getline(std::cin, List[Index % 8].Phone_number);
+	if (List[Index % 8].Phone_number)
+
 	std::cout << "Darkest secret : " << std::endl;
 	std::getline(std::cin, List[Index % 8].Darkest_secret);
 	Index++;
@@ -61,8 +63,10 @@ void	PhoneBook::Select_contact(void)
 {
 	std::string input;
 
+	Print_contact_list();
 	std::cout << "Who's information would you like to see 1 - 8 : ";
 	std::getline(std::cin, input);
+	std::cout << "Invalid index" << std::endl;
 	std::cout << "First name : " << List[atoi(input.c_str()) - 1].First_name << std::endl;
 	std::cout << "Last name : " << List[atoi(input.c_str()) - 1].Last_name << std::endl;
 	std::cout << "Nickname : " << List[atoi(input.c_str()) - 1].Nickname << std::endl;
