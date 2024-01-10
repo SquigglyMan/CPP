@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/10 10:25:58 by llarue            #+#    #+#              #
-#    Updated: 2024/01/10 15:40:53 by llarue           ###   ########.fr        #
+#    Created: 2024/01/10 13:45:17 by llarue            #+#    #+#              #
+#    Updated: 2024/01/10 16:29:41 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	 Moar
+NAME		=	Violence	
 
 ############
 # COMPILER #
@@ -32,8 +32,9 @@ DEPS_FLAGS	=	-MMD -MF
 
 MAIN		=	main.cpp
 
-SRCS		=	Zombie.cpp		\
-				zombieHorde.cpp
+SRCS		=	Weapon.cpp		\
+				HumanA.cpp		\
+				HumanB.cpp
 
 OBJS		=	$(MAIN:.cpp=.o)	\
 				$(SRCS:.cpp=.o)

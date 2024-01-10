@@ -6,11 +6,11 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 09:24:28 by llarue            #+#    #+#              #
-#    Updated: 2024/01/10 09:25:09 by llarue           ###   ########.fr        #
+#    Updated: 2024/01/10 15:40:33 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Zombie	
+NAME		=	 BraiiiiiiinnnzzzZ	
 
 ############
 # COMPILER #
