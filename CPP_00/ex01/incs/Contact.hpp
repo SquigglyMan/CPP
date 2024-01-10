@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:51:45 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/09 12:57:52 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/10 09:17:52 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class	Contact {
 
 		Contact(void);
 		~Contact(void);
+
+		std::string	Print_column(std::string str);
 };
 
 #endif
