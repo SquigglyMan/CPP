@@ -6,41 +6,33 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:23:47 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/10 09:21:50 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:34:28 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <stdlib.h>
 
-PhoneBook::PhoneBook()
-{
+PhoneBook::PhoneBook() {
 	this->Index = 0;
 }
 
-PhoneBook::~PhoneBook()
-{
-}
-
-void	PhoneBook::Print_contact_list(void)
-{
+void	PhoneBook::Print_contact_list( void ) {
 	std::cout << "Contacts" << std::endl;
 	for(int i = 0; i < 8; i++)
 		std::cout	<< std::setw(10) << i + 1
-					<< "|" << std::setw(10) << List->Print_column(List[i].First_name)
-					<< "|" << std::setw(10) << List->Print_column(List[i].Last_name)
-					<< "|" << std::setw(10) << List->Print_column(List[i].Nickname)
+					<< "|" << std::setw(10) << List->PrintColumn(List[i].First_name)
+					<< "|" << std::setw(10) << List->PrintColumn(List[i].Last_name)
+					<< "|" << std::setw(10) << List->PrintColumn(List[i].Nickname)
 					<< std::endl;
 }
 
-void	PhoneBook::Print_command_selector(void)
-{
+void	PhoneBook::Print_command_selector( void ) {
 	std::cout << "Would you like to : " << std::endl;
 	std::cout << "ADD | SEARCH | EXIT" << std::endl;
 }
 
-void	PhoneBook::Add_contacts(void)
-{
+void	PhoneBook::Add_contacts( void ) {
 	system("clear");
 	std::cout << "New contact information" << std::endl;
 	while (true)
@@ -95,8 +87,7 @@ void	PhoneBook::Add_contacts(void)
 	system("clear");
 }
 
-void	PhoneBook::Select_contact(void)
-{
+void	PhoneBook::Select_contact( void ) {
 	std::string input;
 
 	while (1)
