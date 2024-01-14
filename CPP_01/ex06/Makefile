@@ -6,11 +6,11 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 14:27:23 by llarue            #+#    #+#              #
-#    Updated: 2024/01/11 14:30:10 by llarue           ###   ########.fr        #
+#    Updated: 2024/01/14 17:59:37 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	HarlFilter
+NAME		=	harlFilter
 
 ############
 # COMPILER #
