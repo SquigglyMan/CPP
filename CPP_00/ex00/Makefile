@@ -6,7 +6,7 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 07:46:47 by llarue            #+#    #+#              #
-#    Updated: 2024/01/04 11:58:53 by llarue           ###   ########.fr        #
+#    Updated: 2024/01/14 16:16:43 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ DEPS_PATH 	=	$(addprefix $(DEPS_DIR)/, $(DEPS))
 all: $(NAME)
 
 $(NAME): $(OBJS_PATH)
-		$(CC) $(CFLAGS) $(CPP_FLAGS) -o $(NAME) $(OBJS_PATH)
+		$(CC) $(CFLAGS) $(CPP_FLAGS) $(VAL_FLAGS) -o $(NAME) $(OBJS_PATH)
 
 -include $(DEPS_PATH)
 
