@@ -6,11 +6,11 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 13:45:17 by llarue            #+#    #+#              #
-#    Updated: 2024/01/10 16:29:41 by llarue           ###   ########.fr        #
+#    Updated: 2024/01/14 16:58:06 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Violence	
+NAME		=	UnnecessaryViolence	
 
 ############
 # COMPILER #

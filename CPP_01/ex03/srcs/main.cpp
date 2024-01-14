@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:50:33 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/10 16:47:05 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 17:06:48 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(void)
 		club.setType("some other type of club");
 		bob.attack();
 	}
+
 	{
 		Weapon	club = Weapon("crude spiked club");
 	

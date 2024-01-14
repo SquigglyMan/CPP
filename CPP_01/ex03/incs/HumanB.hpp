@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:50:06 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/10 16:45:38 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 17:02:16 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 
 class HumanB {
 	private:
-		Weapon		*Equiped;
 		std::string	name;
+		Weapon		*Equiped;
 
 	public:
-		HumanB(std::string name = "Jim") : name(name) {};
-		~HumanB() {};
+		HumanB( std::string name );
 
-		void	attack(void);
-		void	setWeapon(Weapon &Equiped);
+		void	attack( void );
+		void	setWeapon( Weapon &Equiped );
 };
 
 #endif
