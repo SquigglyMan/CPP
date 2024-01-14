@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 09:25:44 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/10 09:59:47 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:48:45 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ class Zombie {
 		std::string	name;
 	
 	public:
-		Zombie(void);
-		~Zombie(void);
+		Zombie( std::string name );
 
 		void	announce( void );
-		void	set_name( std::string name );
 };
 
 Zombie*	newZombie( std::string name);
