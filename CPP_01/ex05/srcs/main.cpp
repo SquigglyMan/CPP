@@ -6,19 +6,24 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:09:41 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/11 14:14:24 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 17:54:47 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int	main(void)
+int	main(int ac, char **av)
 {
+	if (ac == 1)
+	{
+		std::cout << "Usage : ./Harl <complaints>" << std::endl;
+		return (0);
+	}
 	Harl	Harl;
-	
-	Harl.complain("DEBUG");
-	Harl.complain("INFO");
-	Harl.complain("WARNING");
-	Harl.complain("ERROR");
+	while (*(av + 1))
+	{
+		Harl.complain(*(av + 1));
+		av++;
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:09:39 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 17:11:05 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 17:40:52 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ class Harl {
 	public:
 		void	complain( std::string level );
 };
-
-typedef	void	( Harl::*complaint )( void );
 
 #endif
