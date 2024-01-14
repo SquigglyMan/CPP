@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:00:13 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/12 15:47:17 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 18:09:41 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ Fixed::Fixed() : integer(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const Fixed& copy ) {
+Fixed::Fixed( const Fixed& src ) {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	*this = src;
 }
 
 Fixed& Fixed::operator=( const Fixed &src ) {

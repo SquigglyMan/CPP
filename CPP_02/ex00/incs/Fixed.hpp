@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:59:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/12 15:44:26 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 18:07:25 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class Fixed {
 	private:
 		int					integer;
-		static const int	fractional_bits = 8;
+		static const int	fractionalBits = 8;
 
 	public:
 		Fixed();
-		Fixed( const Fixed &copy );
+		Fixed( const Fixed &src );
 		Fixed& operator=( const Fixed &src );
 		~Fixed();
 
