@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:31:08 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 17:15:03 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/14 18:01:20 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	Harl::error( void ) {
 }
 
 void	Harl::complain( std::string level ) {
-	std::string	complaint_type[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string	complaintType[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int	i = 0;
-	while (i < 4 && complaint_type[i].compare(level))
+	while (i < 4 && complaintType[i].compare(level))
 		i++;
 	switch(i) {
 		case	(0):
