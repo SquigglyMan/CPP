@@ -6,16 +6,37 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:48:49 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/16 09:57:17 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/16 14:06:05 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-std::string	Animal::getType( void ) {
+Animal::Animal( void ) {
+	std::cout << "Animal constructor" << std::endl;
+}
+
+Animal::Animal( const Animal& src) {
+	*this = src;
+}
+
+Animal &Animal::operator=(const Animal& src) {
+	this->type = src.type;
+	return (*this);
+}
+
+Animal::~Animal( void ) {
+	std::cout << "Animal destructor" << std::endl;
+}
+
+std::string	Animal::getType( void ) const {
 	return (this->type);
 }
 
-void	Animal::makeSound( void ) {
-	std::cout << type << "made a noise" << std::endl;
+void	Animal::setType( std::string newType ) {
+	this->type = newType;
+}
+
+void	Animal::makeSound( void ) const {
+	std::cout << "Animal noise" << std::endl;
 }

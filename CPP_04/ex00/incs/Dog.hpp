@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:49:34 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/16 09:58:49 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/16 14:53:04 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@
 class Dog : public Animal {
 	public:
 		Dog( void );
-		Dog( std::string name );
+		Dog( const Dog& src);
+		Dog &operator=( const Dog& src );
+		~Dog( void );
+
+		void	makeSound( void ) const;
 };
 
 #endif
