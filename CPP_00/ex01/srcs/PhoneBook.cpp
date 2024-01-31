@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:23:47 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/16 09:42:25 by llarue           ###   ########.fr       */
+/*   Updated: 2024/01/31 10:28:28 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	PhoneBook::Add_contacts( void ) {
 		while (it != input.end() && std::isprint(*it))
 			++it;
 		if (input.empty() || it != input.end())
-			std::cout << "First name can only contain letters, symbols and spaces" << std::endl;
+			std::cout << "Can only contain letters, symbols and spaces" << std::endl;
 		else
 		{
 			List[index % 8].setFirstName(((pos == input.npos) ? "" : input.substr(0, pos + 1)));
@@ -67,7 +67,7 @@ void	PhoneBook::Add_contacts( void ) {
 		while (it != input.end() && std::isprint(*it))
 			++it;
 		if (input.empty() || it != input.end())
-			std::cout << "First name can only contain letters, symbols and spaces" << std::endl;
+			std::cout << "Can only contain letters, symbols and spaces" << std::endl;
 		else
 		{
 			List[index % 8].setLasttName(((pos == input.npos) ? "" : input.substr(0, pos + 1)));
@@ -86,7 +86,7 @@ void	PhoneBook::Add_contacts( void ) {
 		while (it != input.end() && std::isprint(*it))
 			++it;
 		if (input.empty() || it != input.end())
-			std::cout << "First name can only contain letters, symbols and spaces" << std::endl;
+			std::cout << "Can only contain letters, symbols and spaces" << std::endl;
 		else
 		{
 			List[index % 8].setNicktName(((pos == input.npos) ? "" : input.substr(0, pos + 1)));
@@ -121,7 +121,7 @@ void	PhoneBook::Add_contacts( void ) {
 		while (it != input.end() && std::isprint(*it))
 			++it;
 		if (input.empty() || it != input.end())
-			std::cout << "First name can only contain letters, symbols and spaces" << std::endl;
+			std::cout << "Can only contain letters, symbols and spaces" << std::endl;
 		else
 		{
 			List[index % 8].setDarkestSecret(((pos == input.npos) ? "" : input.substr(0, pos + 1)));
@@ -133,6 +133,7 @@ void	PhoneBook::Add_contacts( void ) {
 }
 
 void	PhoneBook::Select_contact( void ) {
+	int			index;
 	std::string input;
 
 	while (1)
@@ -147,14 +148,15 @@ void	PhoneBook::Select_contact( void ) {
 			system("clear");
 			break ;
 		}
-		else if (std::atoi(input.c_str()) >= 1 && std::atoi(input.c_str()) <= 8)
+		index = std::atoi(input.c_str());
+		if (index >= 1 && index <= 8)
 		{
 			system("clear");
-			std::cout << "First name : " << List[atoi(input.c_str()) - 1].getFirstName() << std::endl;
-			std::cout << "Last name : " << List[atoi(input.c_str()) - 1].getLasttName() << std::endl;
-			std::cout << "nickname : " << List[atoi(input.c_str()) - 1].getNicktName() << std::endl;
-			std::cout << "Phone number : " << List[atoi(input.c_str()) - 1].getPhoneNumber() << std::endl;
-			std::cout << "Darkest secret : " << List[atoi(input.c_str()) - 1].getDarkestSecret() << std::endl;
+			std::cout << "First name : " << List[index - 1].getFirstName() << std::endl;
+			std::cout << "Last name : " << List[index - 1].getLasttName() << std::endl;
+			std::cout << "nickname : " << List[index - 1].getNicktName() << std::endl;
+			std::cout << "Phone number : " << List[index - 1].getPhoneNumber() << std::endl;
+			std::cout << "Darkest secret : " << List[index - 1].getDarkestSecret() << std::endl;
 		}
 		else
 		{
