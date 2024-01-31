@@ -6,7 +6,7 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 12:45:44 by llarue            #+#    #+#              #
-#    Updated: 2024/01/29 13:01:33 by llarue           ###   ########.fr        #
+#    Updated: 2024/01/31 16:45:50 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,11 @@ DEPS_FLAGS	=	-MMD -MF
 
 MAIN		=	main.cpp
 
-SRCS		=	AMateria.cpp	\
-				Ice.cpp			\
-				Cure.cpp		\
-				ICharacter.cpp	\
-				IMateriaSource.cpp
+SRCS		=	AMateria.cpp		\
+				Character.cpp		\
+				Cure.cpp			\
+				Ice.cpp				\
+				MateriaSource.cpp
 
 OBJS		=	$(MAIN:.cpp=.o)	\
 				$(SRCS:.cpp=.o)
