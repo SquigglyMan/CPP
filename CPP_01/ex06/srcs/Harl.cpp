@@ -6,11 +6,19 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:31:08 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 18:01:20 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/01 16:21:14 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+Harl::Harl() {
+	std::cout << BOLD_PURPLE << "Harl default constructor" << COLOR_RESET << std::endl;
+}
+
+Harl::~Harl() {
+	std::cout << BOLD_PURPLE << "Harl default desstructor" << COLOR_RESET << std::endl;
+}
 
 void	Harl::debug( void ) {
 	std::cout << "[DEBUG] : I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
