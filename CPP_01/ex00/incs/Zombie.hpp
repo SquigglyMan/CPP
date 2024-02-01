@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 09:25:44 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/01 15:42:18 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/01 15:51:07 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # define COLOR_RESET	"\e[0m"
 # define BOLD_PURPLE	"\e[1;38;5;54m"
+# define BLOOD_RED		"\e[38;5;124m"
 
 class Zombie {
 	private:

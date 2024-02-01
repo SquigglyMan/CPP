@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 09:25:46 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/01 15:43:19 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/01 15:51:13 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ Zombie::~Zombie() {
 }
 
 void	Zombie::announce(void) {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+		std::cout << name << ": " << BLOOD_RED << "BraiiiiiiinnnzzzZ..." << COLOR_RESET << std::endl;
 }
