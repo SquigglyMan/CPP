@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:37:49 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/01 15:52:03 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/02 12:18:14 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int	main(void)
 {
+	int		N;
 	Zombie *horde;
 
-	horde = zombieHorde(5, "Alice");
-	for(int i = 0; i < 5; i++)
+	N = -3;
+	horde = zombieHorde(N, "Alice");
+	for(int i = 0; i < N; i++)
 		horde[i].announce();
-	delete [](horde);
+	if (horde)
+		delete [](horde);
 	return (0);
 }
