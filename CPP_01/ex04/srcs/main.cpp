@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:49:26 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/11 10:53:12 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/02 14:56:52 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ int	main(int ac, char **av)
 	if (ac != 4)
 		std::cout << "Usage: ./sed <filename> <to_find> <to_replace>" << std::endl;
 	else
+	{
+		std::cout << "av[2] = " << av[2] << std::endl;
+		if (!(av[2][0]))
+		{
+			std::cout << "Error: <to_find> cannot be empty" << std::endl;
+			return (1);
+		}
 		replace_str(av[1], av[2], av[3]);
+	}
 	return (0);
 }
