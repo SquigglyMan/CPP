@@ -6,56 +6,56 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:24 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 18:16:19 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/02 16:05:04 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
 
-Fixed::Fixed( void ) : integer(0) {
-	std::cout << "Default constructor called" << std::endl;
+Fixed::Fixed( void ) : fixedPoint(0) {
+	std::cout << PURPLE << "Default constructor called" << COLOR_RESET << std::endl;
 }
 
-Fixed::Fixed( const int FixedPoint ) : integer(FixedPoint << fractionalBits) {
-	std::cout << "Int constructor called" << std::endl;
+Fixed::Fixed( const int fixedPoint ) : fixedPoint(fixedPoint << fractionalBits) {
+	std::cout << PURPLE << "Int constructor called" << COLOR_RESET << std::endl;
 }
 
-Fixed::Fixed( const float FloatingPoint) : integer(roundf (FloatingPoint * (1 << fractionalBits))) {
-	std::cout << "Float constructor called" << std::endl;
+Fixed::Fixed( const float floatingPoint) : fixedPoint(roundf (floatingPoint * (1 << fractionalBits))) {
+	std::cout << PURPLE << "Float constructor called" << COLOR_RESET << std::endl;
 }
 
 Fixed::Fixed( const Fixed& src ) {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << PURPLE << "Copy constructor called" << COLOR_RESET << std::endl;
 	*this = src;
 }
 
 Fixed& Fixed::operator=( const Fixed &src ) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << PURPLE << "Copy assignment operator called" COLOR_RESET << std::endl;
 	if (this != &src)
-		this->integer = src.getRawBits();
+		this->fixedPoint = src.getRawBits();
 	return (*this);
 }
 
 Fixed::~Fixed( void ) {
-	std::cout << "Default destructor called" << std::endl;
+	std::cout << PURPLE << "Default destructor called" << COLOR_RESET << std::endl;
 }
 
 int		Fixed::getRawBits() const {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->integer);
+	std::cout << ORANGE << "getRawBits member function called" << COLOR_RESET << std::endl;
+	return (this->fixedPoint);
 }
 
 void	Fixed::setRawBits( int const raw ) {
-	this->integer = raw;
+	this->fixedPoint = raw;
 }
 
 float	Fixed::toFloat( void ) const  {
-	return ((float)(this->integer) / (float)(1 << fractionalBits));
+	return ((float)(this->fixedPoint) / (float)(1 << fractionalBits));
 }
 
 int	Fixed::toInt( void ) const  {
-	return (this->integer >> fractionalBits);
+	return (this->fixedPoint >> fractionalBits);
 }
 
 std::ostream& operator<<( std::ostream &stream, Fixed const &f ) {

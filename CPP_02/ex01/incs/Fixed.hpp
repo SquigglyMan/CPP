@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:22 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 18:16:05 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/02 16:05:04 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 
 # include <iostream>
 
+# define COLOR_RESET	"\e[0m"
+# define PURPLE			"\e[38;5;54m"
+# define ORANGE			"\e[38;5;172m"
+
 class Fixed {
 	private:
-		int					integer;
+		int					fixedPoint;
 		static const int	fractionalBits = 8;
 
 	public:
 		Fixed( void );
-		Fixed( const int FixedPoint );
-		Fixed( const float FloatingPoint );
+		Fixed( const int fixedPoint );
+		Fixed( const float floatingPoint );
 		Fixed( const Fixed &src );
 		Fixed& operator=( const Fixed &src );
 		~Fixed( void );
