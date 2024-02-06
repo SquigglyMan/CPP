@@ -6,13 +6,13 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:50:47 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/01 16:11:44 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/06 18:17:53 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon() {
+Weapon::Weapon() : type("Default weapon") {
 	std::cout << BOLD_PURPLE << "Weapon default constructor" << COLOR_RESET << std::endl;
 }
 

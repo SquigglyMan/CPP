@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:49:42 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/01 16:11:34 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/06 23:10:58 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class HumanA {
 		Weapon 		&Equiped;
 
 	public:
+		// HumanA( Weapon &Equiped );
 		HumanA( std::string name, Weapon &Equiped );
 		~HumanA();
 

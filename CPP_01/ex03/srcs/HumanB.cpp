@@ -6,18 +6,18 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:50:51 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/01 16:11:42 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/06 18:17:37 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB() {
+HumanB::HumanB() : name("Default Name"), Equiped(NULL) {
 	std::cout << BOLD_PURPLE << "HumanB default constructor" << COLOR_RESET << std::endl;
 }
 
-HumanB::HumanB( std::string name ) : name(name) {
-	std::cout << BOLD_PURPLE << "HumanB constructor" << COLOR_RESET << std::endl;
+HumanB::HumanB( std::string name ) : name(name), Equiped(NULL) {
+	std::cout << BOLD_PURPLE << "HumanB parameter constructor" << COLOR_RESET << std::endl;
 }
 
 HumanB::~HumanB() {

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:48:39 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/01 16:04:06 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/06 18:18:36 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Weapon {
 	
 	public:
 		Weapon();
-		Weapon( std::string type  = "club" );
+		Weapon( std::string type );
 		~Weapon();
 
 		std::string const	&getType( void );
