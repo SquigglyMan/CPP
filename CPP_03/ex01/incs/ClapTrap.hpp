@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:59:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 19:16:30 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/07 17:10:12 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 
 # include <iostream>
 
-# define C_RESET	"\e[0m"
-# define ORANGE		"\e[38;5;215m"
+# define COLOR_RESET	"\e[0m"
+# define ORANGE			"\e[38;5;215m"
+# define PURPLE			"\e[38;5;105m"
+# define RED			"\e[38;5;160m"
+# define GREEN			"\e[38;5;35m"
 
 class ClapTrap {
-	private:
+	protected:
 		std::string		name;
 		unsigned int	hitPoints;
 		unsigned int	energyPoints;
@@ -30,7 +33,6 @@ class ClapTrap {
 		ClapTrap( std::string name );
 		ClapTrap( const ClapTrap& src );
 		ClapTrap &operator=( const ClapTrap& src );
-		ClapTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage );
 		~ClapTrap();
 
 		void		attack( const std::string &target );

@@ -6,26 +6,26 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:00:13 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 19:16:58 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/07 16:12:39 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap( std::string name ) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-	std::cout << ORANGE << "Default constructor called" << C_RESET << std::endl;
+	std::cout << ORANGE << "Default constructor called" << COLOR_RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src) {
-		std::cout << ORANGE << "Copy constructor called" << C_RESET << std::endl;
+		std::cout << ORANGE << "Copy constructor called" << COLOR_RESET << std::endl;
 		*this = src;
 }
 
-ClapTrap::ClapTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) : name(name), hitPoints(hitPoints), energyPoints(energyPoints), attackDamage(attackDamage) {
-}
+// ClapTrap::ClapTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) : name(name), hitPoints(hitPoints), energyPoints(energyPoints), attackDamage(attackDamage) {
+// }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& src) {
-	std::cout << ORANGE << "Operator assignation called" << C_RESET << std::endl;
+	std::cout << ORANGE << "Operator assignation called" << COLOR_RESET << std::endl;
 	this->name = src.name;
 	this->hitPoints = src.hitPoints;
 	this->energyPoints = src.energyPoints;
@@ -34,7 +34,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap& src) {
 }
 
 ClapTrap::~ClapTrap() { 
-	std::cout << ORANGE << "Default destructor called" << C_RESET << std::endl;
+	std::cout << ORANGE << "Default destructor called" << COLOR_RESET << std::endl;
 }
 
 void	ClapTrap::attack( const std::string &target ) {

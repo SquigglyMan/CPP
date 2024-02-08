@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:59:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/07 06:42:02 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/07 14:35:14 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,17 @@ int	main(void)
 	
 	DefaultClapTrap.attack("Default Enemy");
 	DefaultClapTrap.takeDamage(5);
-	DefaultClapTrap.takeDamage(6);
-	DefaultClapTrap.takeDamage(1);
 	DefaultClapTrap.beRepaired(5);
-	DefaultClapTrap.takeDamage(5);
 
+	ClapTrap	Bot("Bot");
 
-	ClapTrap	Clap("Bot");
-
-	Clap.attack("Enemy");
-	Clap.takeDamage(5);
-	Clap.beRepaired(5);
-	Clap.takeDamage(6);
-	Clap.takeDamage(5);
+	DefaultClapTrap = Bot;
+	
+	Bot.attack("Enemy Bot");
+	Bot.takeDamage(5);
+	Bot.beRepaired(5);
+	Bot.takeDamage(6);
+	Bot.takeDamage(5);
 
 	return (0);
 }

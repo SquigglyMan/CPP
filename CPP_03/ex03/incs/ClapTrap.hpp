@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:59:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 19:16:30 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/07 16:12:39 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 
-# define C_RESET	"\e[0m"
+# define COLOR_RESET	"\e[0m"
 # define ORANGE		"\e[38;5;215m"
 
 class ClapTrap {
