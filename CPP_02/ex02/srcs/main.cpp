@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:20 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/09 07:37:13 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/09 09:24:15 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,20 @@ int	main(void)
 		std::cout << "min = " << Fixed::min(b, a) << std::endl;
 		std::cout << "max = " << Fixed::max(a, b) << std::endl;
 		std::cout << "max = " << Fixed::max(b, a) << std::endl;
+
+		std::cout << "a = " << a << std::endl;
+		std::cout << "b = " << b << std::endl;
+
+		std::cout << "a > b = " << a.operator>(b) << std::endl;
+		std::cout << "a < b = " << a.operator<(b) << std::endl;
+		std::cout << "a >= a = " << a.operator>=(a) << std::endl;
+		std::cout << "a >= b = " << a.operator>=(b) << std::endl;
+		std::cout << "a <= a = " << a.operator<=(a) << std::endl;
+		std::cout << "a <= b = " << a.operator<=(b) << std::endl;
+		std::cout << "a == a = " << a.operator==(a) << std::endl;
+		std::cout << "a == b = " << a.operator==(b) << std::endl;
+		std::cout << "a != a = " << a.operator!=(a) << std::endl;
+		std::cout << "a != b = " << a.operator!=(b) << std::endl;
 	}
 
 	return (0);
