@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:52:24 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/02 16:14:15 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/09 07:14:23 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Fixed::Fixed( const Fixed& copy ) {
 Fixed& Fixed::operator=( const Fixed &src ) {
 	std::cout << PURPLE << "Copy assignment operator called" COLOR_RESET << std::endl;
 	if (this != &src)
-		this->fixedPoint = src.getRawBits();
+		this->fixedPoint = src.fixedPoint;
 	return (*this);
 }
 
@@ -57,6 +57,13 @@ float	Fixed::toFloat( void ) const  {
 int	Fixed::toInt( void ) const  {
 	return (this->fixedPoint >> fractionalBits);
 }
+
+std::ostream & operator<<( std::ostream &stream, Fixed const &f ) {
+	stream << f.toFloat();
+	return (stream);
+}
+
+/********************************COMPARISON************************************/
 
 bool	Fixed::operator>( const Fixed& comp ) const {
 	return (this->fixedPoint > comp.getRawBits());
@@ -82,6 +89,8 @@ bool	Fixed::operator!=( const Fixed& comp ) const {
 	return (this->fixedPoint != comp.getRawBits());
 }
 
+/********************************ARITHMETIC************************************/
+
 Fixed	Fixed::operator+( const Fixed &op ) const {
 	return Fixed( this->toFloat() + op.toFloat() );
 }
@@ -98,6 +107,7 @@ Fixed	Fixed::operator/( const Fixed &op ) const {
 	return Fixed( this->toFloat() / op.toFloat() );
 }
 
+/******************************INCREMENTATION**********************************/
 
 Fixed&	Fixed::operator++( void ) {
 	++this->fixedPoint;
@@ -121,10 +131,7 @@ Fixed	Fixed::operator--( int ) {
 	return (tmp);	
 }
 
-std::ostream & operator<<( std::ostream &stream, Fixed const &f ) {
-	stream << f.toFloat();
-	return (stream);
-}
+/*********************************MIN & MAX************************************/
 
 Fixed& Fixed::min( Fixed &a, Fixed &b ) {
 	if (a.getRawBits() < b.getRawBits())
