@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:00:13 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/02 15:37:24 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/09 07:00:27 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed( const Fixed& src ) {
 Fixed& Fixed::operator=( const Fixed &src ) {
 	std::cout << PURPLE << "Copy assignment operator called" << COLOR_RESET << std::endl;
 	if (this != &src)
-		this->fixedPoint = src.getRawBits();
+		this->fixedPoint = src.fixedPoint;
 	return (*this);
 }
 
