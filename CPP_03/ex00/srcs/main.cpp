@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:59:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 12:05:56 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 13:14:08 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 int	main(void)
 {
+	//Default constructor
+
+	ClapTrap	defaultClapTrap;
+
+	defaultClapTrap.attack("Enemy Bot");
+	defaultClapTrap.takeDamage(5);
+	defaultClapTrap.beRepaired(5);
+
 	ClapTrap	Bot("Bot");
 	ClapTrap	Bot2("Bot #2");
 
