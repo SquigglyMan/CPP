@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:00:13 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 15:12:24 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 15:43:42 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ClapTrap::takeDamage( unsigned int amount ) {
 			std::cout << " is dead" << std::endl;
 			return ;
 		}
-		std::cout << "💥   " << name << " has taken " << amount << " of damage" << std::endl;
+		std::cout << "💥   " << name << " has taken " << amount << " damage" << std::endl;
 		hitPoints -= amount;
 		if (hitPoints <= 0)
 			std::cout << "☠️    " << name << " has taken lethal damage" << std::endl;
