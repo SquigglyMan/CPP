@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:14:51 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/31 17:25:07 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 17:29:13 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
-	ICharacter* me = new Character("me");
+	ICharacter* me = new Character("Bot #1");
 
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
