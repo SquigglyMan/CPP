@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:59:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/14 19:19:47 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 12:28:55 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	main(void)
 {
-	ScavTrap	Scav("Derp");
-	ClapTrap	Clap("Cheeks");
+	ScavTrap	Scav("Scav");
+	ClapTrap	Clap("Clap");
 
-	Scav.attack("everyone");
-	Scav.guardGate();
-	Clap.attack("Derp");
+
 	return (0);
 }

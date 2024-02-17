@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:30:57 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/07 17:12:59 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 12:26:41 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,19 @@ ScavTrap::ScavTrap() : ClapTrap( "I am Scav" ) {
 	std::cout << DARKRED << "Default constructor called" << COLOR_RESET << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string name) : name(name), hitPoint(100), energyPoints(50), attackDamage(20) {
-	this->name = name;
+ScavTrap::ScavTrap( std::string name) : ClapTrap(name) {
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
+}
+
+ScavTrap::ScavTrap( const ScavTrap &src ) : ClapTrap( src ) {
+}
+
+ScavTrap &ScavTrap::operator=( const ScavTrap &src ) {
+	std::cout << GREEN << "ScavTrap operator assignation called" << COLOR_RESET << std::endl;
+	ClapTrap::operator=( src );
+	return (*this);	
 }
 
 ScavTrap::~ScavTrap() {
