@@ -6,26 +6,28 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:56:55 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/16 17:11:14 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 17:10:25 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-Brain::Brain( void ){
-	std::cout << "Brain constructor" << std::endl;
+Brain::Brain( void ) {
+	std::cout << PURPLE << "Brain default constructor" << COLOR_RESET << std::endl;
 }
 
-Brain::Brain( const Brain& src ){
+Brain::Brain( const Brain& src ) {
+	std::cout << PURPLE << "Brain copy constructor" << COLOR_RESET << std::endl;
 	*this = src;
 }
 
-Brain& Brain::operator=( const Brain& src ){
+Brain& Brain::operator=( const Brain& src ) {
+	std::cout << PURPLE << "Brain copy assingment operator" << COLOR_RESET << std::endl;
 	for(int i = 0; i < 100; i++)
 		this->ideas[i] = src.ideas[i];
 	return (*this);
 }
 
 Brain::~Brain( void ) {
-	std::cout << "Brain destructor" << std::endl;
+	std::cout << PURPLE << "Brain default destructor" << COLOR_RESET << std::endl;
 }
