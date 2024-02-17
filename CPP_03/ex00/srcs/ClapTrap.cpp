@@ -6,15 +6,11 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:00:13 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/07 14:39:08 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 12:04:29 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-ClapTrap::ClapTrap() : name(), hitPoints(-1), energyPoints(-1), attackDamage(-1) { 
-	std::cout << ORANGE << "ClapTrap default constructor called" << COLOR_RESET << std::endl;
-}
 
 ClapTrap::ClapTrap( std::string name ) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
 	std::cout << PURPLE << "ClapTrap parameter constructor called" << COLOR_RESET << std::endl;
