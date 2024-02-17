@@ -6,11 +6,15 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:00:13 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 12:29:52 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 14:11:26 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap() {
+	std::cout << ORANGE << "ClapTrap default constructor called" << COLOR_RESET << std::endl;
+}
 
 ClapTrap::ClapTrap( std::string name ) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
 	std::cout << PURPLE << "ClapTrap parameter constructor called" << COLOR_RESET << std::endl;
@@ -38,11 +42,6 @@ ClapTrap::~ClapTrap() {
 }
 
 void	ClapTrap::attack( const std::string &target ) {
-	if (name.empty() && attackDamage == -1)
-	{
-		std::cout << "This ClapTrap is not initialized" << std::endl;
-		return ;
-	}
 	if (hitPoints > 0)
 	{
 		if (energyPoints <= 0)
@@ -61,11 +60,6 @@ void	ClapTrap::attack( const std::string &target ) {
 }
 
 void	ClapTrap::takeDamage( unsigned int amount ) {
-	if (name.empty() && hitPoints == -1)
-	{
-		std::cout << "This ClapTrap is not initialized" << std::endl;
-		return ;
-	}
 	if (hitPoints > 0)
 	{
 		if (hitPoints <= 0)
@@ -83,11 +77,6 @@ void	ClapTrap::takeDamage( unsigned int amount ) {
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
-	if (name.empty() && energyPoints == -1)
-	{
-		std::cout << "This ClapTrap is not initialized" << std::endl;
-		return ;
-	}
 	if (hitPoints > 0)
 	{
 		if (energyPoints <= 0)

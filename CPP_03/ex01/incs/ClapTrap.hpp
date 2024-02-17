@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:59:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/07 17:10:12 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 13:55:26 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class ClapTrap {
 		unsigned int	attackDamage;
 
 	public:
-
+		ClapTrap();
 		ClapTrap( std::string name );
 		ClapTrap( const ClapTrap& src );
 		ClapTrap &operator=( const ClapTrap& src );

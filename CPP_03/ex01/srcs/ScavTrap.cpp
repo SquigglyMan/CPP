@@ -6,17 +6,18 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:30:57 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 12:26:41 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 14:17:06 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap( "I am Scav" ) {
-	std::cout << DARKRED << "Default constructor called" << COLOR_RESET << std::endl;
+ScavTrap::ScavTrap() : ClapTrap() {
+	std::cout << DARKRED << "ScavTrap default constructor called" << COLOR_RESET << std::endl;
 }
 
 ScavTrap::ScavTrap( std::string name) : ClapTrap(name) {
+	std::cout << PURPLE << "ScavTrap parameter constructor called" << COLOR_RESET << std::endl;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
@@ -32,9 +33,14 @@ ScavTrap &ScavTrap::operator=( const ScavTrap &src ) {
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << DARKRED << "Default destructor called" << COLOR_RESET << std::endl;
+	std::cout << DARKRED << "ScavTrap default destructor called" << COLOR_RESET << std::endl;
 }
 
 void	ScavTrap::guardGate( void ) {
-	std::cout << DARKRED << this->getName() << " is now in Gate keeper mode" << COLOR_RESET << std::endl; 
+	if (hitPoints > 0)
+	{
+		std::cout << "🛡️    " << this->name << " is now in Gate keeper mode" << std::endl;
+		return ;
+	}
+	std::cout << name << " cannot perform action, " << name << " is dead" << std::endl;
 }
