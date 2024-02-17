@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:00:57 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/16 14:28:05 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:10:31 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define WRONGANIMAL_HPP
 
 # include <iostream>
+
 class WrongAnimal {
 	protected:
 		std::string	type;
@@ -26,7 +27,7 @@ class WrongAnimal {
 
 		std::string	getType( void );
 
-		virtual void	makeSound( void ) const;
+		void	makeSound( void ) const;
 };
 
 #endif
