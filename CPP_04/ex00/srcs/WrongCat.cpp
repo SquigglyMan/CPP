@@ -6,14 +6,15 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:00:51 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 16:20:23 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:28:07 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat( void ) : WrongAnimal() {
+WrongCat::WrongCat( void ) {
 	std::cout << ORANGE << "WrongCat default constructor" << COLOR_RESET << std::endl;
+	setType("WongCat");
 }
 
 WrongCat::WrongCat( const WrongCat& src ) {
@@ -32,5 +33,5 @@ WrongCat::~WrongCat( void ) {
 }
 
 void	WrongCat::makeSound( void ) const {
-	std::cout << "Wrong animal noise" << std::endl;
+	std::cout << "Wrong cat noise" << std::endl;
 }

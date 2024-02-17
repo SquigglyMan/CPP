@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:00:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 16:17:58 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:28:39 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ WrongAnimal::~WrongAnimal( void ) {
 
 std::string	WrongAnimal::getType( void ) {
 	return (this->type);
+}
+
+void	WrongAnimal::setType( std::string newType ) {
+	this->type = newType;
 }
 
 void	WrongAnimal::makeSound( void ) const {

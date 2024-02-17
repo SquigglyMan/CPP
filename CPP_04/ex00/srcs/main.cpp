@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:47:44 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 16:23:10 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:25:20 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,14 @@ int	main(void)
 		delete(j);
 		delete(i);
 	}
-	// {
-	// 	std::cout << std::endl;
+	{
+		std::cout << std::endl;
 
-	// 	//WrongAnimal & WrongCat test
-	// 	const WrongAnimal*	cat;
-	
-	// 	cat = new WrongCat();
-	// 	// cat->makeSound();
-	// 	delete(cat);
-	// }
+		//WrongAnimal & WrongCat test
+		const WrongAnimal*	cat = new WrongCat();
+
+		cat->makeSound();
+		delete(cat);
+	}
 	return (0);
 }

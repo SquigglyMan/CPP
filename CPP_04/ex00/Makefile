@@ -6,7 +6,7 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 09:47:07 by llarue            #+#    #+#              #
-#    Updated: 2024/01/16 09:56:14 by llarue           ###   ########.fr        #
+#    Updated: 2024/02/17 16:25:11 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,11 @@ DEPS_FLAGS	=	-MMD -MF
 
 MAIN		=	main.cpp
 
-SRCS		=	Animal.cpp	\
-				Dog.cpp		\
-				Cat.cpp
+SRCS		=	Animal.cpp		\
+				Dog.cpp			\
+				Cat.cpp			\
+				WrongAnimal.cpp	\
+				WrongCat.cpp
 
 OBJS		=	$(MAIN:.cpp=.o)	\
 				$(SRCS:.cpp=.o)
