@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:59:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 14:21:32 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 15:08:08 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(void)
 {
 	{
-		//Default constructor
+		//Default ScavTrap constructor
 
 		ScavTrap	defaultScavTrap;
 
@@ -27,13 +27,22 @@ int	main(void)
 	{
 		std::cout << std::endl;
 
-		//Parameter constructor
+		//Default CalpTrap constructor
+
+		ClapTrap	defaultClapTrap;
+
+		defaultClapTrap.attack("Enemy Bot");
+		defaultClapTrap.takeDamage(5);
+		defaultClapTrap.beRepaired(5);
+	}
+	{
+		std::cout << std::endl;
+
+		//Parameter ScavTrap constructor
 
 		ScavTrap	Scav("ScavBot");
-		ClapTrap	Clap("ClapBot");
 
 		Scav.attack("Enemy Bot");
-		Clap.attack("Enemy Bot");
 
 		Scav.takeDamage(50);
 		Scav.beRepaired(50);
@@ -46,6 +55,15 @@ int	main(void)
 	{
 		std::cout << std::endl;
 
+		//Parameter ClapTrap constructor
+
+		ClapTrap	Clap("ClapBot");
+
+		Clap.takeDamage(15);
+	}
+	{
+		std::cout << std::endl;
+
 		//Copy Constructor
 
 		ScavTrap	Scav("ScavBot");
@@ -53,6 +71,7 @@ int	main(void)
 		ScavTrap	scavCopy2(scavCopy);
 
 		Scav = scavCopy;
+
 		Scav.takeDamage(100);
 		scavCopy.takeDamage(100);
 		scavCopy2.takeDamage(100);

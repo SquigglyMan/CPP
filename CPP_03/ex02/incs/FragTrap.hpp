@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 19:22:05 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/15 12:57:22 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/17 14:24:39 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class FragTrap : public ClapTrap {
 	public:
 		FragTrap();
 		FragTrap( std::string name );
+		FragTrap( const FragTrap &src );
+		FragTrap	&operator=( const FragTrap &src );
 		~FragTrap();
 
 		void	highFiveSGuys( void );
