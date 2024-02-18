@@ -6,14 +6,13 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:48:49 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 17:09:31 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 16:38:00 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-# include "Brain.hpp"
 
-Animal::Animal( void ) {
+Animal::Animal( void ) : type("Animal") {
 	std::cout << ORANGE << "Animal default constructor" << COLOR_RESET << std::endl;
 }
 
@@ -23,8 +22,9 @@ Animal::Animal( const Animal& src) {
 }
 
 Animal &Animal::operator=(const Animal& src) {
-	std::cout << ORANGE << "Animal copy assingment operator" << COLOR_RESET << std::endl;
-	this->type = src.type;
+	std::cout << ORANGE << "Animal copy assignation operator" << COLOR_RESET << std::endl;
+	if (this != &src)
+		this->type = src.type;
 	return (*this);
 }
 
@@ -41,9 +41,5 @@ void	Animal::setType( std::string newType ) {
 }
 
 void	Animal::makeSound( void ) const {
-	std::cout << ORANGE << "Animal noise" << COLOR_RESET << std::endl;
-}
-
-Brain	*Animal::getBrain( void ) const {
-	return (NULL);
+	std::cout << "Animal noise" << std::endl;
 }
