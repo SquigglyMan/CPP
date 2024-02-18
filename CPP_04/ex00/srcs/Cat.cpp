@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:51:08 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/18 16:38:56 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:48:58 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ Cat::~Cat( void ) {
 	std::cout << PURPLE << "Cat default destructor" << COLOR_RESET << std::endl;
 }
 
-void	Cat::makeSound( void ) const{
+void	Cat::makeSound( void ) const {
 	std::cout << "Meow" << std::endl;
 }

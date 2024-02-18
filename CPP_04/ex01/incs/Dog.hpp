@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:49:34 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/16 14:53:04 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:42:45 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include "Animal.hpp"
 
 class Dog : public Animal {
+	private:
+		Brain	*brain;
+
 	public:
 		Dog( void );
 		Dog( const Dog& src);
@@ -23,6 +26,8 @@ class Dog : public Animal {
 		~Dog( void );
 
 		void	makeSound( void ) const;
+
+		Brain	*getBrain( void ) const;
 };
 
 #endif

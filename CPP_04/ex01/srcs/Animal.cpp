@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:48:49 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/18 16:38:00 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:42:47 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,8 @@ void	Animal::setType( std::string newType ) {
 
 void	Animal::makeSound( void ) const {
 	std::cout << "Animal noise" << std::endl;
+}
+
+Brain	*Animal::getBrain( void ) const {
+	return (NULL);
 }

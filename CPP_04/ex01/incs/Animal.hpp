@@ -6,14 +6,16 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:48:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/18 16:37:18 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:42:41 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
-#include <iostream>
+# include <iostream>
+
+#include "Brain.hpp"
 
 # define COLOR_RESET	"\e[0m"
 # define ORANGE			"\e[38;5;215m"
@@ -37,6 +39,8 @@ class Animal {
 		void	setType( std::string newType );
 
 		virtual void	makeSound( void ) const;
+
+		virtual	Brain	*getBrain( void ) const;
 };
 
 #endif

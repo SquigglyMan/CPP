@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:47:44 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/18 16:35:26 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:47:40 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,17 @@ int	main(void)
 		std::cout << "get type defaultCat : " << defaultCat.getType() << std::endl;
 	}
 	{
+		std::cout << "------------------- Dog module test -------------------" << std::endl << std::endl;
+
+		Dog basic;
+		{
+			Dog tmp = basic;
+			std::cout << "tmp.getBrain = " << tmp.getBrain() << std::endl;
+			std::cout << "basic.getBrain = " << basic.getBrain() << std::endl;
+		}
+		std::cout << "basic.getBrain = " << basic.getBrain() << std::endl;
+	}
+	{
 		std::cout << "------------------- Default Dog constructor -------------------" << std::endl << std::endl;
 
 		Dog	defaultDog;
@@ -156,19 +167,6 @@ int	main(void)
 		defaultDog.setType("New Dog type");
 		std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
 		std::cout << "get type defaultDog : " << defaultDog.getType() << std::endl;
-	}
-	{
-		std::cout << "------------------- WrongAnimal & WrongCat -------------------" << std::endl << std::endl;
-
-		const WrongAnimal	*Animal = new WrongAnimal();
-		const WrongAnimal*	Cat = new WrongCat();
-
-		std::cout << "Cat makeSound : ";
-		Cat->makeSound();
-		std::cout << "Animal makeSound : ";
-		Animal->makeSound();
-		delete (Cat);
-		delete (Animal);
 	}
 	return (0);
 }
