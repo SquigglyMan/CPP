@@ -6,28 +6,30 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:48:49 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/16 17:07:18 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:42:47 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-# include "Brain.hpp"
 
-Animal::Animal( void ) {
-	std::cout << "Animal constructor" << std::endl;
+Animal::Animal( void ) : type("Animal") {
+	std::cout << ORANGE << "Animal default constructor" << COLOR_RESET << std::endl;
 }
 
 Animal::Animal( const Animal& src) {
+	std::cout << ORANGE << "Animal copy constructor" << COLOR_RESET << std::endl;
 	*this = src;
 }
 
 Animal &Animal::operator=(const Animal& src) {
-	this->type = src.type;
+	std::cout << ORANGE << "Animal copy assignation operator" << COLOR_RESET << std::endl;
+	if (this != &src)
+		this->type = src.type;
 	return (*this);
 }
 
 Animal::~Animal( void ) {
-	std::cout << "Animal destructor" << std::endl;
+	std::cout << ORANGE << "Animal default destructor" << COLOR_RESET << std::endl;
 }
 
 std::string	Animal::getType( void ) const {

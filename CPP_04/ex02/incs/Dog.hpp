@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:49:34 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/16 17:08:08 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:42:45 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define DOG_H
 
 # include "Animal.hpp"
-# include "Brain.hpp"
 
-class Dog : public Animal  {
+class Dog : public Animal {
 	private:
 		Brain	*brain;
 
