@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:16:08 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/31 16:48:21 by llarue           ###   ########.fr       */
+/*   Updated: 2024/02/18 18:03:29 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 class IMateriaSource {
 	public :
-		virtual ~IMateriaSource() {};
-		virtual void	learnMateria( AMateria* ) = 0;
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria( AMateria* ) = 0;
 		virtual AMateria* createMateria( std::string const &type ) = 0;
 };
 

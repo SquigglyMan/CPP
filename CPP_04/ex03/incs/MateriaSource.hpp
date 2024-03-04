@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:59:12 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/30 16:03:56 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/04 11:07:35 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class MateriaSource : public IMateriaSource {
 		MateriaSource& operator=( MateriaSource const &src );
 		~MateriaSource();
 
-		AMateria*	getMateria( std::string const & type );
+		std::string	getMateria( std::string const & type );
 		AMateria*	createMateria( std::string const & type );
 		void		learnMateria( AMateria* );
 };

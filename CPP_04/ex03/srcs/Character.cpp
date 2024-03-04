@@ -6,17 +6,20 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:04:48 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/31 17:00:08 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/04 15:45:14 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() { 
-	std::cout << "Default Character constructor" << std::endl;
+Character::Character() : name() { 
+	std::cout << PURPLE << "Default Character constructor" << COLOR_RESET << std::endl;
+	for (int i = 0; i < 4; i++)
+		inventory[i] = NULL;
 }
 
 Character::Character( std::string const &name ) : name(name) {
+	std::cout << PURPLE << "Parameter Character constructor" << COLOR_RESET << std::endl;
 	for (int i = 0; i < 4; i++) {
 		this->inventory[i] = NULL;
 	}
@@ -39,7 +42,10 @@ Character& Character::operator=( Character const &src ) {
 }
 
 Character::~Character() { 
-	std::cout << "Default Character destructor" << std::endl;
+	std::cout << PURPLE << "Default Character destructor" << COLOR_RESET << std::endl;
+	for (int i = 0; i < 4; i++)
+		if (inventory[i])
+			delete(inventory[i]);
 }
 
 std::string const& Character::getName() const {
@@ -47,15 +53,25 @@ std::string const& Character::getName() const {
 }
 
 void	Character::equip( AMateria* m ) {
+	if (!m)
+	{
+		std::cout << "Cannot equip empty materia" << std::endl;
+		return ;
+	}
 	for(int i = 0; i < 4; i++) {
+		if (this->inventory[i] == m)
+		{
+			std::cout << "Materia is already equipped" << std::endl;
+			return ;
+		}
 		if (this->inventory[i] == NULL)
 		{
 			this->inventory[i] = m;
-			std::cout << this->name << " has equipped " << m->getType() << std::endl;
-			break ;
+			std::cout << this->name << " has equipped the " << m->getType() << " materia" << std::endl;
+			return ;
 		}
 	}
-	std::cout << this->name << " can't equip " << m->getType() << std::endl;
+	std::cout << this->name << "'s inventory is full" << std::endl;
 }
 
 void	Character::unequip( int idx ) {
@@ -63,18 +79,15 @@ void	Character::unequip( int idx ) {
 	{
 		delete this->inventory[idx];
 		this->inventory[idx] = NULL;
-		std::cout << this->name << " unequipped" << std::endl;
+		std::cout << this->name << " unequipped materia at inventory " << idx << std::endl;
 	}
 	else
-		std::cout << this->name << " can't unequip this materia" << std::endl;
+		std::cout << this->name << " materia already unequipped from invetory " << idx << std::endl;
 }
 
 void	Character::use( int idx, ICharacter& target ) {
 	if (this->inventory[idx])
-	{
 		this->inventory[idx]->use(target);
-		std::cout << this->name << " used " << this->inventory[idx]->getType() << " on " << target.getName() << std::endl;
-	}
 	else
-		std::cout << this->name << " can't use " << this->inventory[idx]->getType() << std::endl;
+		std::cout << this->name << " hasn't equipped anything at slot " << idx << std::endl;
 }

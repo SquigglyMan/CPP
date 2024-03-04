@@ -6,14 +6,14 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:13:36 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/17 17:30:36 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/02 11:02:11 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice") {
-	std::cout << "Default Ice constructor" << std::endl;
+	std::cout << CYAN << "Default Ice constructor" << COLOR_RESET << std::endl;
 }
 
 Ice::Ice( Ice const &src) : AMateria("ice") { 
@@ -27,7 +27,7 @@ Ice& Ice::operator=( Ice const &src ) {
 }
 
 Ice::~Ice() {
-	std::cout << "Default Ice destructor" << std::endl;
+	std::cout << CYAN << "Default Ice destructor" << COLOR_RESET << std::endl;
 }
 
 AMateria* Ice::clone() const {

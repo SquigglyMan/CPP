@@ -6,18 +6,18 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:00:21 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/31 17:23:50 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/04 17:23:46 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria() {
-	std::cout << "Default AMateria constructor" << std::endl;
+AMateria::AMateria() : type() {
+	std::cout << ORANGE << "Default AMateria constructor" << COLOR_RESET << std::endl;
 }
 
 AMateria::AMateria( std::string const & type ) : type(type) {
-
+	std::cout << ORANGE << "AMateria parameter constructor" << COLOR_RESET << std::endl;
 }
 
 AMateria::AMateria( AMateria const &src ) {
@@ -31,7 +31,7 @@ AMateria& AMateria::operator=( AMateria const &src ) {
 }
 
 AMateria::~AMateria() { 
-	std::cout << "Default AMateria destructor" << std::endl;
+	std::cout << ORANGE << "Default AMateria destructor" << COLOR_RESET << std::endl;
 }
 
 std::string const &AMateria::getType() const {
@@ -43,5 +43,5 @@ AMateria* AMateria::clone() const {
 }
 
 void	AMateria::use( ICharacter& target ) {
-	std::cout << "AMateria " << this->type << "used on " << target.getName() << std::endl;
+	std::cout << "Unknow type materia " << this->type << "is used on " << target.getName() << std::endl;
 }

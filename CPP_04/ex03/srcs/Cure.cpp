@@ -6,14 +6,14 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:14:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/01/31 17:53:29 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/02 11:02:32 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
 Cure::Cure() : AMateria("cure") {
-	std::cout << "Default Cure constrcutor" << std::endl;
+	std::cout << GREEN << "Default Cure constrcutor" << COLOR_RESET << std::endl;
 }
 
 Cure::Cure( Cure const &src ) : AMateria("cure") {
@@ -27,7 +27,7 @@ Cure&	Cure::operator=( Cure const &src ) {
 }
 
 Cure::~Cure() {
-	std::cout << "Default Cure destructor" << std::endl;
+	std::cout << GREEN << "Default Cure destructor" << COLOR_RESET << std::endl;
 }
 
 AMateria* Cure::clone() const {
