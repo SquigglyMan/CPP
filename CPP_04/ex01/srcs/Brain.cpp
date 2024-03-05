@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:56:55 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/18 17:26:58 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 10:10:47 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Brain::Brain( const Brain& src ) {
 }
 
 Brain& Brain::operator=( const Brain& src ) {
-	std::cout << PINK << "Brain copy assingment operator" << COLOR_RESET << std::endl;
+	std::cout << PINK << "Brain copy assignment operator" << COLOR_RESET << std::endl;
 	if (this != &src)
 	{
 		for(int i = 0; i < 100; i++)

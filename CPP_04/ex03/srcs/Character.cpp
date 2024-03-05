@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:04:48 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/05 09:19:09 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 10:15:23 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,23 @@ Character::Character( std::string const &name ) : name(name) {
 }
 
 Character::Character( Character const &src ) : name(src.name) {
+	std::cout << PURPLE << "Copy character constructor" << COLOR_RESET << std::endl;
+	for (int i = 0; i < 4; i++)
+		inventory[i] = NULL;
 	*this = src;
 }
 
 Character& Character::operator=( Character const &src ) {
+	std::cout << PURPLE << "Character copy assignment operator" << COLOR_RESET << std::endl;
 	if (this != &src)
 	{
 		this->name = src.name;
 		for (int i = 0; i < 4; i++) {
-			this->inventory[i] = NULL;
+			if (this->inventory[i])
+			{
+				delete (this->inventory[i]);
+				this->inventory[i] = src.inventory[i]->clone();
+			}
 		}
 	}
 	return (*this);
@@ -81,7 +89,7 @@ void	Character::unequip( int idx ) {
 		std::cout << this->name << " unequipped materia at inventory " << idx << std::endl;
 	}
 	else
-		std::cout << this->name << " materia already unequipped from invetory " << idx << std::endl;
+		std::cout << this->name << " doesn't have anything equipped at invetory " << idx << std::endl;
 }
 
 void	Character::use( int idx, ICharacter& target ) {

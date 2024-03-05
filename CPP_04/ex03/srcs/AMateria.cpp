@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:00:21 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/04 17:23:46 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 10:18:15 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ AMateria::AMateria( std::string const & type ) : type(type) {
 }
 
 AMateria::AMateria( AMateria const &src ) {
+	std::cout << ORANGE << "Copy AMateria constructor" << COLOR_RESET << std::endl;
 	*this = src;
 }
 
 AMateria& AMateria::operator=( AMateria const &src ) {
+	std::cout << ORANGE << "AMateria copy assignment operator" << COLOR_RESET << std::endl;
 	if (this != &src)
 		this->type = src.type;
 	return (*this);
@@ -43,5 +45,5 @@ AMateria* AMateria::clone() const {
 }
 
 void	AMateria::use( ICharacter& target ) {
-	std::cout << "Unknow type materia " << this->type << "is used on " << target.getName() << std::endl;
+	std::cout << "unknown type materia " << this->type << "is used on " << target.getName() << std::endl;
 }

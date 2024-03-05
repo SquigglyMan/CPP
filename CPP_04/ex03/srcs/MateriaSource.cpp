@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:59:17 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/04 11:26:33 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 10:18:15 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ MateriaSource::MateriaSource() {
 }
 
 MateriaSource::MateriaSource( MateriaSource const &src ) {
+	std::cout << PURPLE << "Copy MateriaSource constructor" << COLOR_RESET << std::endl;
 	*this = src;
 }
 
 MateriaSource& MateriaSource::operator=( MateriaSource const &src ) {
+	std::cout << PURPLE << "MateriaSource copy assignment operator" << COLOR_RESET << std::endl;
 	if (this != &src)
 	{
 		for (int i = 0; i < 4; i++)
@@ -51,7 +53,7 @@ AMateria* MateriaSource::createMateria( std::string const & type ) {
 	for (int i = 0; i < 4; i++)
 		if (slot[i] && slot[i]->getType() == type)
 			return (slot[i]->clone());
-	std::cout << "Cannot create unknow materia type" << std::endl;
+	std::cout << "Cannot create unknown materia type" << std::endl;
 	return (0);
 }
 
@@ -62,5 +64,5 @@ void	MateriaSource::learnMateria( AMateria* m ) {
 			slot[i] = m;
 			break ;
 		}
-	std::cout << "Cannot learn unknow materia type" << std::endl;
+	std::cout << "Cannot learn unknown materia type" << std::endl;
 }

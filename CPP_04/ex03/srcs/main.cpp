@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:14:51 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/05 09:19:41 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 10:20:42 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(void)
 		//IMateriaSource newMateria;
 	}
 	{
-		std::cout << std::endl << "------------------- Copy and Assingment Character -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Deep copy character class example -------------------" << std::endl << std::endl;
 
 		Character	hero("Hero");
 		Character	copyHero(hero);
@@ -86,7 +86,39 @@ int	main(void)
 		hero.unequip(0);
 		copyHero.use(0, copyHero);
 
-		delete (cureMateria);
+		delete cureMateria;
+	}
+	{
+		std::cout << std::endl << "------------------- Character copy with materias equipped -------------------" << std::endl << std::endl;
+
+		Character	healer("healer");
+		AMateria*	healingSpell = new Cure();
+		AMateria*	healingSpellClone1;
+		AMateria*	healingSpellClone2;
+		AMateria*	healingSpellClone3;
+		
+		healingSpellClone1 = healingSpell->clone();
+		healingSpellClone2 = healingSpell->clone();
+		healingSpellClone3 = healingSpell->clone();
+		
+		healer.equip(healingSpell);
+		healer.equip(healingSpellClone1);
+		healer.equip(healingSpellClone2);
+		healer.equip(healingSpellClone3);
+
+
+		Character	caster("caster");
+		AMateria*	iceBolt = new Ice();
+		AMateria*	iceBoltClone;
+
+		iceBoltClone = iceBolt->clone();
+
+		caster.equip(iceBolt);
+		caster.equip(iceBoltClone);
+
+		caster = healer;
+
+		caster.use(0, healer);
 	}
 	{
 		std::cout << std::endl << "------------------- Learn Materia -------------------" << std::endl << std::endl;
@@ -98,7 +130,7 @@ int	main(void)
 		std::cout << src->getMateria("ice") << std::endl;
 		std::cout << src->getMateria("cure") << std::endl;
 
-		delete (src);
+		delete src;
 	}
 	{
 		std::cout << std::endl << "------------------- Default Character Constructor -------------------" << std::endl << std::endl;
@@ -113,7 +145,7 @@ int	main(void)
 		
 		caster.use(0, *enemy);
 		
-		delete (enemy);
+		delete enemy;
 	}
 	{
 		std::cout << std::endl << "------------------- Parameter Character Constructor -------------------" << std::endl << std::endl;
@@ -132,8 +164,8 @@ int	main(void)
 		healer.unequip(0);
 		healer.use(0, *ally);
 
-		delete (ally);
-		delete (healingSpell);
+		delete ally;
+		delete healingSpell;
 	}
 	{
 		std::cout << std::endl << "------------------- MateriaSource Default Constructor -------------------" << std::endl << std::endl;
@@ -160,8 +192,8 @@ int	main(void)
 		materia = cureMateria.clone();
 		materia->use(*ally);
 		
-		delete (ally);
-		delete (materia);
+		delete ally;
+		delete materia;
 	}
 	{
 		std::cout << std::endl << "------------------- Cure Clone Materia -------------------" << std::endl << std::endl;
@@ -171,9 +203,9 @@ int	main(void)
 
 		ClonedMateria = cureMateria->clone();
 		std::cout << "clone cure materia" << std::endl;
-		delete (cureMateria);
+		delete cureMateria;
 		std::cout << ClonedMateria->getType() << std::endl;
-		delete (ClonedMateria);
+		delete ClonedMateria;
 	}
 	{
 		std::cout << std::endl << "------------------- Ice Default Constructor -------------------" << std::endl << std::endl;
@@ -191,8 +223,8 @@ int	main(void)
 		materia = iceMateria.clone();
 		materia->use(*ally);
 		
-		delete (ally);
-		delete (materia);
+		delete ally;
+		delete materia;
 	}
 	{
 		std::cout << std::endl << "------------------- Ice Clone Materia -------------------" << std::endl << std::endl;
@@ -205,7 +237,7 @@ int	main(void)
 		delete (iceMateria);
 		std::cout << ClonedMateria->getType() << std::endl;
 
-		delete (ClonedMateria);
+		delete ClonedMateria;
 	}
 	{
 		std::cout << std::endl << "------------------- Clone Materias -------------------" << std::endl << std::endl;
@@ -229,6 +261,11 @@ int	main(void)
 		bot->equip(cureMateria);
 		bot->equip(clonedIceMateria);
 		bot->equip(clonedCureMateria);
+		
+		std::cout << std::endl;
+
+		std::cout << "Cloned ice materia get type : " << clonedIceMateria->getType() << std::endl;
+		std::cout << "Cloned cure materia get type : " << clonedCureMateria->getType() << std::endl;
 
 		std::cout << std::endl;
 		
@@ -239,8 +276,8 @@ int	main(void)
 
 		std::cout << std::endl;
 
-		delete (bot);
-		delete (enemyBot);
+		delete bot;
+		delete enemyBot;
 	}
 	{
 		std::cout << std::endl << "------------------- Equip More Materias -------------------" << std::endl << std::endl;
@@ -258,8 +295,8 @@ int	main(void)
 		hoarder->equip(iceMateria4);
 		hoarder->equip(iceMateria5);
 		
-		delete (iceMateria5);
-		delete (hoarder);
+		delete iceMateria5;
+		delete hoarder;
 	}
 	{
 		std::cout << std::endl << "------------------- Double Equip Materias -------------------" << std::endl << std::endl;
@@ -270,7 +307,7 @@ int	main(void)
 		hoarder->equip(iceMateria);
 		hoarder->equip(iceMateria);
 		
-		delete (hoarder);
+		delete hoarder;
 	}
 	{
 		std::cout << std::endl << "------------------- Double Unequip Materias -------------------" << std::endl << std::endl;
@@ -285,8 +322,8 @@ int	main(void)
 
 		caster->unequip(1);
 
-		delete (caster);
-		delete (iceMateria);
+		delete caster;
+		delete iceMateria;
 	}
 	{
 		std::cout << std::endl << "------------------- Double Use Materias -------------------" << std::endl << std::endl;
@@ -299,9 +336,9 @@ int	main(void)
 		caster->use(0, *caster);
 		caster->use(0, *caster);
 
-		delete (caster);
+		delete caster;
 	}
-		{
+	{
 		std::cout << std::endl << "------------------- Unequip & re equip Materias -------------------" << std::endl << std::endl;
 
 		ICharacter* caster = new Character("Caster");
@@ -312,7 +349,24 @@ int	main(void)
 		caster->equip(iceMateria);
 		caster->use(0, *caster);
 
-		delete (caster);
+		delete caster;
+	}
+	{
+		std::cout << std::endl << "------------------- Unequip unexisting Materia -------------------" << std::endl << std::endl;
+
+		ICharacter* caster = new Character("Caster");
+		AMateria* iceMateria = new Ice();
+		
+		caster->equip(iceMateria);
+		caster->unequip(1);
+		caster->unequip(2);
+		caster->unequip(3);
+		caster->use(0, *caster);
+		caster->unequip(0);
+		caster->use(0, *caster);
+
+		delete caster;
+		delete iceMateria;
 	}
 	return (0);
 }

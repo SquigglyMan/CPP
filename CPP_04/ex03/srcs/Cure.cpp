@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:14:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/02 11:02:32 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 10:10:47 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ Cure::Cure() : AMateria("cure") {
 }
 
 Cure::Cure( Cure const &src ) : AMateria("cure") {
+	std::cout << GREEN << "Copy Cure constrcutor" << COLOR_RESET << std::endl;
 	*this = src;
 }
 
 Cure&	Cure::operator=( Cure const &src ) {
+	std::cout << GREEN << "Cure copy assignment operator" << COLOR_RESET << std::endl;
 	if (this != &src)
 		this->type = src.type;
 	return (*this);
