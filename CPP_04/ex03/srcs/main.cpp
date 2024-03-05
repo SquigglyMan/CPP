@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:14:51 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/04 17:35:42 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 09:19:41 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(void)
 		std::cout << std::endl << "------------------- Instantiate Interfaces -------------------" << std::endl << std::endl;
 
 		std::cout << "To be uncommented to test but will result in compilation error" << std::endl;
-		//ICharacter mainCharacter;
+		//ICharacter caster;
 		
 		//IMateriaSource newMateria;
 	}
@@ -85,6 +85,8 @@ int	main(void)
 
 		hero.unequip(0);
 		copyHero.use(0, copyHero);
+
+		delete (cureMateria);
 	}
 	{
 		std::cout << std::endl << "------------------- Learn Materia -------------------" << std::endl << std::endl;
@@ -101,15 +103,15 @@ int	main(void)
 	{
 		std::cout << std::endl << "------------------- Default Character Constructor -------------------" << std::endl << std::endl;
 
-		Character	mainCharacter;
+		Character	caster;
 
-		std::cout << "New challenger's name is : " << mainCharacter.getName() << std::endl;
-		mainCharacter.equip(NULL);
-		mainCharacter.unequip(0);
+		std::cout << "New challenger's name is : " << caster.getName() << std::endl;
+		caster.equip(NULL);
+		caster.unequip(0);
 
 		ICharacter* enemy = new Character("enemy");
 		
-		mainCharacter.use(0, *enemy);
+		caster.use(0, *enemy);
 		
 		delete (enemy);
 	}
@@ -131,6 +133,7 @@ int	main(void)
 		healer.use(0, *ally);
 
 		delete (ally);
+		delete (healingSpell);
 	}
 	{
 		std::cout << std::endl << "------------------- MateriaSource Default Constructor -------------------" << std::endl << std::endl;
@@ -272,30 +275,44 @@ int	main(void)
 	{
 		std::cout << std::endl << "------------------- Double Unequip Materias -------------------" << std::endl << std::endl;
 
-		ICharacter* mainCharacter = new Character("Caster");
+		ICharacter* caster = new Character("Caster");
 		AMateria* iceMateria = new Ice();
 		
-		mainCharacter->equip(iceMateria);
+		caster->equip(iceMateria);
 
-		mainCharacter->unequip(0);
-		mainCharacter->unequip(0);
+		caster->unequip(0);
+		caster->unequip(0);
 
-		mainCharacter->unequip(1);
+		caster->unequip(1);
 
-		delete (mainCharacter);
+		delete (caster);
+		delete (iceMateria);
 	}
 	{
 		std::cout << std::endl << "------------------- Double Use Materias -------------------" << std::endl << std::endl;
 
-		ICharacter* mainCharacter = new Character("Caster");
+		ICharacter* caster = new Character("Caster");
 		AMateria* iceMateria = new Ice();
 		
-		mainCharacter->equip(iceMateria);
+		caster->equip(iceMateria);
 
-		mainCharacter->use(0, *mainCharacter);
-		mainCharacter->use(0, *mainCharacter);
+		caster->use(0, *caster);
+		caster->use(0, *caster);
 
-		delete (mainCharacter);
+		delete (caster);
+	}
+		{
+		std::cout << std::endl << "------------------- Unequip & re equip Materias -------------------" << std::endl << std::endl;
+
+		ICharacter* caster = new Character("Caster");
+		AMateria* iceMateria = new Ice();
+		
+		caster->equip(iceMateria);
+		caster->unequip(0);
+		caster->equip(iceMateria);
+		caster->use(0, *caster);
+
+		delete (caster);
 	}
 	return (0);
 }

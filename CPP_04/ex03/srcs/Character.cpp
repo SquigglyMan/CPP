@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:04:48 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/04 15:45:14 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 09:19:09 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	Character::equip( AMateria* m ) {
 void	Character::unequip( int idx ) {
 	if (this->inventory[idx])
 	{
-		delete this->inventory[idx];
 		this->inventory[idx] = NULL;
 		std::cout << this->name << " unequipped materia at inventory " << idx << std::endl;
 	}
