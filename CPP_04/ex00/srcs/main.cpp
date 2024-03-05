@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:47:44 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/05 10:37:45 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 11:20:06 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,30 +47,42 @@ int	main(void)
 		std::cout << std::endl << "------------------- Animal Copy constructor -------------------" << std::endl << std::endl;
 		
 		Animal	defaultAnimal;
-		Animal	AnimalCopy(defaultAnimal);
+		{
+			std::cout << "{" << std::endl;
+			Animal	AnimalCopy(defaultAnimal);
 
-		std::cout << "get type AnimalCopy : " << AnimalCopy.getType() << std::endl;
-		std::cout << "makeSound : ";
-		AnimalCopy.makeSound();
+			std::cout << "get type AnimalCopy : " << AnimalCopy.getType() << std::endl;
+			std::cout << "set type AnimalCopy" << std::endl;
+			AnimalCopy.setType("New animalcopy type");
+			std::cout << "get type AnimalCopy : " << AnimalCopy.getType() << std::endl;
+			std::cout << "makeSound : ";
+			AnimalCopy.makeSound();
+		}
+		std::cout << "}" << std::endl;
 		std::cout << "set type defaultAnimal" << std::endl;
 		defaultAnimal.setType("New animal type");
-		std::cout << "get type AnimalCopy : " << AnimalCopy.getType() << std::endl;
 		std::cout << "get type defaultAnimal : " << defaultAnimal.getType() << std::endl;
 	}
 	{
 		std::cout << std::endl << "------------------- Animal Copy assignation operator -------------------" << std::endl << std::endl;
 
 		Animal	defaultAnimal;
-		Animal	AnimalCopy;
+		{
+			std::cout << "{" << std::endl;
+			Animal	AnimalCopy;
 
-		AnimalCopy = defaultAnimal;
+			AnimalCopy = defaultAnimal;
 
-		std::cout << "get type AnimalCopy : " << AnimalCopy.getType() << std::endl;
-		std::cout << "makeSound : ";
-		AnimalCopy.makeSound();
+			std::cout << "get type AnimalCopy : " << AnimalCopy.getType() << std::endl;
+			std::cout << "set type AnimalCopy" << std::endl;
+			AnimalCopy.setType("New animalcopy type");
+			std::cout << "get type AnimalCopy : " << AnimalCopy.getType() << std::endl;
+			std::cout << "makeSound : ";
+			AnimalCopy.makeSound();
+		}
+		std::cout << "}" << std::endl;
 		std::cout << "set type defaultAnimal" << std::endl;
 		defaultAnimal.setType("New animal type");
-		std::cout << "get type AnimalCopy : " << AnimalCopy.getType() << std::endl;
 		std::cout << "get type defaultAnimal : " << defaultAnimal.getType() << std::endl;
 	}
 	{
@@ -89,30 +101,43 @@ int	main(void)
 		std::cout << std::endl << "------------------- Cat Copy constructor -------------------" << std::endl << std::endl;
 		
 		Cat	defaultCat;
-		Cat	CatCopy(defaultCat);
+		{
+			std::cout << "{" << std::endl;
+			Cat	CatCopy(defaultCat);
 
-		std::cout << "get type CatCopy : " << CatCopy.getType() << std::endl;
-		std::cout << "makeSound : ";
-		CatCopy.makeSound();
+			std::cout << "get type CatCopy : " << CatCopy.getType() << std::endl;
+			std::cout << "set type CatCopy" << std::endl;
+			CatCopy.setType("New CatCopy type");
+			std::cout << "get type CatCopy : " << CatCopy.getType() << std::endl;
+
+			std::cout << "makeSound : ";
+			CatCopy.makeSound();
+		}
+		std::cout << "}" << std::endl;
 		std::cout << "set type defaultCat" << std::endl;
 		defaultCat.setType("New Cat type");
-		std::cout << "get type CatCopy : " << CatCopy.getType() << std::endl;
 		std::cout << "get type defaultCat : " << defaultCat.getType() << std::endl;
 	}
 	{
 		std::cout << std::endl << "------------------- Cat Copy assignation operator -------------------" << std::endl << std::endl;
 
 		Cat	defaultCat;
-		Cat	CatCopy;
+		{
+			std::cout << "{" << std::endl;
+			Cat	CatCopy;
 
-		CatCopy = defaultCat;
+			CatCopy = defaultCat;
 
-		std::cout << "get type CatCopy : " << CatCopy.getType() << std::endl;
-		std::cout << "makeSound : ";
-		CatCopy.makeSound();
+			std::cout << "get type CatCopy : " << CatCopy.getType() << std::endl;
+			std::cout << "set type CatCopy" << std::endl;
+			CatCopy.setType("New CatCopy type");
+			std::cout << "get type CatCopy : " << CatCopy.getType() << std::endl;
+			std::cout << "makeSound : ";
+			CatCopy.makeSound();
+		}
+		std::cout << "}" << std::endl;
 		std::cout << "set type defaultCat" << std::endl;
 		defaultCat.setType("New Cat type");
-		std::cout << "get type CatCopy : " << CatCopy.getType() << std::endl;
 		std::cout << "get type defaultCat : " << defaultCat.getType() << std::endl;
 	}
 	{
@@ -131,31 +156,47 @@ int	main(void)
 		std::cout << std::endl << "------------------- Dog Copy constructor -------------------" << std::endl << std::endl;
 		
 		Dog	defaultDog;
-		Dog	DogCopy(defaultDog);
+		{
+			std::cout << "{" << std::endl;
+			Dog	DogCopy(defaultDog);
 
-		std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
-		std::cout << "makeSound : ";
-		DogCopy.makeSound();
+			std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
+			std::cout << "set type DogCopy" << std::endl;
+			DogCopy.setType("New DogCopy type");
+			std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
+			std::cout << "makeSound : ";
+			DogCopy.makeSound();
+		}
+		std::cout << "}" << std::endl;
 		std::cout << "set type defaultDog" << std::endl;
 		defaultDog.setType("New Dog type");
-		std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
 		std::cout << "get type defaultDog : " << defaultDog.getType() << std::endl;
+		std::cout << "makeSound : ";
+		defaultDog.makeSound();
 	}
 	{
 		std::cout << std::endl << "------------------- Dog Copy assignation operator -------------------" << std::endl << std::endl;
 
 		Dog	defaultDog;
-		Dog	DogCopy;
+		{
+			std::cout << "{" << std::endl;
+			Dog	DogCopy;
 
-		DogCopy = defaultDog;
+			DogCopy = defaultDog;
 
-		std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
-		std::cout << "makeSound : ";
-		DogCopy.makeSound();
+			std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
+			std::cout << "set type DogCopy" << std::endl;
+			DogCopy.setType("New DogCopy type");
+			std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
+			std::cout << "makeSound : ";
+			DogCopy.makeSound();
+		}
+		std::cout << "}" << std::endl;
 		std::cout << "set type defaultDog" << std::endl;
 		defaultDog.setType("New Dog type");
-		std::cout << "get type DogCopy : " << DogCopy.getType() << std::endl;
 		std::cout << "get type defaultDog : " << defaultDog.getType() << std::endl;
+		std::cout << "makeSound : ";
+		defaultDog.makeSound();
 	}
 	{
 		std::cout << std::endl << "------------------- WrongAnimal & WrongCat -------------------" << std::endl << std::endl;
