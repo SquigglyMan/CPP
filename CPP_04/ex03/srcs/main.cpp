@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:14:51 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/05 10:20:42 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 12:14:18 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,41 +52,50 @@ int	main(void)
 		//IMateriaSource newMateria;
 	}
 	{
-		std::cout << std::endl << "------------------- Deep copy character class example -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Character copy constructor -------------------" << std::endl << std::endl;
 
-		Character	hero("Hero");
-		Character	copyHero(hero);
-		Character	assignedHero;
+		Character	hero("hero");
+		{
+			std::cout << "{" << std::endl;
+			Character copyHero(hero);
+			
+			std::cout << "Copy hero name : " << copyHero.getName() << std::endl;
+		}
+		std::cout << "}" << std::endl;
+		std::cout << "hero name : " << hero.getName() << std::endl;
+	}
+	{
+		std::cout << std::endl << "------------------- Character copy assignment operator -------------------" << std::endl << std::endl;
 
-		assignedHero = hero;
-		
-		std::cout << "Main hero get name : " << hero.getName() << std::endl;
-		std::cout << "Main copyHero get name : " << hero.getName() << std::endl;
-		std::cout << "Main assignedHero get name : " << hero.getName() << std::endl;
+		Character	hero("hero");
+		{
+			std::cout << "{" << std::endl;
+			Character copyHero;
 
-		std::cout << std::endl;
+			copyHero = hero;
+			
+			std::cout << "Copy hero name : " << copyHero.getName() << std::endl;
+		}
+		std::cout << "}" << std::endl;
+		std::cout << "hero name : " << hero.getName() << std::endl;
+	}
+	{
+		std::cout << std::endl << "------------------- Character copy with no materias equipped -------------------" << std::endl << std::endl;
 
-		AMateria* cureMateria = new Cure();
+		Character	healer("healer");
 
-		hero.equip(cureMateria);
-		hero.use(0, hero);
+		Character	caster("caster");
+		AMateria*	iceBolt = new Ice();
+		AMateria*	iceBoltClone;
 
-		std::cout << "copyHero : ";
-		copyHero.use(0, hero);
-		std::cout << "assignedHero : ";
-		assignedHero.use(0, hero);
+		iceBoltClone = iceBolt->clone();
 
-		AMateria* iceMateria = new Cure();
-		
-		copyHero.equip(iceMateria);
-		copyHero.use(0, copyHero);
+		caster.equip(iceBolt);
+		caster.equip(iceBoltClone);
 
-		assignedHero.unequip(0);
+		caster = healer;
 
-		hero.unequip(0);
-		copyHero.use(0, copyHero);
-
-		delete cureMateria;
+		caster.use(0, healer);
 	}
 	{
 		std::cout << std::endl << "------------------- Character copy with materias equipped -------------------" << std::endl << std::endl;
@@ -105,20 +114,48 @@ int	main(void)
 		healer.equip(healingSpellClone1);
 		healer.equip(healingSpellClone2);
 		healer.equip(healingSpellClone3);
+		{
+			std::cout << "{" << std::endl;
+			Character	caster("caster");
+			AMateria*	iceBolt = new Ice();
+			AMateria*	iceBoltClone;
 
+			iceBoltClone = iceBolt->clone();
 
-		Character	caster("caster");
-		AMateria*	iceBolt = new Ice();
-		AMateria*	iceBoltClone;
+			caster.equip(iceBolt);
+			caster.equip(iceBoltClone);
 
-		iceBoltClone = iceBolt->clone();
+			caster = healer;
 
-		caster.equip(iceBolt);
-		caster.equip(iceBoltClone);
+			caster.use(0, healer);
+		}
+		std::cout << "}" << std::endl;
+	}
+	{
+		std::cout << std::endl << "------------------- MateriaSource copy -------------------" << std::endl << std::endl;
+		
+		MateriaSource	Bag1;
+		AMateria* iceMateria = new Ice();
 
-		caster = healer;
+		std::cout << "Bag1 : ";
+		Bag1.learnMateria(iceMateria);
+		std::cout << std::endl;
+		{
+			std::cout << "{" << std::endl;
+			MateriaSource	Bag2;
+			AMateria* cureMateria = new Cure();
 
-		caster.use(0, healer);
+			std::cout << "Bag2 : ";
+			Bag2.learnMateria(cureMateria);
+			
+			Bag1 = Bag2;
+		}
+		std::cout << "}" << std::endl << std::endl;
+		AMateria* temp;
+		temp = Bag1.createMateria("cure");
+		delete temp;
+		std::cout << "Bag1 cure : " << Bag1.getMateria("cure") << std::endl;
+		std::cout << "Bag1 ice : " << Bag1.getMateria("ice") << std::endl;
 	}
 	{
 		std::cout << std::endl << "------------------- Learn Materia -------------------" << std::endl << std::endl;

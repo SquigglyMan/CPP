@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:04:48 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/05 10:15:23 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 11:38:42 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ Character& Character::operator=( Character const &src ) {
 			if (this->inventory[i])
 			{
 				delete (this->inventory[i]);
-				this->inventory[i] = src.inventory[i]->clone();
+				if (src.inventory[i])
+					this->inventory[i] = src.inventory[i]->clone();
+				else
+					this->inventory[i] = NULL;
 			}
 		}
 	}
