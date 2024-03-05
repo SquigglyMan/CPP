@@ -6,7 +6,7 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 09:47:07 by llarue            #+#    #+#              #
-#    Updated: 2024/01/16 16:48:02 by llarue           ###   ########.fr        #
+#    Updated: 2024/03/05 10:39:13 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ $(NAME): $(OBJS_PATH)
 -include $(DEPS_PATH)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR) $(DEPS_DIR)
-		$(CC) $(CFLAGS) $(CPP_FLAGS) $(DEPS_FLAGS) $(DEPS_DIR)/$*.d -c $< -o $@ -I $(INCS_DIR)
+		$(CC) $(CFLAGS) $(CPP_FLAGS) $(VAL_FLAGS) $(DEPS_FLAGS) $(DEPS_DIR)/$*.d -c $< -o $@ -I $(INCS_DIR)
 
 $(OBJS_DIR):
 		@mkdir -p $(OBJS_DIR)

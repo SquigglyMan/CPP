@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:47:44 by llarue            #+#    #+#             */
-/*   Updated: 2024/02/18 16:35:26 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/05 10:37:45 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	main(void)
 {
 	{
-		std::cout << "------------------- Default main from module -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Default main from module -------------------" << std::endl << std::endl;
 		
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
@@ -33,7 +33,7 @@ int	main(void)
 		delete(i);
 	}
 	{
-		std::cout << "------------------- Default Animal constructor -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Default Animal constructor -------------------" << std::endl << std::endl;
 
 		Animal	defaultAnimal;
 
@@ -44,7 +44,7 @@ int	main(void)
 		std::cout << "get type : " << defaultAnimal.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- Animal Copy constructor -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Animal Copy constructor -------------------" << std::endl << std::endl;
 		
 		Animal	defaultAnimal;
 		Animal	AnimalCopy(defaultAnimal);
@@ -58,7 +58,7 @@ int	main(void)
 		std::cout << "get type defaultAnimal : " << defaultAnimal.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- Animal Copy assignation operator -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Animal Copy assignation operator -------------------" << std::endl << std::endl;
 
 		Animal	defaultAnimal;
 		Animal	AnimalCopy;
@@ -74,7 +74,7 @@ int	main(void)
 		std::cout << "get type defaultAnimal : " << defaultAnimal.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- Default Cat constructor -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Default Cat constructor -------------------" << std::endl << std::endl;
 
 		Cat	defaultCat;
 
@@ -86,7 +86,7 @@ int	main(void)
 		std::cout << "get type : " << defaultCat.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- Cat Copy constructor -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Cat Copy constructor -------------------" << std::endl << std::endl;
 		
 		Cat	defaultCat;
 		Cat	CatCopy(defaultCat);
@@ -100,7 +100,7 @@ int	main(void)
 		std::cout << "get type defaultCat : " << defaultCat.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- Cat Copy assignation operator -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Cat Copy assignation operator -------------------" << std::endl << std::endl;
 
 		Cat	defaultCat;
 		Cat	CatCopy;
@@ -116,7 +116,7 @@ int	main(void)
 		std::cout << "get type defaultCat : " << defaultCat.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- Default Dog constructor -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Default Dog constructor -------------------" << std::endl << std::endl;
 
 		Dog	defaultDog;
 
@@ -128,7 +128,7 @@ int	main(void)
 		std::cout << "get type : " << defaultDog.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- Dog Copy constructor -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Dog Copy constructor -------------------" << std::endl << std::endl;
 		
 		Dog	defaultDog;
 		Dog	DogCopy(defaultDog);
@@ -142,7 +142,7 @@ int	main(void)
 		std::cout << "get type defaultDog : " << defaultDog.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- Dog Copy assignation operator -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- Dog Copy assignation operator -------------------" << std::endl << std::endl;
 
 		Dog	defaultDog;
 		Dog	DogCopy;
@@ -158,17 +158,21 @@ int	main(void)
 		std::cout << "get type defaultDog : " << defaultDog.getType() << std::endl;
 	}
 	{
-		std::cout << "------------------- WrongAnimal & WrongCat -------------------" << std::endl << std::endl;
+		std::cout << std::endl << "------------------- WrongAnimal & WrongCat -------------------" << std::endl << std::endl;
 
 		const WrongAnimal	*Animal = new WrongAnimal();
 		const WrongAnimal*	Cat = new WrongCat();
+		const WrongCat*	wrongCat = new WrongCat();
 
 		std::cout << "Cat makeSound : ";
 		Cat->makeSound();
 		std::cout << "Animal makeSound : ";
 		Animal->makeSound();
+		std::cout << "wrongCat makeSound : ";
+		wrongCat->makeSound();
 		delete (Cat);
 		delete (Animal);
+		delete (wrongCat);
 	}
 	return (0);
 }
