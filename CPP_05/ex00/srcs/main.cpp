@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/08 11:08:47 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/08 11:42:26 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main( void )
 {
-	Bureaucrat	best;
+	Bureaucrat	Bob("Bob", 15);
 	
 	std::cout << "In main" << std::endl;
 	return (0);
