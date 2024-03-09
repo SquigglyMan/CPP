@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:57:56 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/09 14:18:53 by llarue           ###   ########.fr       */
+/*   Updated: 2024/03/09 19:26:01 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 # define GREEN			"\e[38;5;48m"
 # define YELLOW			"\e[38;5;226m"
 # define CYAN			"\e[38;5;51m"
+
 class Bureaucrat {
 	private:
-		std::string	_name;
-		int	_grade;
+		const std::string	_name;
+		int					_grade;
 
 	public:
 		Bureaucrat( void );
@@ -42,13 +43,18 @@ class Bureaucrat {
 		void	incrementGrade( void );
 		void	decrementGrade( void );
 
-		class	GradeTooHighException : public std::exception {
+		class	IGradeException : public std::exception {
+			public:
+				virtual const char* what()const throw() = 0;
+		};
+		
+		class	GradeTooHighException : public IGradeException {
 			public:
 				virtual const char*	what() const throw() {
 					return ("Grade too high");
 				}
 		};
-		class GradeTooLowException : public std::exception {
+		class GradeTooLowException : public IGradeException {
 			public:
 				virtual const char*	what() const throw() {
 					return ("Grade too low");
