@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/09 22:23:11 by llarue           ###   ########.fr       */
+/*   Updated: 2024/04/30 17:36:27 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 # define FORM_HPP
 
 # include <iostream>
+
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
 	private:
 		const std::string	_name;
+		const int			_signRequirement;
+		const int			_executeRequirement;
 		bool				_signed;
-		int					_signRequirement;
-		int					_executeRequirement;
 	
 	public:
 		Form( void );
+		Form (const std::string _name, const int _signRequirement, const int _executeRequirement);
 		Form( const Form & src );
 		~Form( void );
 
@@ -35,8 +39,10 @@ class Form {
 		int			getExecutionRequirement( void );
 		bool		getSignStatus( void );
 
-		void		beSigned( Bureaucrat & src );
+		void		setSignStatus( bool _signed );
 
+		void		beSigned( Bureaucrat & src );
+		
 		class IGradeException : public std::exception {
 			public:
 				virtual const char* what() const throw() = 0;

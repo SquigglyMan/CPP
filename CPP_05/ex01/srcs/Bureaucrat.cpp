@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/09 19:11:38 by llarue           ###   ########.fr       */
+/*   Updated: 2024/04/30 17:19:43 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Bureaucrat& Bureaucrat::operator=( Bureaucrat const& src ) {
 	std::cout << GREEN << "Bureacrat copy assignment operator" COLOR_RESET << std::endl;
 	if (this != &src)
 	{
-		// this->_name = src._name;
 		this->_grade = src._grade;
 	}
 	return (*this);
@@ -61,6 +60,20 @@ void	Bureaucrat::decrementGrade( void ) {
 	if (_grade + 1 > 150)
 		throw (Bureaucrat::GradeTooLowException());
 	this->_grade++;
+}
+
+void	Bureaucrat::signForm( Form & src ) {
+	if (src.getSignStatus() == false)
+	{
+		if (this->_grade > src.getSignRequirement())
+			std::cout << this->getName() << " couldn't sign " << src.getName() << " because this bureaucrat's grade is too low " << std::endl;
+		else {
+			std::cout << this->getName() << " signed " << src.getName() << std::endl;
+			src.setSignStatus(true);
+		}
+	}
+	else if (src.getSignStatus() == true)
+		std::cout << src.getName() << " is already signed" << std::endl;
 }
 
 std::ostream&	operator<<( std::ostream& stream, Bureaucrat& src ) {

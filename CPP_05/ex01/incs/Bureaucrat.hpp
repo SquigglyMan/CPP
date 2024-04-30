@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:57:56 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/09 20:47:10 by llarue           ###   ########.fr       */
+/*   Updated: 2024/04/30 13:16:04 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+
+# include "Form.hpp"
 
 # define COLOR_RESET	"\e[0m"
 # define ORANGE			"\e[38;5;215m"
@@ -23,6 +25,8 @@
 # define GREEN			"\e[38;5;48m"
 # define YELLOW			"\e[38;5;226m"
 # define CYAN			"\e[38;5;51m"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -43,7 +47,7 @@ class Bureaucrat {
 		void	incrementGrade( void );
 		void	decrementGrade( void );
 
-		void	signForm( void );
+		void	signForm( Form & src );
 
 		class	IGradeException : public std::exception {
 			public:
