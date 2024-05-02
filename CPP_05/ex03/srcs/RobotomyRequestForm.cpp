@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:05 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:30:59 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 11:52:37 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : AF
 	*this = src;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string _target ) : AForm("RobotomyRequestForm", 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm("RobotomyRequestForm", 72, 45) {
 	std::cout << PURPLE << "RobotomyRequestForm Parameter constructor" << COLOR_RESET << std::endl;
 	this->target = target;
 }

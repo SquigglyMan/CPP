@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:41:59 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:34:59 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 11:52:37 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class PresidentialPardonForm : public AForm {
 	public:
 		PresidentialPardonForm( void );
 		PresidentialPardonForm( const PresidentialPardonForm & src );
-		PresidentialPardonForm( std::string _target );
+		PresidentialPardonForm( std::string target );
 		~PresidentialPardonForm( void );
 
 		PresidentialPardonForm &operator=( const PresidentialPardonForm & src );
