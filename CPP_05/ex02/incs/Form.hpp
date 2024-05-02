@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/04/30 17:36:27 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 12:24:21 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,12 @@ class Form {
 
 		class GradeTooHighException : public IGradeException {
 			public:
-				const char* what() const throw() {
-					return ("Grade too high");
-				}
+				const char* what() const throw();
 		};
 
 		class GradeTooLowException : public IGradeException {
 			public:
-				const char* what() const throw() {
-					return ("Grade too low");
-				}
+				const char* what() const throw();
 		};
 };
 

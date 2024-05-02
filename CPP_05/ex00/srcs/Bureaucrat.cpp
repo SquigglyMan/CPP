@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/09 19:11:38 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 12:30:10 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ Bureaucrat::~Bureaucrat( void ) {
 	std::cout << ORANGE << "Bureaucrat default destructor" << COLOR_RESET << std::endl;
 }
 
-int	Bureaucrat::getGrade( void ) {
+int	Bureaucrat::getGrade( void ) const {
 	return (this->_grade);
 }
 
-std::string Bureaucrat::getName( void ) {
+std::string Bureaucrat::getName( void ) const {
 	return (this->_name);
 }
 
@@ -61,6 +61,14 @@ void	Bureaucrat::decrementGrade( void ) {
 	if (_grade + 1 > 150)
 		throw (Bureaucrat::GradeTooLowException());
 	this->_grade++;
+}
+
+const char	*Bureaucrat::GradeTooHighException::what() const throw() {
+	return ("Grade too high");
+}
+
+const char	*Bureaucrat::GradeTooLowException::what() const throw() {
+	return ("Grade too high");
 }
 
 std::ostream&	operator<<( std::ostream& stream, Bureaucrat& src ) {

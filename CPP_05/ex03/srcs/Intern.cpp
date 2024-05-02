@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:21:30 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:50:50 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 12:00:59 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ Intern	&Intern::operator=( Intern const & src ) {
 }
 
 AForm *Intern::makeForm( std::string formName, std::string target ) {
+	std::cout << "Intern creates form " << formName << std::endl;
 	
 }

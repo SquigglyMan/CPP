@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:21:31 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:52:11 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 12:28:26 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ class Intern {
 		Intern &operator=( Intern const & src );
 
 		AForm	*makeForm( std::string formName, std::string target );
+
+		class	FormNotFound : public std::exception {
+			public:
+				const char *what() const throw() {
+					return ("Form not found");
+				}
+		};
 };
 
 #endif

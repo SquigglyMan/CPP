@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/01 21:18:08 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 12:31:05 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,14 @@ void	Bureaucrat::signForm( AForm & src ) {
 
 void	Bureaucrat::executeForm( AForm const & form ) {
 	form.execute(*this);
+}
+
+const char	*Bureaucrat::GradeTooHighException::what() const throw() {
+	return ("Grade too high");
+}
+
+const char	*Bureaucrat::GradeTooLowException::what() const throw() {
+	return ("Grade too high");
 }
 
 std::ostream&	operator<<( std::ostream& stream, Bureaucrat& src ) {
