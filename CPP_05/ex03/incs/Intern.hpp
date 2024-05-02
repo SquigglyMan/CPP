@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:21:31 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:28:34 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 11:30:59 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Intern {
 
 		Intern &operator=( Intern const & src );
 
-		AForm	*makeForm( std::string formName, std::string target );
+		AForm	*makeForm( std::string formName, std::string _target );
 };
 
 #endif

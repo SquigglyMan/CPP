@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:41:55 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:08:47 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 11:30:59 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ShrubberyCreationForm : public AForm {
 	public:
 		ShrubberyCreationForm( void );
 		ShrubberyCreationForm( const ShrubberyCreationForm & src );
-		ShrubberyCreationForm( std::string target );
+		ShrubberyCreationForm( std::string _target );
 		~ShrubberyCreationForm( void );
 
 		ShrubberyCreationForm& operator=( const ShrubberyCreationForm & src );
