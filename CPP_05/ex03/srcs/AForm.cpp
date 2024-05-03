@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:11:23 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 05:44:03 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,7 @@ void	AForm::execute( Bureaucrat const & executor ) const {
 		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 		this->executeForm();
 	}
+	else
+		std::cout << executor.getName() << "'s grade is too low to execute " << this->_name << std::endl;
+		// throw AForm::GradeTooLowException();
 }

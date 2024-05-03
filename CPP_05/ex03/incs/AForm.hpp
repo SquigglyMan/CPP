@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:41:48 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:24:21 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 12:49:51 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ class AForm {
 
 		virtual	void	execute( Bureaucrat const & executor ) const;
 		virtual	void	executeForm( void ) const = 0;
+		virtual AForm	*cloneForm( std::string target ) = 0;
 		
 		class IGradeException : public std::exception {
 			public:

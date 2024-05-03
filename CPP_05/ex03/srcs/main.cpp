@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:14:15 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 05:44:19 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,32 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main( void )
 {
-	// AForm	*test = new RobotomyRequestForm("Jim");
-	AForm	*test = new PresidentialPardonForm("Jim");
-	// AForm	*test = new ShrubberyCreationForm("home");
-
-	std::cout << "Execution grade requirement : " << test->getExecutionRequirement() << std::endl;
-
-	Bureaucrat	Bob("Bob", 5);
-
-	std::cout << "Bob's grade : " << Bob.getGrade() << std::endl;
-
-	Bob.signForm(*test);
-	Bob.signForm(*test);
-	Bob.executeForm(*test);
+	Intern	intern;
+	Bureaucrat	Bob("Bob", 20);
+	AForm	*Shrubbery;
 	
-	delete (test);
+	Shrubbery = intern.makeForm("RobotomyRequestForm", "home");
+	Bob.executeForm(*Shrubbery);
+	// // AForm	*test = new RobotomyRequestForm("Jim");
+	// AForm	*test = new PresidentialPardonForm("Jim");
+	// // AForm	*test = new ShrubberyCreationForm("home");
+
+	// std::cout << "Execution grade requirement : " << test->getExecutionRequirement() << std::endl;
+
+	// Bureaucrat	Bob("Bob", 5);
+
+	// std::cout << "Bob's grade : " << Bob.getGrade() << std::endl;
+
+	// Bob.signForm(*test);
+	// Bob.signForm(*test);
+	// Bob.executeForm(*test);
+	
+	// delete (test);
+	delete(Shrubbery);
 	return (0);	
 }
 

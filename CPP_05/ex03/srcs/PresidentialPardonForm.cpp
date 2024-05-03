@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:07 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:52:37 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 12:50:51 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & s
 
 PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm("PresidentialPardonForm", 25, 5) {
 	std::cout << PURPLE << "PresidentialPardonForm Parameter constructor" << COLOR_RESET << std::endl;
-	this->target = target;
+	this->_target = target;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm( void ) {
@@ -34,11 +34,15 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=( PresidentialPardonFor
 	std::cout << GREEN << "PresidentialPardonForm copy assignment operator"  << COLOR_RESET << std::endl;
 	if (this != &src)
 	{
-		this->target = src.target;
+		this->_target = src._target;
 	}
 	return (*this);
 }
 
 void	PresidentialPardonForm::executeForm( void ) const {
-	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+}
+
+AForm	*PresidentialPardonForm::cloneForm( std::string target ) {
+	return (new PresidentialPardonForm(target));
 }

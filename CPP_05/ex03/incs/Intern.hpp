@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:21:31 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:28:26 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/02 12:42:57 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define INTERN_HPP
 
 # include <iostream>
-# include <AForm.hpp>
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 class Intern {
 	private:
-		std::string	_formName;
-		std::string	_target;
+		AForm	*_forms[3];
 
 	public:
 		Intern( void );
@@ -32,9 +33,7 @@ class Intern {
 
 		class	FormNotFound : public std::exception {
 			public:
-				const char *what() const throw() {
-					return ("Form not found");
-				}
+				const char *what() const throw();
 		};
 };
 
