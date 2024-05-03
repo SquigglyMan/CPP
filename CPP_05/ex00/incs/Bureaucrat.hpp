@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:57:56 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:29:58 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 13:01:28 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 class Bureaucrat {
 	private:
 		const std::string	_name;
-		int					_grade;
+		const int			_grade;
 
 	public:
 		Bureaucrat( void );
