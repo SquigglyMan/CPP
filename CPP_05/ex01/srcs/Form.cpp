@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 14:21:04 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 14:58:50 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	Form::beSigned( Bureaucrat & src ) {
 
 }
 
-void	Form::setSignStatus( bool _signed ) {
-	this->_signed = _signed;
+void	Form::setSignStatus( bool signStatus ) {
+	this->_signed = signStatus;
 }
 
 std::ostream&	operator<<( std::ostream& stream, Form& src ) {

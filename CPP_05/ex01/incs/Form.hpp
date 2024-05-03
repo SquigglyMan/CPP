@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 13:26:44 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 14:58:31 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Form {
 		int			getExecutionRequirement( void );
 		bool		getSignStatus( void );
 
-		void		setSignStatus( bool _signed );
+		void		setSignStatus( bool signStatus );
 
 		void		beSigned( Bureaucrat & src );
 		
