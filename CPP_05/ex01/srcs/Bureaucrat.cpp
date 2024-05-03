@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:30:36 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 14:13:55 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ Bureaucrat::Bureaucrat( Bureaucrat const& src ) {
 Bureaucrat& Bureaucrat::operator=( Bureaucrat const& src ) {
 	std::cout << GREEN << "Bureacrat copy assignment operator" COLOR_RESET << std::endl;
 	if (this != &src)
-	{
 		this->_grade = src._grade;
-	}
 	return (*this);
 }
 
@@ -63,16 +61,17 @@ void	Bureaucrat::decrementGrade( void ) {
 }
 
 void	Bureaucrat::signForm( Form & src ) {
-	if (src.getSignStatus() == false)
-	{
-		if (this->_grade > src.getSignRequirement())
-			std::cout << this->getName() << " couldn't sign " << src.getName() << " because this bureaucrat's grade is too low " << std::endl;
+	if (src.getSignStatus() == false) {
+		if (this->_grade > src.getSignRequirement()) {
+			std::cout << this->getName() << " couldn't sign " << src.getName() << " because" << std::endl;
+			throw (Bureaucrat::GradeTooLowException());
+		}
 		else {
 			std::cout << this->getName() << " signed " << src.getName() << std::endl;
 			src.setSignStatus(true);
 		}
 	}
-	else if (src.getSignStatus() == true)
+	else
 		std::cout << src.getName() << " is already signed" << std::endl;
 }
 
@@ -81,7 +80,7 @@ const char	*Bureaucrat::GradeTooHighException::what() const throw() {
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("Grade too high");
+	return ("Grade too low");
 }
 
 std::ostream&	operator<<( std::ostream& stream, Bureaucrat& src ) {

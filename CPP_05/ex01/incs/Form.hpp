@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:24:21 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 13:26:44 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Form {
 	
 	public:
 		Form( void );
-		Form (const std::string _name, const int _signRequirement, const int _executeRequirement);
+		Form (const std::string name, const int signRequirement, const int executeRequirement);
 		Form( const Form & src );
 		~Form( void );
 
@@ -59,6 +59,6 @@ class Form {
 		};
 };
 
-std::ostream&	operator<<( std::ostream& stream, Bureaucrat& src );
+std::ostream&	operator<<( std::ostream& stream, Form& src );
 
 #endif
