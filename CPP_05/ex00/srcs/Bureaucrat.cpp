@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:30:10 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 12:49:58 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ Bureaucrat::Bureaucrat( Bureaucrat const& src ) {
 Bureaucrat& Bureaucrat::operator=( Bureaucrat const& src ) {
 	std::cout << GREEN << "Bureacrat copy assignment operator" COLOR_RESET << std::endl;
 	if (this != &src)
-	{
-		// this->_name = src._name;
 		this->_grade = src._grade;
-	}
 	return (*this);
 }
 

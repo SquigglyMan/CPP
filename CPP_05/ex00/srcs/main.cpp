@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/03/09 19:23:58 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 12:40:26 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main( void )
 		std::cout << "\t";
 
 		try {	
-			Bureaucrat	Bob("Bob", 155);
+			Bureaucrat	Bob("Bob", 25);
 			
 			std::cout << std::endl;
 
