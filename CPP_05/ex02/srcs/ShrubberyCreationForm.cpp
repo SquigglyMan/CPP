@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:03 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:53:27 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 15:02:22 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src 
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm("ShrubberyCreationForm", 145, 137) {
 	std::cout << PURPLE << "ShrubberyCreationForm parameter constructor" << COLOR_RESET << std::endl;
-	this->target = target;
+	this->_target = target;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void ) {
@@ -35,7 +35,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreation
 	std::cout << GREEN << "ShrubberyCreationForm copy assignment operator" << COLOR_RESET << std::endl;
 	if (this != &src)
 	{
-		this->target = src.target;
+		this->_target = src._target;
 	}
 	return (*this);
 }
@@ -43,7 +43,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreation
 void ShrubberyCreationForm::executeForm( void ) const {
 	std::ofstream	outputFile;
 
-	outputFile.open(std::string(this->target + "_shrubbery").c_str(), std::ofstream::out);
+	outputFile.open(std::string(this->_target + "_shrubbery").c_str(), std::ofstream::out);
 	if (!outputFile.good())
 	{
 		std::cout << "Error with output file" << std::endl;

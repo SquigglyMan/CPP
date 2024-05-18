@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 11:11:23 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 15:06:50 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ AForm::AForm( void ) : _name(), _signRequirement(75), _executeRequirement(25), _
 	std::cout << ORANGE << "Form default constructor" << COLOR_RESET << std::endl;
 }
 
-AForm::AForm( const std::string _name, const int _signRequirement, const int _executeRequirement ) : _name(_name), _signRequirement(_signRequirement), _executeRequirement(_executeRequirement) {
+AForm::AForm( const std::string name, const int signRequirement, const int executeRequirement ) : _name(name), _signRequirement(signRequirement), _executeRequirement(executeRequirement) {
 	std::cout << PURPLE << "Form parameter constructor" << COLOR_RESET << std::endl;
 	_signed = false;
 }
@@ -61,8 +61,8 @@ void	AForm::beSigned( Bureaucrat & src ) {
 	else if (src.getGrade() < getSignRequirement())
 		std::cout << "Grade is too low to sign" << std::endl;
 }
-void	AForm::setSignStatus( bool _signed ) {
-	this->_signed = _signed;
+void	AForm::setSignStatus( bool signStatus ) {
+	this->_signed = signStatus;
 }
 
 void	AForm::execute( Bureaucrat const & executor ) const {
@@ -71,4 +71,22 @@ void	AForm::execute( Bureaucrat const & executor ) const {
 		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 		this->executeForm();
 	}
+	else
+		throw (AForm::GradeTooLowException());
+}
+
+const char	*AForm::GradeTooHighException::what() const throw() {
+	return ("Grade too high");
+}
+
+const char	*AForm::GradeTooLowException::what() const throw() {
+	return ("Grade too high");
+}
+
+std::ostream&	operator<<( std::ostream& stream, AForm& src ) {
+	stream << "\tForm\t\t\t\t: " << src.getName() << std::endl;
+	stream << "\tRequired grade to sign\t\t: " << src.getSignRequirement() << std::endl;
+	stream << "\tRequired grade to execute\t: " << src.getExecutionRequirement() << std::endl;
+	stream << "\tForm sign status\t\t: " << (src.getSignStatus() ? "signed" : "unsigned") << std::endl;
+	return (stream);
 }

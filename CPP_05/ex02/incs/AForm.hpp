@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:41:48 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:24:21 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 14:57:10 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AForm {
 	
 	public:
 		AForm( void );
-		AForm (const std::string _name, const int _signRequirement, const int _executeRequirement);
+		AForm (const std::string name, const int signRequirement, const int executeRequirement);
 		AForm( const AForm & src );
 		virtual ~AForm( void );
 
@@ -39,7 +39,7 @@ class AForm {
 		int			getExecutionRequirement( void ) const ;
 		bool		getSignStatus( void ) const ;
 
-		void		setSignStatus( bool _signed );
+		void		setSignStatus( bool signStatus );
 
 		void		beSigned( Bureaucrat & src );
 
@@ -62,6 +62,6 @@ class AForm {
 		};
 };
 
-std::ostream&	operator<<( std::ostream& stream, Bureaucrat& src );
+std::ostream&	operator<<( std::ostream& stream, AForm& src );
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/04/30 17:17:49 by llarue           ###   ########.fr       */
+/*   Updated: 2024/05/03 14:59:22 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,30 @@ bool	Form::getSignStatus( void ) {
 	return (this->_signed);
 }
 
+const char*	Form::GradeTooHighException::what() const throw() {
+	return ("Grade too high");
+}
+
+const char*	Form::GradeTooLowException::what() const throw() {
+	return ("Grade too low");
+}
+
 void	Form::beSigned( Bureaucrat & src ) {
 	if (src.getGrade() < getSignRequirement())
 		_signed = true;
 	else if (src.getGrade() < getSignRequirement())
-		std::cout << "Grade is too low to sign" << std::endl;
+		throw Form::GradeTooLowException();
+;
 }
-void	Form::setSignStatus( bool _signed ) {
-	this->_signed = _signed;
+
+void	Form::setSignStatus( bool signStatus ) {
+	this->_signed = signStatus;
+}
+
+std::ostream&	operator<<( std::ostream& stream, Form& src ) {
+	stream << "\tForm\t\t\t\t: " << src.getName() << std::endl;
+	stream << "\tRequired grade to sign\t\t: " << src.getSignRequirement() << std::endl;
+	stream << "\tRequired grade to execute\t: " << src.getExecutionRequirement() << std::endl;
+	stream << "\tForm sign status\t\t: " << (src.getSignStatus() ? "signed" : "unsigned") << std::endl;
+	return (stream);
 }
