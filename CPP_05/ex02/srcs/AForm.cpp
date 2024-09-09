@@ -6,17 +6,17 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/08 16:46:45 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 15:24:32 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm( void ) : _name(), _signRequirement(75), _executeRequirement(25), _signed(false) {
+AForm::AForm( void ) : _name(), _signRequirement(150), _executeRequirement(150), _signed(false) {
 	std::cout << ORANGE << "AForm default constructor" << COLOR_RESET << std::endl;
 }
 
-AForm::AForm( const std::string name, const int signRequirement, const int executeRequirement ) : _name(name), _signRequirement(signRequirement), _executeRequirement(executeRequirement) {
+AForm::AForm( const std::string name, const unsigned int signRequirement, const unsigned int executeRequirement ) : _name(name), _signRequirement(signRequirement), _executeRequirement(executeRequirement) {
 	std::cout << PURPLE << "AForm parameter constructor" << COLOR_RESET << std::endl;
 	_signed = false;
 }
@@ -33,9 +33,7 @@ AForm::~AForm( void ) {
 AForm& AForm::operator=( const AForm & src ) {
 	std::cout << GREEN << "AForm copy assignment operator" COLOR_RESET << std::endl;
 	if (this != &src)
-	{
 		this->_signed = src._signed;
-	}
 	return (*this);
 }
 
@@ -43,11 +41,11 @@ std::string AForm::getName( void ) const {
 	return (this->_name);
 }
 
-int	AForm::getSignRequirement( void ) const {
+unsigned int	AForm::getSignRequirement( void ) const {
 	return (this->_signRequirement);
 }
 
-int	AForm::getExecutionRequirement( void ) const {
+unsigned int	AForm::getExecutionRequirement( void ) const {
 	return (this->_executeRequirement);
 }
 
@@ -66,6 +64,10 @@ void	AForm::setSignStatus( bool signStatus ) {
 }
 
 void	AForm::execute( Bureaucrat const & executor ) const {
+	if (this->getSignStatus() == false){
+		std::cout <<"Cannot execute form. Form has not yet been signed" << std::endl;
+		return ;		
+	}
 	if (executor.getGrade() <= this->getExecutionRequirement())
 	{
 		std::cout << executor.getName() << " executed " << this->getName() << std::endl;

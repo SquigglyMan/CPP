@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/08 18:25:55 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 15:41:21 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,28 @@ int	main( void )
 		Bureaucrat	bureaucratOne("Bob", 25);
 		
 		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
-		std::cout << "\t" << "shrubberyForm beSigned : ";
+		std::cout << "\t" << "Get shrubberyForm signed by bureaucrat" << std::endl;
 		shrubberyForm.beSigned(bureaucratOne);
 		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
 
 		std::cout << std::endl;
 
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
+		std::cout << "\t";
+		shrubberyForm.execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(shrubberyForm);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		shrubberyForm.setSignStatus(false);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		
 		std::cout << "\t" << "Execute shruberryForm" << std::endl;
 		std::cout << "\t";
 		shrubberyForm.execute(bureaucratOne);
@@ -99,12 +115,28 @@ int	main( void )
 		Bureaucrat	bureaucratOne("Bob", 25);
 		
 		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
-		std::cout << "\t" << "shrubberyForm beSigned : ";
+		std::cout << "\t" << "Get shrubberyForm signed by bureaucrat" << std::endl;
 		shrubberyForm.beSigned(bureaucratOne);
 		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
 
 		std::cout << std::endl;
 
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
+		std::cout << "\t";
+		shrubberyForm.execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(shrubberyForm);
+		
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		shrubberyForm.setSignStatus(false);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		
 		std::cout << "\t" << "Execute shruberryForm" << std::endl;
 		std::cout << "\t";
 		shrubberyForm.execute(bureaucratOne);
@@ -143,13 +175,29 @@ int	main( void )
 		Bureaucrat	bureaucratOne("Bob", 25);
 		
 		std::cout << "\t" << "Get robotomyForm sign status : " << (robotomyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
-		std::cout << "\t" << "robotomyForm beSigned : ";
+		std::cout << "\t" << "Get robotomyForm signed by bureaucrat" << std::endl;
 		robotomyForm.beSigned(bureaucratOne);
 		std::cout << "\t" << "Get robotomyForm sign status : " << (robotomyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
 
 		std::cout << std::endl;
 
 		std::cout << "\t" << "Execute robotomyForm" << std::endl;
+		std::cout << "\t";
+		robotomyForm.execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(robotomyForm);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		robotomyForm.setSignStatus(false);
+		std::cout << "\t" << "Get robotomyForm sign status : " << (robotomyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
 		std::cout << "\t";
 		robotomyForm.execute(bureaucratOne);
 
@@ -187,7 +235,7 @@ int	main( void )
 		Bureaucrat	bureaucratOne("Bob", 25);
 		
 		std::cout << "\t" << "Get robotomyForm sign status : " << (robotomyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
-		std::cout << "\t" << "robotomyForm beSigned : ";
+		std::cout << "\t" << "Get robotomyForm signed by bureaucrat";
 		robotomyForm.beSigned(bureaucratOne);
 		std::cout << "\t" << "Get robotomyForm sign status : " << (robotomyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
 
@@ -199,6 +247,22 @@ int	main( void )
 		std::cout << std::endl;
 		robotomyForm.execute(bureaucratOne);
 		std::cout << std::endl;
+		robotomyForm.execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(robotomyForm);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		robotomyForm.setSignStatus(false);
+		std::cout << "\t" << "Get robotomyForm sign status : " << (robotomyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
+		std::cout << "\t";
 		robotomyForm.execute(bureaucratOne);
 
 		std::cout << std::endl;
@@ -235,13 +299,29 @@ int	main( void )
 		Bureaucrat	bureaucratOne("Bob", 5);
 		
 		std::cout << "\t" << "Get presidentialForm sign status : " << (presidentialForm.getSignStatus() ? "signed" : "not signed") << std::endl;
-		std::cout << "\t" << "presidentialForm beSigned : ";
+		std::cout << "\t" << "Get presidentialForm signed by bureaucrat";
 		presidentialForm.beSigned(bureaucratOne);
 		std::cout << "\t" << "Get presidentialForm sign status : " << (presidentialForm.getSignStatus() ? "signed" : "not signed") << std::endl;
 
 		std::cout << std::endl;
 
 		std::cout << "\t" << "Execute presidentialForm" << std::endl;
+		std::cout << "\t";
+		presidentialForm.execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(presidentialForm);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		presidentialForm.setSignStatus(false);
+		std::cout << "\t" << "Get presidentialForm sign status : " << (presidentialForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
 		std::cout << "\t";
 		presidentialForm.execute(bureaucratOne);
 
@@ -279,7 +359,7 @@ int	main( void )
 		Bureaucrat	bureaucratOne("Bob", 5);
 		
 		std::cout << "\t" << "Get presidentialForm sign status : " << (presidentialForm.getSignStatus() ? "signed" : "not signed") << std::endl;
-		std::cout << "\t" << "presidentialForm beSigned : " << std::endl;
+		std::cout << "\t" << "Get presidentialForm signed by bureaucrat" << std::endl;
 		presidentialForm.beSigned(bureaucratOne);
 		std::cout << "\t" << "Get presidentialForm sign status : " << (presidentialForm.getSignStatus() ? "signed" : "not signed") << std::endl;
 
@@ -298,6 +378,60 @@ int	main( void )
 		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
 		std::cout << "\t";
 		bureaucratOne.executeForm(presidentialForm);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		presidentialForm.setSignStatus(false);
+		std::cout << "\t" << "Get presidentialForm sign status : " << (presidentialForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
+		std::cout << "\t";
+		presidentialForm.execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(presidentialForm);
+	}
+	std::cout << "}";
+	{
+		std::cout << MAGENTA << std::endl << """----------\tBureaucrat grade too low\t----------" << COLOR_RESET << std::endl;
+	
+		std::cout << "{" << std::endl;
+		std::cout << "\t";
+
+		Bureaucrat Bob;
+
+		ShrubberyCreationForm shrubberyForm;
+		RobotomyRequestForm	robotomyForm;
+		PresidentialPardonForm	presidentialForm;
+
+		shrubberyForm.execute(Bob);
+		robotomyForm.execute(Bob);
+		presidentialForm.execute(Bob);
+
+		Bob.executeForm(shrubberyForm);
+		Bob.executeForm(robotomyForm);
+		Bob.executeForm(presidentialForm);
+
+		shrubberyForm.setSignStatus(true);
+		robotomyForm.setSignStatus(true);
+		presidentialForm.setSignStatus(true);
+
+		try {
+			shrubberyForm.execute(Bob);
+			robotomyForm.execute(Bob);
+			presidentialForm.execute(Bob);
+
+			Bob.executeForm(shrubberyForm);
+			Bob.executeForm(robotomyForm);
+			Bob.executeForm(presidentialForm);
+		}
+		catch (AForm::IGradeException &e){
+			std::cout << "what(): " << e.what() << std::endl;
+		}
 	}
 	std::cout << "}" << std::endl;
 	return (0);

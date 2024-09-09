@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:03 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/08 16:29:04 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 15:19:50 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src 
 	*this = src;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm("ShrubberyCreationForm", 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm("DefaShrubberyCreationForm", 145, 137) {
 	std::cout << PURPLE << "ShrubberyCreationForm parameter constructor" << COLOR_RESET << std::endl;
 	this->_target = target;
 }

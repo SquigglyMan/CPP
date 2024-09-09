@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:57:56 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/08 16:35:04 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 15:13:49 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,26 @@ class AForm;
 class Bureaucrat {
 	private:
 		const std::string	_name;
-		int					_grade;
+		unsigned int		_grade;
 
 	public:
 		Bureaucrat( void );
-		Bureaucrat( std::string name, int grade );
+		Bureaucrat( std::string	name, unsigned int	grade );
 		Bureaucrat( Bureaucrat const & src);
 		~Bureaucrat( void );
 
 		Bureaucrat& operator=( Bureaucrat const & src );
 
-		std::string getName( void ) const ;
-		int			getGrade( void ) const;
+		std::string 	getName( void ) const;
+		unsigned int	getGrade( void ) const;
 
-		void	incrementGrade( void );
-		void	decrementGrade( void );
+		void			incrementGrade( void );
+		void			decrementGrade( void );
 
-		void	signForm( AForm & src );
-		void	executeForm( AForm const & form );
+		void			signForm( AForm & src );
+
+		void			executeForm( AForm const & form );
+
 
 		class	IGradeException : public std::exception {
 			public:
@@ -59,11 +61,11 @@ class Bureaucrat {
 		
 		class	GradeTooHighException : public IGradeException {
 			public:
-				virtual const char*	what() const throw();
+				const char*	what() const throw();
 		};
 		class GradeTooLowException : public IGradeException {
 			public:
-				virtual const char*	what() const throw();
+				const char*	what() const throw();
 		};
 };
 

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:41:48 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/08 16:46:36 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 15:17:06 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,26 @@ class Bureaucrat;
 class AForm {
 	private:
 		const std::string	_name;
-		const int			_signRequirement;
-		const int			_executeRequirement;
+		const unsigned int	_signRequirement;
+		const unsigned int	_executeRequirement;
 		bool				_signed;
 	
 	public:
 		AForm( void );
-		AForm (const std::string name, const int signRequirement, const int executeRequirement);
+		AForm(const std::string name, const unsigned int signRequirement, const unsigned int executeRequirement);
 		AForm( const AForm & src );
 		virtual ~AForm( void );
 
 		AForm& operator=( const AForm & src );
 
-		std::string getName( void ) const ;
-		int			getSignRequirement( void ) const ;
-		int			getExecutionRequirement( void ) const ;
-		bool		getSignStatus( void ) const ;
+		std::string 	getName( void ) const ;
+		unsigned int	getSignRequirement( void ) const ;
+		unsigned int	getExecutionRequirement( void ) const ;
+		bool			getSignStatus( void ) const ;
 
-		void		setSignStatus( bool signStatus );
+		void			setSignStatus( bool signStatus );
 
-		void		beSigned( Bureaucrat & src );
+		void			beSigned( Bureaucrat & src );
 
 		virtual	void	execute( Bureaucrat const & executor ) const;
 		virtual	void	executeForm( void ) const = 0;
