@@ -6,14 +6,14 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:03 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 15:02:22 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/08 16:29:04 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) {
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("ShrubberyCreationForm", 145, 137) {
 	std::cout << ORANGE << "ShrubberyCreationForm Default constructor" << COLOR_RESET << std::endl;
 }
 

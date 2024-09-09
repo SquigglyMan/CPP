@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 14:20:02 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/05 11:43:05 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main( void )
 {
 	{
-		std::cout << std::endl << """---------- Form default constructor ----------" << std::endl;
+		std::cout << std::endl << MAGENTA << """----------\tForm default constructor\t----------" << COLOR_RESET << std::endl;
 		
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
@@ -40,7 +40,7 @@ int	main( void )
 	}
 	std::cout << "}";
 	{
-		std::cout << std::endl << """---------- Form parameter constructor ----------" << std::endl;
+		std::cout << std::endl << MAGENTA << """----------\tForm parameter constructor\t----------" << COLOR_RESET <<  std::endl;
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
 
@@ -63,7 +63,7 @@ int	main( void )
 	}
 	std::cout << "}";
 	{
-		std::cout << std::endl << "---------- Form copy constructor ----------" << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tForm copy constructor\t----------" << COLOR_RESET <<  std::endl;
 		
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
@@ -109,7 +109,7 @@ int	main( void )
 		std::cout << "\t";
 	}
 	{
-		std::cout << std::endl << "---------- Form copy assignment operator ----------" << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tForm copy assignment operator\t----------" << COLOR_RESET <<  std::endl;
 		
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
@@ -160,7 +160,7 @@ int	main( void )
 	}
 	std::cout << "}";
 	{
-		std::cout << std::endl << "---------- Form already signed ----------" << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tForm already signed\t----------" << COLOR_RESET <<  std::endl;
 		
 		std::cout << "{" << std::endl;
 		
@@ -189,7 +189,7 @@ int	main( void )
 	}
 	std::cout << "}";
 	{
-		std::cout << std::endl << "---------- Form already signed - try & catch ----------" << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tForm already signed - try & catch\t----------" << COLOR_RESET <<  std::endl;
 		
 		try {
 			std::cout << "{" << std::endl;

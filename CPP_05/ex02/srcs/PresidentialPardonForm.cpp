@@ -6,13 +6,13 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:07 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 15:01:08 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/08 16:29:30 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( void ) {
+PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("PresidentialPardonForm", 25, 5) {
 	std::cout << ORANGE << "PresidentialPardonForm Default constructor" << COLOR_RESET << std::endl;
 }
 

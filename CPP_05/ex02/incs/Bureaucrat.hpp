@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:57:56 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:24:21 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/08 16:35:04 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define YELLOW			"\e[38;5;226m"
 # define CYAN			"\e[38;5;51m"
 # define BROWN			"\e[38;5;130m"
+# define MAGENTA		"\e[38;5;127m"
 
 class AForm;
 
