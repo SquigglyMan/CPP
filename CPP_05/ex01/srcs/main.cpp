@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/05 11:43:05 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:33:39 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,6 @@ int	main( void )
 		Form	defaultForm;
 
 		std::cout << defaultForm;
-		// std::cout << "\tgetName : ";
-		// std::cout << defaultForm.getName() << std::endl;
-
-		// std::cout <<"\tgetSignRequirement : ";
-		// std::cout << defaultForm.getSignRequirement() << std::endl;
-
-		// std::cout << "\tgetExecutionRequirement : ";
-		// std::cout << defaultForm.getExecutionRequirement() << std::endl;
-
-		// std::cout << "\tgetSignStatus : ";
-		// std::cout << defaultForm.getSignStatus() << std::endl;
 		
 		std::cout << "\t";
 	}
@@ -47,17 +36,6 @@ int	main( void )
 		Form	form("Test Form", 120, 40);
 
 		std::cout << form;
-		// std::cout << "\tgetName : ";
-		// std::cout << Form1.getName() << std::endl;
-
-		// std::cout <<"\tgetSignRequirement : ";
-		// std::cout << Form1.getSignRequirement() << std::endl;
-
-		// std::cout << "\tgetExecutionRequirement : ";
-		// std::cout << Form1.getExecutionRequirement() << std::endl;
-
-		// std::cout << "\tgetSignStatus : ";
-		// std::cout << Form1.getSignStatus() << std::endl;
 		
 		std::cout << "\t";
 	}
@@ -72,21 +50,11 @@ int	main( void )
 		{
 			std::cout << "\t";
 			std::cout << "{" << std::endl;
-			std::cout << "\t";
 			Form copyForm(originalForm);
 
+			copyForm.setSignStatus(true);
+			
 			std::cout << copyForm;
-			// std::cout << "\t\tgetName : ";
-			// std::cout << copyForm.getName() << std::endl;
-
-			// std::cout <<"\t\tgetSignRequirement : ";
-			// std::cout << copyForm.getSignRequirement() << std::endl;
-
-			// std::cout << "\t\tgetExecutionRequirement : ";
-			// std::cout << copyForm.getExecutionRequirement() << std::endl;
-
-			// std::cout << "\t\tgetSignStatus : ";
-			// std::cout << copyForm.getSignStatus() << std::endl;
 
 			std::cout << "\t\t";
 		}
@@ -94,17 +62,6 @@ int	main( void )
 		std::cout << "}" << std::endl;
 
 		std::cout << originalForm;
-		// std::cout << "\tgetName : ";
-		// std::cout << originalForm.getName() << std::endl;
-
-		// std::cout <<"\tgetSignRequirement : ";
-		// std::cout << originalForm.getSignRequirement() << std::endl;
-
-		// std::cout << "\tgetExecutionRequirement : ";
-		// std::cout << originalForm.getExecutionRequirement() << std::endl;
-
-		// std::cout << "\tgetSignStatus : ";
-		// std::cout << originalForm.getSignStatus() << std::endl;
 
 		std::cout << "\t";
 	}
@@ -125,18 +82,9 @@ int	main( void )
 
 			copyForm = originalForm;
 
+			copyForm.setSignStatus(true);
+
 			std::cout << copyForm;
-			// std::cout << "\t\tgetName : ";
-			// std::cout << copyForm.getName() << std::endl;
-
-			// std::cout <<"\t\tgetSignRequirement : ";
-			// std::cout << copyForm.getSignRequirement() << std::endl;
-
-			// std::cout << "\t\tgetExecutionRequirement : ";
-			// std::cout << copyForm.getExecutionRequirement() << std::endl;
-
-			// std::cout << "\t\tgetSignStatus : ";
-			// std::cout << copyForm.getSignStatus() << std::endl;
 
 			std::cout << "\t";
 		}
@@ -144,19 +92,60 @@ int	main( void )
 		std::cout << "}" << std::endl;
 
 		std::cout << originalForm;
-		// std::cout << "\tgetName : ";
-		// std::cout << originalForm.getName() << std::endl;
-
-		// std::cout <<"\tgetSignRequirement : ";
-		// std::cout << originalForm.getSignRequirement() << std::endl;
-
-		// std::cout << "\tgetExecutionRequirement : ";
-		// std::cout << originalForm.getExecutionRequirement() << std::endl;
-
-		// std::cout << "\tgetSignStatus : ";
-		// std::cout << originalForm.getSignStatus() << std::endl;
 		
 		std::cout << "\t";
+	}
+	std::cout << "}";
+	{
+		std::cout << std::endl << MAGENTA << "----------\tForm sign requirement too high\t----------" << COLOR_RESET <<  std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		try {
+			Form testForm("Form #1", 0, -13);
+		}
+		catch (Form::IFormGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+		}
+	}
+	std::cout << "}";
+	{
+		std::cout << std::endl << MAGENTA << "----------\tForm sign requirement too low\t----------" << COLOR_RESET <<  std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		try {
+			Form testForm("Form #1", 155, -13);
+		}
+		catch (Form::IFormGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+		}
+	}
+	std::cout << "}";
+	{
+		std::cout << std::endl << MAGENTA << "----------\tForm execute requirement too high\t----------" << COLOR_RESET <<  std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		try {
+			Form testForm("Form #1", 13, 0);
+		}
+		catch (Form::IFormGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+		}
+	}
+	std::cout << "}";
+	{
+		std::cout << std::endl << MAGENTA << "----------\tForm execute requirement too low\t----------" << COLOR_RESET <<  std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		try {
+			Form testForm("Form #1", 13, 155);
+		}
+		catch (Form::IFormGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+		}
 	}
 	std::cout << "}";
 	{
@@ -173,11 +162,14 @@ int	main( void )
 
 		std::cout << "\t";
 		Bob.signForm(testForm);
+		std::cout << std::endl;
 		
 		std::cout << "\t";
 		Jim.signForm(testForm);
 		std::cout << "\t";
 		Bob.signForm(testForm);
+
+		std::cout << std::endl;
 
 		std::cout << "\t";
 		testForm.beSigned(Bob);
@@ -186,37 +178,6 @@ int	main( void )
 		
 		
 		std::cout << "\t";
-	}
-	std::cout << "}";
-	{
-		std::cout << std::endl << MAGENTA << "----------\tForm already signed - try & catch\t----------" << COLOR_RESET <<  std::endl;
-		
-		try {
-			std::cout << "{" << std::endl;
-			
-			std::cout << "\t";
-			Form testForm("Form #1", 20, 150);
-			std::cout << "\t";
-			Bureaucrat	Bob("Bob", 25);
-
-			std::cout << "\t";
-			Bob.signForm(testForm);
-		} catch (Bureaucrat::GradeTooLowException & e) {
-			std::cout << "\t" << e.what() << std::endl;
-		}
-		try {
-			std::cout << "{" << std::endl;
-			
-			std::cout << "\t";
-			Form testForm("Form #1", 20, 150);
-			std::cout << "\t";
-			Bureaucrat	Bob("Bob", 25);
-
-			std::cout << "\t";
-			testForm.beSigned(Bob);
-		} catch (Form::GradeTooLowException & e) {
-			std::cout << "\t" << e.what() << std::endl;
-		}
 	}
 	std::cout << "}" << std::endl;
 	return (0);

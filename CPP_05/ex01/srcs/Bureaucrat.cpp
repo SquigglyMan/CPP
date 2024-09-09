@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 14:13:55 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:28:19 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat( void ) : _name(), _grade(150) {
 	std::cout << ORANGE << "Bureaucrat default constructor" << COLOR_RESET << std::endl;
 }
 
-Bureaucrat::Bureaucrat( std::string name, int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat( std::string name, unsigned int grade) : _name(name), _grade(grade) {
 	std::cout << PURPLE << "Bureaucrat parameter constructor" << COLOR_RESET << std::endl;
 	if (grade < 1)
 		throw (Bureaucrat::GradeTooHighException());
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade) : _name(name), _grade(grade
 		throw (Bureaucrat::GradeTooLowException());
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const& src ) {
+Bureaucrat::Bureaucrat( Bureaucrat const& src ) : _name(src._name) {
 	std::cout << BLUE << "Bureaucrat copy constructor" << COLOR_RESET << std::endl;
 	*this = src;
 }
@@ -40,7 +40,7 @@ Bureaucrat::~Bureaucrat( void ) {
 	std::cout << ORANGE << "Bureaucrat default destructor" << COLOR_RESET << std::endl;
 }
 
-int	Bureaucrat::getGrade( void ) const {
+unsigned int	Bureaucrat::getGrade( void ) const {
 	return (this->_grade);
 }
 
@@ -63,8 +63,8 @@ void	Bureaucrat::decrementGrade( void ) {
 void	Bureaucrat::signForm( Form & src ) {
 	if (src.getSignStatus() == false) {
 		if (this->_grade > src.getSignRequirement()) {
-			std::cout << this->getName() << " couldn't sign " << src.getName() << " because" << std::endl;
-			throw (Bureaucrat::GradeTooLowException());
+			std::cout << this->getName() << " couldn't sign " << src.getName() << " because the bureaucrat's grade is too low" << std::endl;
+			// throw (Bureaucrat::GradeTooLowException());
 		}
 		else {
 			std::cout << this->getName() << " signed " << src.getName() << std::endl;
@@ -72,7 +72,7 @@ void	Bureaucrat::signForm( Form & src ) {
 		}
 	}
 	else
-		std::cout << src.getName() << " is already signed" << std::endl;
+		std::cout << this->getName() << " couldn't sign " << src.getName() << " because " << src.getName() << " is already signed" << std::endl;
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw() {

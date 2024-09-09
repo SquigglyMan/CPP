@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 14:58:31 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:23:42 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,40 +22,40 @@ class Bureaucrat;
 class Form {
 	private:
 		const std::string	_name;
-		const int			_signRequirement;
-		const int			_executeRequirement;
+		const unsigned int	_signRequirement;
+		const unsigned int	_executeRequirement;
 		bool				_signed;
 	
 	public:
 		Form( void );
-		Form (const std::string name, const int signRequirement, const int executeRequirement);
+		Form(const std::string name, const unsigned int signRequirement, const unsigned int executeRequirement);
 		Form( const Form & src );
 		~Form( void );
 
 		Form& operator=( const Form & src );
 
-		std::string getName( void );
-		int			getSignRequirement( void );
-		int			getExecutionRequirement( void );
-		bool		getSignStatus( void );
+		std::string		getName( void );
+		unsigned int	getSignRequirement( void );
+		unsigned int	getExecutionRequirement( void );
+		bool			getSignStatus( void );
 
-		void		setSignStatus( bool signStatus );
+		void			setSignStatus( bool signStatus );
 
-		void		beSigned( Bureaucrat & src );
+		void			beSigned( Bureaucrat & src );
 		
-		class IGradeException : public std::exception {
+		class IFormGradeException : public std::exception {
 			public:
 				virtual const char* what() const throw() = 0;
 		};
 
-		class GradeTooHighException : public IGradeException {
+		class GradeTooHighException : public IFormGradeException {
 			public:
-				const char* what() const throw();
+				virtual const char* what() const throw();
 		};
 
-		class GradeTooLowException : public IGradeException {
+		class GradeTooLowException : public IFormGradeException {
 			public:
-				const char* what() const throw();
+				virtual const char* what() const throw();
 		};
 };
 
