@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 12:35:53 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:04:11 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat( std::string name, unsigned int grade) : _name(name), _gr
 		throw (Bureaucrat::GradeTooLowException());
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const& src ) {
+Bureaucrat::Bureaucrat( Bureaucrat const& src ) : _name(src._name) {
 	std::cout << BLUE << "Bureaucrat copy constructor" << COLOR_RESET << std::endl;
 	*this = src;
 }
