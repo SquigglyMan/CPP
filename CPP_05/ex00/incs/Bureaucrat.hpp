@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:57:56 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 12:17:08 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 12:35:43 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ class Bureaucrat {
 
 		Bureaucrat& operator=( Bureaucrat const & src );
 
-		int			getGrade( void ) const;
-		std::string getName( void ) const;
+		unsigned int	getGrade( void ) const;
+		std::string		getName( void ) const;
 
 		void	incrementGrade( void );
 		void	decrementGrade( void );

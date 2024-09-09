@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 11:53:46 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 12:35:53 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Bureaucrat::~Bureaucrat( void ) {
 	std::cout << ORANGE << "Bureaucrat default destructor" << COLOR_RESET << std::endl;
 }
 
-int	Bureaucrat::getGrade( void ) const {
+unsigned int	Bureaucrat::getGrade( void ) const {
 	return (this->_grade);
 }
 
