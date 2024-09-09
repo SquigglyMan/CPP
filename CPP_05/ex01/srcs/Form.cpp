@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 13:31:46 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 15:13:13 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ Form::Form( void ) : _name(), _signRequirement(150), _executeRequirement(150), _
 	std::cout << ORANGE << "Form default constructor" << COLOR_RESET << std::endl;
 }
 
-Form::Form( const std::string _name, const unsigned int _signRequirement, const unsigned int _executeRequirement ) : _name(_name), _signRequirement(_signRequirement), _executeRequirement(_executeRequirement), _signed(false) {
+Form::Form( const std::string name, const unsigned int signRequirement, const unsigned int executeRequirement ) : _name(name), _signRequirement(signRequirement), _executeRequirement(executeRequirement), _signed(false) {
 	std::cout << PURPLE << "Form parameter constructor" << COLOR_RESET << std::endl;
-	if (_signRequirement < 1 || _executeRequirement < 1)
+	if (signRequirement < 1 || executeRequirement < 1)
 		throw (Form::GradeTooHighException());
-	if (_signRequirement > 150 || _executeRequirement > 150)
+	if (signRequirement > 150 || executeRequirement > 150)
 		throw (Form::GradeTooLowException());
 }
 
