@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 05:56:05 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/04 11:19:41 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 09:23:29 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define YELLOW			"\e[38;5;226m"
 # define CYAN			"\e[38;5;51m"
 # define BROWN			"\e[38;5;130m"
+# define MAGENTA		"\e[38;5;127m"
 
 class ScalarConverter {
 	private:

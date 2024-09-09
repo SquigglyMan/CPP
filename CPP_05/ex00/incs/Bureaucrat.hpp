@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:57:56 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/05 09:39:32 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 12:17:08 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@
 # define GREEN			"\e[38;5;48m"
 # define YELLOW			"\e[38;5;226m"
 # define CYAN			"\e[38;5;51m"
+# define MAGENTA		"\e[38;5;127m"
 
 class Bureaucrat {
 	private:
 		const std::string	_name;
-		int					_grade;
+		unsigned int		_grade;
 
 	public:
 		Bureaucrat( void );
-		Bureaucrat( std::string name, int grade );
+		Bureaucrat( std::string name, unsigned int grade );
 		Bureaucrat( Bureaucrat const & src);
 		~Bureaucrat( void );
 

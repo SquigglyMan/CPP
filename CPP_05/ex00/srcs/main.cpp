@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 12:40:26 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 12:25:37 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main( void )
 {
 	{
-		std::cout << std::endl << "---------- Bureaucrat default constructor ----------" << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tBureaucrat default constructor\t----------" << COLOR_RESET << std::endl;
 
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
@@ -45,7 +45,7 @@ int	main( void )
 	}
 	std::cout << "}" << std::endl;
 	{
-		std::cout << std::endl << "---------- Bureaucrat parameter constructor ----------" << std::endl << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tBureaucrat parameter constructor\t----------" << COLOR_RESET << std::endl << std::endl;
 		
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
@@ -81,16 +81,18 @@ int	main( void )
 	}
 	std::cout << "}" << std::endl;
 	{
-		std::cout << std::endl << "---------- Bureaucrat copy constructor ----------" << std::endl << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tBureaucrat copy constructor\t----------" << COLOR_RESET << std::endl << std::endl;
 		
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
 
-		Bureaucrat	Bob("Bob", 25);
+		Bureaucrat	Bob("Bob", 13);
+		
+		std::cout << std::endl << "\t" << Bob << std::endl;
 		
 		std::cout << std::endl;
 		{
-			std::cout << "{" << std::endl;
+			std::cout << "\t" << "{" << std::endl;
 			std::cout << "\t\t";
 
 			Bureaucrat	Jim(Bob);
@@ -103,22 +105,27 @@ int	main( void )
 			std::cout << "\t\t";
 		}
 		
+		std::cout << "\t" << "}" << std::endl;
+		
 		std::cout << std::endl << "\t" << Bob << std::endl;
 
 		std::cout << std::endl;
 		std::cout << "\t";
 	}
-	std::cout << "}" << std::endl;	{
-		std::cout << std::endl << "---------- Bureaucrat copy assignment operator ----------" << std::endl << std::endl;
+	std::cout << "}" << std::endl;	
+	{
+		std::cout << std::endl << MAGENTA << "----------\tBureaucrat copy assignment operator\t----------" << COLOR_RESET << std::endl << std::endl;
 		
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
 
-		Bureaucrat	Bob("Bob", 25);
+		Bureaucrat	Bob("Bob", 13);
+		
+		std::cout << std::endl << "\t" << Bob << std::endl;
 		
 		std::cout << std::endl;
 		{
-			std::cout << "{" << std::endl;
+			std::cout << "\t" << "{" << std::endl;
 			std::cout << "\t\t";
 
 			Bureaucrat	Jim;
@@ -133,6 +140,8 @@ int	main( void )
 			std::cout << std::endl;
 			std::cout << "\t\t";
 		}
+
+		std::cout << "\t" << "}" << std::endl;
 		
 		std::cout << std::endl << "\t" << Bob << std::endl;
 
@@ -141,63 +150,69 @@ int	main( void )
 	}
 	std::cout << "}" << std::endl;
 	{
-		std::cout << std::endl << "---------- Try & Catch grade too low ----------" << std::endl << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tTry & Catch grade too low\t----------" << COLOR_RESET << std::endl << std::endl;
 
 		std::cout << "{" << std::endl;
-		std::cout << "\t";
 		try {
+			std::cout << "\t" << "Creating bureaucrat with grade 155" << std::endl;
+			std::cout << "\t";
 			Bureaucrat	Bob("Bob", 155);
 		}
-		catch (Bureaucrat::GradeTooLowException & e) {
-			std::cout << "\t" << e.what() << std::endl;
+		catch (Bureaucrat::IGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+
 		}
 	}
 	std::cout << "}" << std::endl;
 	{
-		std::cout << std::endl << "---------- Try & Catch grade too high ----------" << std::endl << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tTry & Catch grade too high\t----------" << COLOR_RESET << std::endl << std::endl;
 
 		std::cout << "{" << std::endl;
-		std::cout << "\t";
 		try {
+			std::cout << "\t" << "Creating bureaucrat with grade 0" << std::endl;
+			std::cout << "\t";
 			Bureaucrat	Bob("Bob", 0);
 		}
-		catch (Bureaucrat::GradeTooHighException & e) {
-			std::cout << "\t" << e.what() << std::endl;
+		catch (Bureaucrat::IGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+
 		}
 	}
 	std::cout << "}" << std::endl;
 	{
-		std::cout << std::endl << "---------- Highest bureaucrat ----------" << std::endl << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tHighest bureaucrat\t----------" << COLOR_RESET << std::endl << std::endl;
 
 		std::cout << "{" << std::endl;
-		std::cout << "\t";
 		try {
+			std::cout << "\t" << "Creating bureaucrat with grade 1" << std::endl;
 			Bureaucrat	Bob("Bob", 1);
 			std::cout << "\t" << Bob << std::endl;
 			std::cout << "\t";
 		}
-		catch (Bureaucrat::GradeTooHighException & e) {
-			std::cout << "\t" << e.what() << std::endl;
+		catch (Bureaucrat::IGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+
 		}
 	}
 	std::cout << "}" << std::endl;
 	{
-		std::cout << std::endl << "---------- Lowest bureaucrat ----------" << std::endl << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tLowest bureaucrat\t----------" << COLOR_RESET << std::endl << std::endl;
 
 		std::cout << "{" << std::endl;
-		std::cout << "\t";
 		try {
+			std::cout << "\t" << "Creating bureaucrat with grade 150" << std::endl;
 			Bureaucrat	Bob("Bob", 150);
 			std::cout << "\t" << Bob << std::endl;
 			std::cout << "\t";
 		}
-		catch (Bureaucrat::GradeTooHighException & e) {
-			std::cout << "\t" << e.what() << std::endl;
+		catch (Bureaucrat::IGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+
 		}
 	}
 	std::cout << "}" << std::endl;
 	{
-		std::cout << std::endl << "---------- Increment to highest + 1 ----------" << std::endl << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tIncrement to highest + 1\t----------" << COLOR_RESET << std::endl << std::endl;
 
 		std::cout << "{" << std::endl;
 		std::cout << "\t";
@@ -221,7 +236,7 @@ int	main( void )
 	}
 	std::cout << "}" << std::endl;
 	{
-		std::cout << std::endl << "---------- Increment to Lowest - 1 ----------" << std::endl << std::endl;
+		std::cout << std::endl << MAGENTA << "----------\tIncrement to Lowest - 1\t----------" << COLOR_RESET << std::endl << std::endl;
 
 		std::cout << "{" << std::endl;
 		std::cout << "\t";

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:01:04 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 14:12:24 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 11:53:46 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat( void ) : _name(), _grade(150) {
 	std::cout << ORANGE << "Bureaucrat default constructor" << COLOR_RESET << std::endl;
 }
 
-Bureaucrat::Bureaucrat( std::string name, int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat( std::string name, unsigned int grade) : _name(name), _grade(grade) {
 	std::cout << PURPLE << "Bureaucrat parameter constructor" << COLOR_RESET << std::endl;
 	if (grade < 1)
 		throw (Bureaucrat::GradeTooHighException());
@@ -31,8 +31,9 @@ Bureaucrat::Bureaucrat( Bureaucrat const& src ) {
 
 Bureaucrat& Bureaucrat::operator=( Bureaucrat const& src ) {
 	std::cout << GREEN << "Bureacrat copy assignment operator" COLOR_RESET << std::endl;
-	if (this != &src)
+	if (this != &src) {
 		this->_grade = src._grade;
+	}
 	return (*this);
 }
 
