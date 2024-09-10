@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:57:56 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 15:13:49 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 15:48:06 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ class Bureaucrat {
 		void			signForm( AForm & src );
 
 		void			executeForm( AForm const & form );
-
 
 		class	IGradeException : public std::exception {
 			public:
