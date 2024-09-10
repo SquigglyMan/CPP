@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/03 05:44:19 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 17:10:51 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,425 +19,253 @@
 
 int	main( void )
 {
-	Intern	intern;
-	Bureaucrat	Bob("Bob", 20);
-	AForm	*Shrubbery;
+	{
+		std::cout << MAGENTA << std::endl << """----------\tIntern Default Constructor\t----------" << COLOR_RESET << std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		Intern internZero;
+		
+		std::cout << "\t";
+	}
+	std::cout << "}";
+	{
+		std::cout << MAGENTA << std::endl << """----------\tIntern Copy Constructor\t----------" << COLOR_RESET << std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		Intern	internOriginal;
+		Intern	internCopy(internOriginal);
+		
+		std::cout << "\t";
+	}
+	std::cout << "}";
+	{
+		std::cout << MAGENTA << std::endl << """----------\tIntern random form & random target\t----------" << COLOR_RESET << std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		Intern internZero;
+		
+		try {
+		internZero.makeForm("RandomForm", "RandomTarget");
+		}
+		catch (Intern::FormNotFound & e) {
+			std::cout << "what(): " << e.what() << std::endl;
+		}
+		
+		std::cout << "\t";
+	}
+	std::cout << "}";
+	{
+		std::cout << MAGENTA << std::endl << """----------\tIntern shrubbery creation form\t----------" << COLOR_RESET << std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		Intern	internZero;
+		AForm	*shrubberyForm;
+		
+		try {
+		shrubberyForm = internZero.makeForm("ShrubberyCreationForm", "RandomTarget");
+		}
+		catch (Intern::FormNotFound & e) {
+			std::cout << "what(): " << e.what() << std::endl;
+		}
+
+		std::cout << "\t" << "Get shrubberyForm name : " << shrubberyForm->getName() << std::endl;
+		std::cout << "\t" << "Get shrubberyForm sign requirement : " << shrubberyForm->getSignRequirement() << std::endl;
+		std::cout << "\t" << "Get shrubberyForm execution requirement : " << shrubberyForm->getExecutionRequirement() << std::endl;
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
 	
-	Shrubbery = intern.makeForm("RobotomyRequestForm", "home");
-	Bob.executeForm(*Shrubbery);
-	// // AForm	*test = new RobotomyRequestForm("Jim");
-	// AForm	*test = new PresidentialPardonForm("Jim");
-	// // AForm	*test = new ShrubberyCreationForm("home");
+		std::cout << "\t" << "Set sign status : signed" << std::endl;
+		shrubberyForm->setSignStatus(true);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		shrubberyForm->setSignStatus(false);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
 
-	// std::cout << "Execution grade requirement : " << test->getExecutionRequirement() << std::endl;
+		std::cout << std::endl;
 
-	// Bureaucrat	Bob("Bob", 5);
+		Bureaucrat	bureaucratOne("Bob", 25);
+		
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << "\t" << "Get shrubberyForm signed by bureaucrat" << std::endl;
+		shrubberyForm->beSigned(bureaucratOne);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
 
-	// std::cout << "Bob's grade : " << Bob.getGrade() << std::endl;
+		std::cout << std::endl;
 
-	// Bob.signForm(*test);
-	// Bob.signForm(*test);
-	// Bob.executeForm(*test);
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
+		std::cout << "\t";
+		shrubberyForm->execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(*shrubberyForm);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		shrubberyForm->setSignStatus(false);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+		
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
+		std::cout << "\t";
+		shrubberyForm->execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(*shrubberyForm);
+		
+		delete (shrubberyForm);
+		std::cout << "\t";
+	}
+	std::cout << "}";
+	{
+		std::cout << MAGENTA << std::endl << """----------\tIntern robotomy request form\t----------" << COLOR_RESET << std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		Intern	internZero;
+		AForm	*robotomyRequest;
+		
+		try {
+		robotomyRequest = internZero.makeForm("RobotomyRequestForm", "RandomTarget");
+		}
+		catch (Intern::FormNotFound & e) {
+			std::cout << "what(): " << e.what() << std::endl;
+		}
+
+		std::cout << "\t" << "Get robotomyRequest name : " << robotomyRequest->getName() << std::endl;
+		std::cout << "\t" << "Get robotomyRequest sign requirement : " << robotomyRequest->getSignRequirement() << std::endl;
+		std::cout << "\t" << "Get robotomyRequest execution requirement : " << robotomyRequest->getExecutionRequirement() << std::endl;
+		std::cout << "\t" << "Get robotomyRequest sign status : " << (robotomyRequest->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
 	
-	// delete (test);
-	delete(Shrubbery);
-	return (0);	
+		std::cout << "\t" << "Set sign status : signed" << std::endl;
+		robotomyRequest->setSignStatus(true);
+		std::cout << "\t" << "Get robotomyRequest sign status : " << (robotomyRequest->getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		robotomyRequest->setSignStatus(false);
+		std::cout << "\t" << "Get robotomyRequest sign status : " << (robotomyRequest->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
+
+		Bureaucrat	bureaucratOne("Bob", 25);
+		
+		std::cout << "\t" << "Get robotomyRequest sign status : " << (robotomyRequest->getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << "\t" << "Get robotomyRequest signed by bureaucrat" << std::endl;
+		robotomyRequest->beSigned(bureaucratOne);
+		std::cout << "\t" << "Get robotomyRequest sign status : " << (robotomyRequest->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Execute robotomyRequest" << std::endl;
+		std::cout << "\t";
+		robotomyRequest->execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(*robotomyRequest);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		robotomyRequest->setSignStatus(false);
+		std::cout << "\t" << "Get robotomyRequest sign status : " << (robotomyRequest->getSignStatus() ? "signed" : "not signed") << std::endl;
+		
+		std::cout << "\t" << "Execute robotomyRequest" << std::endl;
+		std::cout << "\t";
+		robotomyRequest->execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(*robotomyRequest);
+		
+		delete (robotomyRequest);
+		std::cout << "\t";
+	}
+	std::cout << "}";
+	{
+		std::cout << MAGENTA << std::endl << """----------\tIntern presidential pardon form\t----------" << COLOR_RESET << std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		Intern	internZero;
+		AForm	*presidentialPardon;
+		
+		try {
+		presidentialPardon = internZero.makeForm("PresidentialPardonForm", "RandomTarget");
+		}
+		catch (Intern::FormNotFound & e) {
+			std::cout << "what(): " << e.what() << std::endl;
+		}
+
+		std::cout << "\t" << "Get presidentialPardon name : " << presidentialPardon->getName() << std::endl;
+		std::cout << "\t" << "Get presidentialPardon sign requirement : " << presidentialPardon->getSignRequirement() << std::endl;
+		std::cout << "\t" << "Get presidentialPardon execution requirement : " << presidentialPardon->getExecutionRequirement() << std::endl;
+		std::cout << "\t" << "Get presidentialPardon sign status : " << (presidentialPardon->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
+	
+		std::cout << "\t" << "Set sign status : signed" << std::endl;
+		presidentialPardon->setSignStatus(true);
+		std::cout << "\t" << "Get presidentialPardon sign status : " << (presidentialPardon->getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		presidentialPardon->setSignStatus(false);
+		std::cout << "\t" << "Get presidentialPardon sign status : " << (presidentialPardon->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
+
+		Bureaucrat	bureaucratOne("Bob", 25);
+		
+		std::cout << "\t" << "Get presidentialPardon sign status : " << (presidentialPardon->getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << "\t" << "Get presidentialPardon signed by bureaucrat" << std::endl;
+		presidentialPardon->beSigned(bureaucratOne);
+		std::cout << "\t" << "Get presidentialPardon sign status : " << (presidentialPardon->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Execute presidentialPardon" << std::endl;
+		std::cout << "\t";
+		presidentialPardon->execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(*presidentialPardon);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		presidentialPardon->setSignStatus(false);
+		std::cout << "\t" << "Get presidentialPardon sign status : " << (presidentialPardon->getSignStatus() ? "signed" : "not signed") << std::endl;
+		
+		std::cout << "\t" << "Execute presidentialPardon" << std::endl;
+		std::cout << "\t";
+		presidentialPardon->execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(*presidentialPardon);
+		
+		delete (presidentialPardon);
+		std::cout << "\t";
+	}
+	std::cout << "}" << std::endl;
+	return (0);
 }
-
-// int	main( void )
-// {
-// 	{
-// 		std::cout << std::endl << """---------- Form default constructor ----------" << std::endl;
-		
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-
-// 		Form	defaultForm;
-
-// 		std::cout << "\tgetName : ";
-// 		std::cout << defaultForm.getName() << std::endl;
-
-// 		std::cout <<"\tgetSignRequirement : ";
-// 		std::cout << defaultForm.getSignRequirement() << std::endl;
-
-// 		std::cout << "\tgetExecutionRequirement : ";
-// 		std::cout << defaultForm.getExecutionRequirement() << std::endl;
-
-// 		std::cout << "\tgetSignStatus : ";
-// 		std::cout << defaultForm.getSignStatus() << std::endl;
-		
-// 		std::cout << "\t";
-// 	}
-// 	std::cout << "}";
-// 	{
-// 		std::cout << std::endl << """---------- Form parameter constructor ----------" << std::endl;
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-
-// 		Form	Form1("Test Form", 120, 40);
-
-// 		std::cout << "\tgetName : ";
-// 		std::cout << Form1.getName() << std::endl;
-
-// 		std::cout <<"\tgetSignRequirement : ";
-// 		std::cout << Form1.getSignRequirement() << std::endl;
-
-// 		std::cout << "\tgetExecutionRequirement : ";
-// 		std::cout << Form1.getExecutionRequirement() << std::endl;
-
-// 		std::cout << "\tgetSignStatus : ";
-// 		std::cout << Form1.getSignStatus() << std::endl;
-		
-// 		std::cout << "\t";
-// 	}
-// 	std::cout << "}";
-// 	{
-// 		std::cout << std::endl << "---------- Form copy constructor ----------" << std::endl;
-		
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-		
-// 		Form originalForm("Original form", 120, 30);
-// 		{
-// 			std::cout << "\t";
-// 			std::cout << "{" << std::endl;
-// 			std::cout << "\t\t";
-// 			Form copyForm(originalForm);
-
-// 			std::cout << "\t\tgetName : ";
-// 			std::cout << copyForm.getName() << std::endl;
-
-// 			std::cout <<"\t\tgetSignRequirement : ";
-// 			std::cout << copyForm.getSignRequirement() << std::endl;
-
-// 			std::cout << "\t\tgetExecutionRequirement : ";
-// 			std::cout << copyForm.getExecutionRequirement() << std::endl;
-
-// 			std::cout << "\t\tgetSignStatus : ";
-// 			std::cout << copyForm.getSignStatus() << std::endl;
-
-// 			std::cout << "\t\t";
-// 		}
-// 		std::cout << "\t";
-// 		std::cout << "}" << std::endl;
-
-// 		std::cout << "\tgetName : ";
-// 		std::cout << originalForm.getName() << std::endl;
-
-// 		std::cout <<"\tgetSignRequirement : ";
-// 		std::cout << originalForm.getSignRequirement() << std::endl;
-
-// 		std::cout << "\tgetExecutionRequirement : ";
-// 		std::cout << originalForm.getExecutionRequirement() << std::endl;
-
-// 		std::cout << "\tgetSignStatus : ";
-// 		std::cout << originalForm.getSignStatus() << std::endl;
-
-// 		std::cout << "\t";
-// 	}
-// 	{
-// 		std::cout << std::endl << "---------- Form copy assignment operator ----------" << std::endl;
-		
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-		
-// 		Form originalForm("Original form", 120, 30);
-// 		{
-// 			std::cout << "\t";
-// 			std::cout << "{" << std::endl;
-// 			std::cout << "\t\t";
-// 			Form copyForm;
-
-// 			copyForm = originalForm;
-
-// 			std::cout << "\t\tgetName : ";
-// 			std::cout << copyForm.getName() << std::endl;
-
-// 			std::cout <<"\t\tgetSignRequirement : ";
-// 			std::cout << copyForm.getSignRequirement() << std::endl;
-
-// 			std::cout << "\t\tgetExecutionRequirement : ";
-// 			std::cout << copyForm.getExecutionRequirement() << std::endl;
-
-// 			std::cout << "\t\tgetSignStatus : ";
-// 			std::cout << copyForm.getSignStatus() << std::endl;
-
-// 			std::cout << "\t\t";
-// 		}
-// 		std::cout << "\t";
-// 		std::cout << "}" << std::endl;
-
-// 		std::cout << "\tgetName : ";
-// 		std::cout << originalForm.getName() << std::endl;
-
-// 		std::cout <<"\tgetSignRequirement : ";
-// 		std::cout << originalForm.getSignRequirement() << std::endl;
-
-// 		std::cout << "\tgetExecutionRequirement : ";
-// 		std::cout << originalForm.getExecutionRequirement() << std::endl;
-
-// 		std::cout << "\tgetSignStatus : ";
-// 		std::cout << originalForm.getSignStatus() << std::endl;
-
-// 		std::cout << "\t";
-// 	}
-// 	{
-// 		std::cout << std::endl << "---------- Form test ----------" << std::endl;
-		
-// 		std::cout << "{" << std::endl;
-		
-// 		std::cout << "\t";
-// 		Form testForm("Form #1", 40, 120);
-// 		std::cout << "\t";
-// 		Bureaucrat	Bob;
-// 		std::cout << "\t";
-// 		Bureaucrat	Jim("Jim", 30);
-
-// 		std::cout << "\t";
-// 		Bob.signForm(testForm);
-		
-// 		std::cout << "\t";
-// 		Jim.signForm(testForm);
-// 		std::cout << "\t";
-// 		Jim.signForm(testForm);
-		
-// 		std::cout << "\t";
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	return (0);
-// }
-
-// int	main( void )
-// {
-// 	{
-// 		std::cout << std::endl << "---------- Bureaucrat default constructor ----------" << std::endl;
-
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-		
-// 		Bureaucrat	Bob;
-
-// 		std::cout << std::endl;
-		
-// 		std::cout << "\t" << Bob << std::endl;
-		
-// 		std::cout << "\tgetGrade : ";
-// 		std::cout << Bob.getGrade() << std::endl;
-		
-// 		std::cout << "\tgetName : ";
-// 		std::cout << Bob.getName() << std::endl;
-		
-// 		std::cout << "\tincrementGrade : ";
-// 		Bob.incrementGrade();
-// 		std::cout << Bob.getGrade() << std::endl;
-		
-// 		std::cout << "\tdecrementGrade : ";
-// 		Bob.decrementGrade();
-// 		std::cout << Bob.getGrade() << std::endl;
-
-// 		std::cout << std::endl;
-// 		std::cout << "\t";
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	{
-// 		std::cout << std::endl << "---------- Bureaucrat parameter constructor ----------" << std::endl << std::endl;
-		
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-
-// 		try {	
-// 			Bureaucrat	Bob("Bob", 155);
-			
-// 			std::cout << std::endl;
-
-// 			std::cout << "\t" << Bob << std::endl;
-
-// 			std::cout << "\tgetGrade : ";
-// 			std::cout << Bob.getGrade() << std::endl;
-			
-// 			std::cout << "\tgetName : ";
-// 			std::cout << Bob.getName() << std::endl;
-			
-// 			std::cout << "\tincrementGrade : ";
-// 			Bob.incrementGrade();
-// 			std::cout << Bob.getGrade() << std::endl;
-			
-// 			std::cout << "\tdecrementGrade : ";
-// 			Bob.decrementGrade();
-// 			std::cout << Bob.getGrade() << std::endl;
-			
-// 			std::cout << std::endl;
-// 			std::cout << "\t";
-			
-// 		} catch (...) {
-// 		}
-		
-
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	{
-// 		std::cout << std::endl << "---------- Bureaucrat copy constructor ----------" << std::endl << std::endl;
-		
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-
-// 		Bureaucrat	Bob("Bob", 25);
-		
-// 		std::cout << std::endl;
-// 		{
-// 			std::cout << "{" << std::endl;
-// 			std::cout << "\t\t";
-
-// 			Bureaucrat	Jim(Bob);
-			
-// 			std::cout << std::endl;
-
-// 			std::cout << "\t\t" << Jim << std::endl;
-
-// 			std::cout << std::endl;
-// 			std::cout << "\t\t";
-// 		}
-		
-// 		std::cout << std::endl << "\t" << Bob << std::endl;
-
-// 		std::cout << std::endl;
-// 		std::cout << "\t";
-// 	}
-// 	std::cout << "}" << std::endl;	{
-// 		std::cout << std::endl << "---------- Bureaucrat copy assignment operator ----------" << std::endl << std::endl;
-		
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-
-// 		Bureaucrat	Bob("Bob", 25);
-		
-// 		std::cout << std::endl;
-// 		{
-// 			std::cout << "{" << std::endl;
-// 			std::cout << "\t\t";
-
-// 			Bureaucrat	Jim;
-			
-// 			std::cout << "\t\t";
-// 			Jim = Bob;
-			
-// 			std::cout << std::endl;
-
-// 			std::cout << "\t\t" << Jim << std::endl;
-
-// 			std::cout << std::endl;
-// 			std::cout << "\t\t";
-// 		}
-		
-// 		std::cout << std::endl << "\t" << Bob << std::endl;
-
-// 		std::cout << std::endl;
-// 		std::cout << "\t";
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	{
-// 		std::cout << std::endl << "---------- Try & Catch grade too low ----------" << std::endl << std::endl;
-
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-// 		try {
-// 			Bureaucrat	Bob("Bob", 155);
-// 		}
-// 		catch (Bureaucrat::GradeTooLowException & e) {
-// 			std::cout << "\t" << e.what() << std::endl;
-// 		}
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	{
-// 		std::cout << std::endl << "---------- Try & Catch grade too high ----------" << std::endl << std::endl;
-
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-// 		try {
-// 			Bureaucrat	Bob("Bob", 0);
-// 		}
-// 		catch (Bureaucrat::GradeTooHighException & e) {
-// 			std::cout << "\t" << e.what() << std::endl;
-// 		}
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	{
-// 		std::cout << std::endl << "---------- Highest bureaucrat ----------" << std::endl << std::endl;
-
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-// 		try {
-// 			Bureaucrat	Bob("Bob", 1);
-// 			std::cout << "\t" << Bob << std::endl;
-// 			std::cout << "\t";
-// 		}
-// 		catch (Bureaucrat::GradeTooHighException & e) {
-// 			std::cout << "\t" << e.what() << std::endl;
-// 		}
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	{
-// 		std::cout << std::endl << "---------- Lowest bureaucrat ----------" << std::endl << std::endl;
-
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-// 		try {
-// 			Bureaucrat	Bob("Bob", 150);
-// 			std::cout << "\t" << Bob << std::endl;
-// 			std::cout << "\t";
-// 		}
-// 		catch (Bureaucrat::GradeTooHighException & e) {
-// 			std::cout << "\t" << e.what() << std::endl;
-// 		}
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	{
-// 		std::cout << std::endl << "---------- Increment to highest + 1 ----------" << std::endl << std::endl;
-
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-// 		try {
-// 			Bureaucrat	Bob("Bob", 3);
-// 			std::cout << "\t" << Bob << std::endl;
-// 			std::cout << "\t";
-// 			Bob.incrementGrade();
-// 			std::cout << Bob << std::endl;
-// 			std::cout << "\t";
-// 			Bob.incrementGrade();
-// 			std::cout << Bob << std::endl;
-// 			std::cout << "\t";	
-// 			Bob.incrementGrade();
-// 			std::cout << Bob << std::endl;
-// 			std::cout << "\t";
-// 		}
-// 		catch (Bureaucrat::IGradeException & e) {
-// 			std::cout << "\twhat() : " << e.what() << std::endl;
-// 		}
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	{
-// 		std::cout << std::endl << "---------- Increment to Lowest - 1 ----------" << std::endl << std::endl;
-
-// 		std::cout << "{" << std::endl;
-// 		std::cout << "\t";
-// 		try {
-// 			Bureaucrat	Bob("Bob", 148);
-// 			std::cout << "\t" << Bob << std::endl;
-// 			std::cout << "\t";
-// 			Bob.decrementGrade();
-// 			std::cout << Bob << std::endl;
-// 			std::cout << "\t";
-// 			Bob.decrementGrade();
-// 			std::cout << Bob << std::endl;
-// 			std::cout << "\t";	
-// 			Bob.decrementGrade();
-// 			std::cout << Bob << std::endl;
-// 			std::cout << "\t";
-// 		}
-// 		catch (Bureaucrat::IGradeException & e) {
-// 			std::cout << "\twhat() : " << e.what() << std::endl;
-// 		}
-// 	}
-// 	std::cout << "}" << std::endl;
-// 	return (0);
-// }

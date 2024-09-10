@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:05 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:51:50 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/09 17:09:17 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm( void ) {
+	srand(time(NULL));
 	std::cout << ORANGE << "RobotomyRequestForm Default constructor" << COLOR_RESET << std::endl;
 }
 
@@ -23,6 +24,7 @@ RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : AF
 }
 
 RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm("RobotomyRequestForm", 72, 45) {
+	srand(time(NULL));
 	std::cout << PURPLE << "RobotomyRequestForm Parameter constructor" << COLOR_RESET << std::endl;
 	this->_target = target;
 }
@@ -41,7 +43,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator=( RobotomyRequestForm const &
 }
 
 void	RobotomyRequestForm::executeForm( void ) const {
-	srand(time(0));
 	int	robotomySuccessRate = rand() % 2;
 
 	std::cout << "Brrrrrrr... Brrrrr..." << std::endl;
