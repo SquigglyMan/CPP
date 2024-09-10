@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 13:33:39 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 13:32:45 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,13 +155,20 @@ int	main( void )
 		
 		std::cout << "\t";
 		Form testForm("Form #1", 40, 120);
+		std::cout << "\t" << "Test form created" << std::endl << std::endl;
+		
 		std::cout << "\t";
 		Bureaucrat	Bob("Bob", 25);
+		std::cout << "\t" << "Bureaucrat Bob created" << std::endl << std::endl;
+		
 		std::cout << "\t";
 		Bureaucrat	Jim("Jim", 30);
+		std::cout << "\t" << "Bureaucrat Jim created" << std::endl << std::endl;
 
 		std::cout << "\t";
 		Bob.signForm(testForm);
+		std::cout << testForm;
+
 		std::cout << std::endl;
 		
 		std::cout << "\t";
@@ -173,6 +180,7 @@ int	main( void )
 
 		std::cout << "\t";
 		testForm.beSigned(Bob);
+		
 		std::cout << "\t";
 		testForm.beSigned(Jim);
 		

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 15:41:21 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 13:25:54 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ int	main( void )
 
 		ShrubberyCreationForm	shrubberyForm;
 
-		std::cout << "\t" << "Get shrubberyForm name : " << shrubberyForm.getName() << std::endl;
-		std::cout << "\t" << "Get shrubberyForm sign requirement : " << shrubberyForm.getSignRequirement() << std::endl;
-		std::cout << "\t" << "Get shrubberyForm execution requirement : " << shrubberyForm.getExecutionRequirement() << std::endl;
-		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << shrubberyForm;
 
 		std::cout << std::endl;
 	
@@ -96,10 +93,7 @@ int	main( void )
 
 		ShrubberyCreationForm	shrubberyForm("home");
 
-		std::cout << "\t" << "Get shrubberyForm name : " << shrubberyForm.getName() << std::endl;
-		std::cout << "\t" << "Get shrubberyForm sign requirement : " << shrubberyForm.getSignRequirement() << std::endl;
-		std::cout << "\t" << "Get shrubberyForm execution requirement : " << shrubberyForm.getExecutionRequirement() << std::endl;
-		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << shrubberyForm;
 
 		std::cout << std::endl;
 	
@@ -156,10 +150,7 @@ int	main( void )
 
 		RobotomyRequestForm	robotomyForm;
 
-		std::cout << "\t" << "Get robotomyForm name : " << robotomyForm.getName() << std::endl;
-		std::cout << "\t" << "Get robotomyForm sign requirement : " << robotomyForm.getSignRequirement() << std::endl;
-		std::cout << "\t" << "Get robotomyForm execution requirement : " << robotomyForm.getExecutionRequirement() << std::endl;
-		std::cout << "\t" << "Get robotomyForm sign status : " << (robotomyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << robotomyForm;
 
 		std::cout << std::endl;
 	
@@ -216,10 +207,7 @@ int	main( void )
 
 		RobotomyRequestForm	robotomyForm("Person_1");
 
-		std::cout << "\t" << "Get robotomyForm name : " << robotomyForm.getName() << std::endl;
-		std::cout << "\t" << "Get robotomyForm sign requirement : " << robotomyForm.getSignRequirement() << std::endl;
-		std::cout << "\t" << "Get robotomyForm execution requirement : " << robotomyForm.getExecutionRequirement() << std::endl;
-		std::cout << "\t" << "Get robotomyForm sign status : " << (robotomyForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << robotomyForm;
 
 		std::cout << std::endl;
 	
@@ -280,10 +268,7 @@ int	main( void )
 
 		PresidentialPardonForm	presidentialForm;
 
-		std::cout << "\t" << "Get presidentialForm name : " << presidentialForm.getName() << std::endl;
-		std::cout << "\t" << "Get presidentialForm sign requirement : " << presidentialForm.getSignRequirement() << std::endl;
-		std::cout << "\t" << "Get presidentialForm execution requirement : " << presidentialForm.getExecutionRequirement() << std::endl;
-		std::cout << "\t" << "Get presidentialForm sign status : " << (presidentialForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << presidentialForm;
 
 		std::cout << std::endl;
 	
@@ -340,10 +325,7 @@ int	main( void )
 
 		PresidentialPardonForm	presidentialForm("Person_1");
 
-		std::cout << "\t" << "Get presidentialForm name : " << presidentialForm.getName() << std::endl;
-		std::cout << "\t" << "Get presidentialForm sign requirement : " << presidentialForm.getSignRequirement() << std::endl;
-		std::cout << "\t" << "Get presidentialForm execution requirement : " << presidentialForm.getExecutionRequirement() << std::endl;
-		std::cout << "\t" << "Get presidentialForm sign status : " << (presidentialForm.getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << presidentialForm;
 
 		std::cout << std::endl;
 	
@@ -408,25 +390,58 @@ int	main( void )
 		RobotomyRequestForm	robotomyForm;
 		PresidentialPardonForm	presidentialForm;
 
+
+		std::cout << shrubberyForm;
+		std::cout << "Execute shrubbery form" << std::endl;
 		shrubberyForm.execute(Bob);
+		
+		std::cout << robotomyForm;
+		std::cout << "Execute robotomy request form" << std::endl;
 		robotomyForm.execute(Bob);
+
+		std::cout << presidentialForm;
+		std::cout << "Execute presidential pardon form" << std::endl;
 		presidentialForm.execute(Bob);
 
+		std::cout << std::endl;
+
+		std::cout << "Execute shrubbery form by bureaucrat" << std::endl;
 		Bob.executeForm(shrubberyForm);
+		std::cout << "Execute robotomy request form by bureaucrat" << std::endl;
 		Bob.executeForm(robotomyForm);
+		std::cout << "Execute presidential pardon form by bureaucrat" << std::endl;
 		Bob.executeForm(presidentialForm);
 
+		std::cout << "Sign shrubbery form" << std::endl;
 		shrubberyForm.setSignStatus(true);
+		std::cout << shrubberyForm;
+
+		std::cout << "Sign robotomy request form" << std::endl;
 		robotomyForm.setSignStatus(true);
+		std::cout << robotomyForm;
+
+		std::cout << "Sign presidential pardon form" << std::endl;
 		presidentialForm.setSignStatus(true);
+		std::cout << presidentialForm;
 
 		try {
+			std::cout << "Execute shrubbery form" << std::endl;
 			shrubberyForm.execute(Bob);
+
+			std::cout << "Execute robotmy request form" << std::endl;
 			robotomyForm.execute(Bob);
+
+			std::cout << "Execute presidential pardon form" << std::endl;
 			presidentialForm.execute(Bob);
 
+
+			std::cout << "Execute shrubbery form by bureaucrat" << std::endl;
 			Bob.executeForm(shrubberyForm);
+
+			std::cout << "Execute robotomy request form by bureaucrat" << std::endl;	
 			Bob.executeForm(robotomyForm);
+
+			std::cout << "Execute presidential form by bureaucrat" << std::endl;
 			Bob.executeForm(presidentialForm);
 		}
 		catch (AForm::IGradeException &e){

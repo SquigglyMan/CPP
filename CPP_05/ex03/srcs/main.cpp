@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/10 10:59:50 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 14:00:53 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ int	main( void )
 		std::cout << "{" << std::endl;
 
 		Intern internZero;
+
+		try {
+			internZero.makeForm("RandomForm", "NoTarget");
+		}
+		catch (Intern::FormNotFound & e) {
+			std::cout << "what() : " << e.what() << std::endl;
+		}
 		
 		std::cout << "\t";
 	}
@@ -35,7 +42,25 @@ int	main( void )
 		std::cout << "{" << std::endl;
 
 		Intern	internOriginal;
-		Intern	internCopy(internOriginal);
+		{
+			Intern	internCopy(internOriginal);
+			AForm	*shrubberyForm;
+
+			shrubberyForm = internCopy.makeForm("ShrubberyCreationForm", "TargetCopy");
+
+			delete (shrubberyForm);
+		}
+		
+		try {
+			AForm	*shrubberyForm;
+
+			shrubberyForm = internOriginal.makeForm("ShrubberyCreationForm", "TargetOriginal");
+
+			delete (shrubberyForm);
+		}
+		catch (Intern::FormNotFound & e) {
+			std::cout << "what() : " << e.what() << std::endl;
+		}
 		
 		std::cout << "\t";
 	}
@@ -48,7 +73,7 @@ int	main( void )
 		Intern internZero;
 		
 		try {
-		internZero.makeForm("RandomForm", "RandomTarget");
+			internZero.makeForm("RandomForm", "RandomTarget");
 		}
 		catch (Intern::FormNotFound & e) {
 			std::cout << "what(): " << e.what() << std::endl;
@@ -66,7 +91,7 @@ int	main( void )
 		AForm	*shrubberyForm;
 		
 		try {
-		shrubberyForm = internZero.makeForm("ShrubberyCreationForm", "RandomTarget");
+			shrubberyForm = internZero.makeForm("ShrubberyCreationForm", "RandomTarget");
 		}
 		catch (Intern::FormNotFound & e) {
 			std::cout << "what(): " << e.what() << std::endl;
@@ -136,7 +161,7 @@ int	main( void )
 		AForm	*robotomyRequest;
 		
 		try {
-		robotomyRequest = internZero.makeForm("RobotomyRequestForm", "RandomTarget");
+			robotomyRequest = internZero.makeForm("RobotomyRequestForm", "RandomTarget");
 		}
 		catch (Intern::FormNotFound & e) {
 			std::cout << "what(): " << e.what() << std::endl;
@@ -206,7 +231,7 @@ int	main( void )
 		AForm	*presidentialPardon;
 		
 		try {
-		presidentialPardon = internZero.makeForm("PresidentialPardonForm", "RandomTarget");
+			presidentialPardon = internZero.makeForm("PresidentialPardonForm", "RandomTarget");
 		}
 		catch (Intern::FormNotFound & e) {
 			std::cout << "what(): " << e.what() << std::endl;
@@ -265,6 +290,78 @@ int	main( void )
 		
 		delete (presidentialPardon);
 		std::cout << "\t";
+	}
+		std::cout << "}";
+	{
+		std::cout << MAGENTA << std::endl << """----------\tForm created by an intern behaves the same way as a normal form\t----------" << COLOR_RESET << std::endl;
+		
+		std::cout << "{" << std::endl;
+
+		Intern	internZero;
+		AForm	*shrubberyForm;
+
+		try {
+			shrubberyForm = internZero.makeForm("ShrubberyCreationForm", "RandomTarget");
+		}
+		catch (Intern::FormNotFound & e) {
+			std::cout << "what(): " << e.what() << std::endl;
+		}
+
+		std::cout << "\t" << "Get shrubberyForm name : " << shrubberyForm->getName() << std::endl;
+		std::cout << "\t" << "Get shrubberyForm sign requirement : " << shrubberyForm->getSignRequirement() << std::endl;
+		std::cout << "\t" << "Get shrubberyForm execution requirement : " << shrubberyForm->getExecutionRequirement() << std::endl;
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+
+		std::cout << std::endl;
+	
+		std::cout << "\t" << "Set sign status : signed" << std::endl;
+		shrubberyForm->setSignStatus(true);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		shrubberyForm->setSignStatus(false);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
+
+		Bureaucrat	bureaucratOne("Bob", 25);
+		
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+		std::cout << "\t" << "Get shrubberyForm signed by bureaucrat" << std::endl;
+		shrubberyForm->beSigned(bureaucratOne);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
+		std::cout << "\t";
+		shrubberyForm->execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(*shrubberyForm);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "Set sign status : not signed" << std::endl;
+		shrubberyForm->setSignStatus(false);
+		std::cout << "\t" << "Get shrubberyForm sign status : " << (shrubberyForm->getSignStatus() ? "signed" : "not signed") << std::endl;
+		
+		std::cout << "\t" << "Execute shruberryForm" << std::endl;
+		std::cout << "\t";
+		shrubberyForm->execute(bureaucratOne);
+
+		std::cout << std::endl;
+
+		std::cout << "\t" << "executeForm by bureaucrat" << std::endl;
+		std::cout << "\t";
+		bureaucratOne.executeForm(*shrubberyForm);
+		
+		std::cout << "\t";
+
+		delete (shrubberyForm);
 	}
 	std::cout << "}" << std::endl;
 	return (0);

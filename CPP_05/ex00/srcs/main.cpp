@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 12:25:37 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 13:20:31 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ int	main( void )
 			std::cout << std::endl;
 			std::cout << "\t";
 			
-		} catch (...) {
 		}
-		
-
+		catch (Bureaucrat::IGradeException & e) {
+			std::cout << "\twhat() : " << e.what() << std::endl;
+		}
 	}
 	std::cout << "}" << std::endl;
 	{
@@ -160,7 +160,6 @@ int	main( void )
 		}
 		catch (Bureaucrat::IGradeException & e) {
 			std::cout << "\twhat() : " << e.what() << std::endl;
-
 		}
 	}
 	std::cout << "}" << std::endl;
@@ -175,7 +174,6 @@ int	main( void )
 		}
 		catch (Bureaucrat::IGradeException & e) {
 			std::cout << "\twhat() : " << e.what() << std::endl;
-
 		}
 	}
 	std::cout << "}" << std::endl;
@@ -191,7 +189,6 @@ int	main( void )
 		}
 		catch (Bureaucrat::IGradeException & e) {
 			std::cout << "\twhat() : " << e.what() << std::endl;
-
 		}
 	}
 	std::cout << "}" << std::endl;
@@ -207,7 +204,6 @@ int	main( void )
 		}
 		catch (Bureaucrat::IGradeException & e) {
 			std::cout << "\twhat() : " << e.what() << std::endl;
-
 		}
 	}
 	std::cout << "}" << std::endl;

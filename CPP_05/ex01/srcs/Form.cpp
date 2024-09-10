@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 15:13:13 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 14:02:04 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	Form::beSigned( Bureaucrat & src ) {
 	if (this->getSignStatus() == false) {
 		if (src.getGrade() > getSignRequirement()) {
 			std::cout << this->getName() << " couldn't be signed because the bureaucrat " << src.getName() << "'s grade is too low" << std::endl;
-			// throw (Form::GradeTooLowException());
 		}
 		else {
 			std::cout << src.getName() << " signed " << this->getName() << std::endl;
