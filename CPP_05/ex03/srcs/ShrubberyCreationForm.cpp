@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:03 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:57:07 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 14:19:08 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,4 @@ void ShrubberyCreationForm::executeForm( void ) const {
     "			             {\n"
 	<< COLOR_RESET << std::endl;
 	outputFile.close();
-}
-
-AForm	*ShrubberyCreationForm::cloneForm( std::string target ) {
-	return (new ShrubberyCreationForm(target));
 }

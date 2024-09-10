@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:05 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 17:09:17 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 14:19:11 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,4 @@ void	RobotomyRequestForm::executeForm( void ) const {
 		std::cout << this->_target << "'s robotomy has failed" << std::endl;
 	else
 		std::cout << this->_target << " has been robotomized" << std::endl;
-}
-
-AForm	*RobotomyRequestForm::cloneForm( std::string target ) {
-	return (new RobotomyRequestForm(target));
 }

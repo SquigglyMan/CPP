@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:21:31 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:42:57 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 14:50:59 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 # include "ShrubberyCreationForm.hpp"
 
 class Intern {
-	private:
-		AForm	*_forms[3];
-
 	public:
 		Intern( void );
 		Intern( Intern const & src );
@@ -36,5 +33,9 @@ class Intern {
 				const char *what() const throw();
 		};
 };
+
+AForm	*makeShrubberyCreationForm( std::string target );
+AForm	*makeRobotomyRequestForm( std::string target );
+AForm	*makePresidentialPardonForm( std::string target );
 
 #endif

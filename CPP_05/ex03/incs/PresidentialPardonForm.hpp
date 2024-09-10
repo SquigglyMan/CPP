@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:41:59 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/02 12:51:27 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 14:19:21 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class PresidentialPardonForm : public AForm {
 		PresidentialPardonForm &operator=( const PresidentialPardonForm & src );
 
 		virtual void	executeForm( void ) const;
-		virtual AForm	*cloneForm( std::string target );
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/10 14:00:53 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 15:10:17 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -301,7 +301,7 @@ int	main( void )
 		AForm	*shrubberyForm;
 
 		try {
-			shrubberyForm = internZero.makeForm("ShrubberyCreationForm", "RandomTarget");
+			shrubberyForm = internZero.makeForm("ShrubberyCreationForm", "SecondRandomTarget");
 		}
 		catch (Intern::FormNotFound & e) {
 			std::cout << "what(): " << e.what() << std::endl;
