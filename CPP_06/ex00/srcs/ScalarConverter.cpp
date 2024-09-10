@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 05:56:06 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/04 11:22:58 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 15:42:54 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void ScalarConverter::convert( std::string const & literal ) {
 	
 	for (int i = 0; i < 6; ++i) {
 		if (literal == pseudoLiteral[i]) {
-			toChar = "Impossible";
+			toChar = "impossible";
 			break ;
 		}
 	}
@@ -80,17 +80,17 @@ void ScalarConverter::convert( std::string const & literal ) {
 		toChar = "Non displayable";
 
 	std::cout << "char: " << toChar << std::endl;
-	if (toChar == "Impossible")
-		std::cout << "int: Impossible" << std::endl;
+	if (toChar == "impossible")
+		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << toInt << std::endl;
 	
-	if (toChar == "Impossible" && toFloat == 0) {
-		std::cout << "float: Impossible" << std::endl;
-		std::cout << "double: Impossible" << std::endl;
+	if (toChar == "impossible" && toFloat == 0) {
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double: impossible" << std::endl;
 	}
 	else {
-		if (toChar != "Impossible" && toFloat - static_cast<int>(toFloat) == 0) {
+		if (toChar != "impossible" && toFloat - static_cast<int>(toFloat) == 0) {
 			std::cout << "float: " << toFloat << ".0f" << std::endl;
 			std::cout << "double: " << toDouble << ".0" << std::endl;
 		}
