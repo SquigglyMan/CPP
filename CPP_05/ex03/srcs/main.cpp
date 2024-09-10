@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:27 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 17:10:51 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 10:59:50 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,7 +228,7 @@ int	main( void )
 
 		std::cout << std::endl;
 
-		Bureaucrat	bureaucratOne("Bob", 25);
+		Bureaucrat	bureaucratOne("Bob", 5);
 		
 		std::cout << "\t" << "Get presidentialPardon sign status : " << (presidentialPardon->getSignStatus() ? "signed" : "not signed") << std::endl;
 		std::cout << "\t" << "Get presidentialPardon signed by bureaucrat" << std::endl;

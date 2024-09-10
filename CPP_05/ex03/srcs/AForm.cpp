@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:27:52 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 17:11:53 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/10 10:59:31 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool	AForm::getSignStatus( void ) const {
 }
 
 void	AForm::beSigned( Bureaucrat & src ) {
-	if (src.getGrade() < getSignRequirement())
+	if (src.getGrade() <= getSignRequirement())
 		_signed = true;
 	else if (src.getGrade() > getSignRequirement())
 		std::cout << "Grade is too low to sign" << std::endl;
