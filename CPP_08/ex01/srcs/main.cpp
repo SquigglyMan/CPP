@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/18 10:55:38 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/10 16:04:15 by llarue           ###   ########.fr       */
+/*   Created: 2024/09/10 16:09:43 by llarue            #+#    #+#             */
+/*   Updated: 2024/09/10 16:33:21 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#include "Span.hpp"
 
-# include <iostream>
+int	main( void ) {
 
-template<typename T>
-typename T::iterator easyfind( T& container, int x ) {
-	typename T::iterator it = std::find(container.behin(), container.end(), x);
-	return (it);
+	Span	sp = Span(5);
+	
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+		
+	return (0);
 }
-
-# include "easyfind.tpp"
-
-#endif
