@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:21:30 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/10 15:08:47 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:43:23 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,15 @@
 
 Intern::Intern( void ) {
 	std::cout << ORANGE << "Intern Default Constructor" << COLOR_RESET << std::endl;
-	// this->_forms[0] = new PresidentialPardonForm();
-	// this->_forms[1] = new RobotomyRequestForm();
-	// this->_forms[2] = new ShrubberyCreationForm();
 }
 
 Intern::Intern( Intern const & src ) {
 	std::cout << BLUE << "Intern Copy constructor" << COLOR_RESET << std::endl;
 	*this = src;
-
-	// this->_forms[0] = new PresidentialPardonForm();
-	// this->_forms[1] = new RobotomyRequestForm();
-	// this->_forms[2] = new ShrubberyCreationForm();
 }
 
 Intern::~Intern( void ) {
 	std::cout << ORANGE << "Intern Default destructor" << COLOR_RESET << std::endl;
-	// delete (_forms[0]);
-	// delete (_forms[1]);
-	// delete (_forms[2]);
 }
 
 Intern	&Intern::operator=( Intern const & src ) {
