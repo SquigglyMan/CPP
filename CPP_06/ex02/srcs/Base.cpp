@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 12:27:02 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/06 09:04:07 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/13 15:21:58 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "C.hpp"
 
 Base::~Base( void ) {
-	std::cout << "Base default destructor" << std::endl;
+	std::cout << ORANGE << "Base default destructor" << COLOR_RESET << std::endl;
 }
 
 Base*	generate( void ) {
@@ -43,23 +43,26 @@ void	identify( Base* p ) {
 
 void	identify( Base& p ) {
 	try {
+		try {
+			try {
+				C& c = dynamic_cast< C& >(p);
+        		std::cout << "C" << std::endl;
+        		(void)c;
+				return ;
+			}
+			catch ( std::exception & e ) {	
+			}
+			 B& b = dynamic_cast< B& >(p);
+        	std::cout << "B" << std::endl;
+        	(void)b;
+		}
+		catch ( std::exception & e ) {
+		}
         A& a = dynamic_cast< A& >(p);
         std::cout << "A" << std::endl;
         (void)a;
-    } catch	(const std::exception& e) {
 	}
-	
-    try {
-        B& b = dynamic_cast< B& >(p);
-        std::cout << "B" << std::endl;
-        (void)b;
-    } catch	( const std::exception& e ) {
-	}
-
-    try {
-        C& c = dynamic_cast< C& >(p);
-        std::cout << "C" << std::endl;
-        (void)c;
-    } catch	( const std::exception& e ) {
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
 	}
 }

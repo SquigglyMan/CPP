@@ -6,7 +6,7 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 05:55:18 by llarue            #+#    #+#              #
-#    Updated: 2024/05/06 09:03:09 by llarue           ###   ########.fr        #
+#    Updated: 2024/09/13 14:25:36 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,7 @@ DEPS_FLAGS	=	-MMD -MF
 
 MAIN		=	main.cpp
 
-SRCS		=	A.cpp		\
-				B.cpp		\
-				C.cpp		\
-				Base.cpp
+SRCS		=	Base.cpp
 
 OBJS		=	$(MAIN:.cpp=.o)	\
 				$(SRCS:.cpp=.o)
