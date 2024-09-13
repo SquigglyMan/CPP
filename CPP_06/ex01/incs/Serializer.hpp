@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 11:26:36 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/05 12:04:39 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/13 13:51:27 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define YELLOW			"\e[38;5;226m"
 # define CYAN			"\e[38;5;51m"
 # define BROWN			"\e[38;5;130m"
+# define MAGENTA		"\e[38;5;127m"
 
 class Serializer {
 	private:

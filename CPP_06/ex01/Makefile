@@ -6,7 +6,7 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 05:55:18 by llarue            #+#    #+#              #
-#    Updated: 2024/05/04 11:28:15 by llarue           ###   ########.fr        #
+#    Updated: 2024/09/13 13:42:27 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ DEPS_FLAGS	=	-MMD -MF
 
 MAIN		=	main.cpp
 
-SRCS		=	Serializer.cpp
+SRCS		=	Serializer.cpp \
+				Data.cpp
 
 OBJS		=	$(MAIN:.cpp=.o)	\
 				$(SRCS:.cpp=.o)
