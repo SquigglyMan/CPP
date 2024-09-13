@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 05:56:05 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/09 09:23:29 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/13 16:36:47 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
+# include <string>
+# include <cstdlib>
 
 # define COLOR_RESET	"\e[0m"
 # define ORANGE			"\e[38;5;215m"
@@ -36,7 +38,7 @@ class ScalarConverter {
 	public:
 		~ScalarConverter( void );
 
-		static void	convert( std::string const & literal );
+		static void	convert( std::string const & av );
 };
 
 #endif
