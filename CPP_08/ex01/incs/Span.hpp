@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:10:14 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/10 16:36:13 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/12 13:38:50 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ class Span {
 		
 		unsigned int	shortestSpan( void );
 		unsigned int	longestSpan( void );
+
+		class TooManyElementsException : public std::exception {
+			const char*	what() const throw();	
+		};
 };
 
 #endif

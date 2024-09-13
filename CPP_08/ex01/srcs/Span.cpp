@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:10:10 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/10 16:36:18 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/12 13:38:35 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,8 @@ unsigned int	Span::shortestSpan( void ) {
 
 unsigned int	Span::longestSpan( void ) {
 	return (0);
+}
+
+const char*	Span::TooManyElementsException::what() const throw() {
+	return ("Too many elements");
 }
