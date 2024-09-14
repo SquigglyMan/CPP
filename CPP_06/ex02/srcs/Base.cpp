@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 12:27:02 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/13 15:21:58 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/14 11:50:12 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	identify( Base& p ) {
 			 B& b = dynamic_cast< B& >(p);
         	std::cout << "B" << std::endl;
         	(void)b;
+			return ;
 		}
 		catch ( std::exception & e ) {
 		}
