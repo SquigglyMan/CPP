@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:57:08 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/18 10:42:47 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/14 10:35:38 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 template<typename T>
 class Array {
 	private:
-		T				*array;
-		unsigned int	arraySize;
+		T				*_array;
+		unsigned int	_arraySize;
 	
 	public:
 		Array( void );

@@ -6,15 +6,14 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:49:30 by llarue            #+#    #+#             */
-/*   Updated: 2024/05/18 10:43:34 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/14 10:35:57 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template<typename T>
-Array<T>::Array( void ) {
+Array<T>::Array( void ) : _arraySize(0) {
 	std::cout << ORANGE << "Array default constructor" << COLOR_RESET << std::endl;
-	array = new T[0];
-	arraySize = 0;
+	_array = new T[0];
 }
 
 template<typename T>
@@ -26,16 +25,16 @@ Array<T>::Array( Array const & src ) {
 template<typename T>
 Array<T>::Array( unsigned int n ) {
 	std::cout << PURPLE << "Array parameter constructor" << COLOR_RESET << std::endl;
-	array = new T[n];
-	arraySize = n;
-	for (unsigned int i = 0; i < arraySize; i++)
-		array[i] = 0;
+	_array = new T[n];
+	_arraySize = n;
+	for (unsigned int i = 0; i < _arraySize; i++)
+		_array[i] = 0;
 }
 
 template<typename T>
 Array<T>::~Array( void ) {
 	std::cout << ORANGE << "Array default destructor" << COLOR_RESET << std::endl;
-	delete[] (array);
+	delete[] (_array);
 }
 
 template<typename T>
@@ -49,12 +48,12 @@ Array<T>	&Array<T>::operator=( Array const & src ) {
 
 template<typename T>
 T	&Array<T>::operator[]( unsigned int index ) {
-	if (index >= arraySize) 
+	if (index >= _arraySize) 
 		throw (std::out_of_range("Index out of range"));
-	return (array[index]);
+	return (_array[index]);
 }
 
 template<typename T>
 unsigned int	Array<T>::size( void ) const {
-	return (arraySize);
+	return (_arraySize);
 }
