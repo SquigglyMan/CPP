@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 05:56:06 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/13 16:44:56 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/14 10:09:23 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,66 +31,131 @@ ScalarConverter	&ScalarConverter::operator=( ScalarConverter const & src ) {
 	return (*this);
 }
 
-void ScalarConverter::convert( std::string const & av ) {
-	std::string	limits[6] = { "-inff", "+inff", "nanf", "-inf", "+inf", "nan" };
+void ScalarConverter::convert( std::string const & literal ) {
+	std::string	pseudoLiteral[12] = { "inff", "-inff", "+inff", "inf", "-inf", "+inf", "nan", "nanf", "-nan", "-nanf", "+nan", "+nanf" };
+
 	std::string	toChar = "";
-	int			toInt = 0;
+	int			i = 0;
 	float		toFloat = 0;
 	double		toDouble = 0;
 
-	if (av.size() == 1 && std::isprint(av[0]) && !std::isdigit(av[0])) {
-		toChar = av[0];
-		std::cout << "char: " << toChar << std::endl;
-		std::cout << "int: " << static_cast<int>(toChar[0]) << std::endl;
-		std::cout << "float: " << static_cast<float>(toChar[0]) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(toChar[0]) << std::endl;
-		return ;
-	}
-	
-	toInt = std::atoi(av.c_str());
+	bool		isScalar = false;
 
-	if (av[av.length() - 1] == 'f') {
-		toFloat = std::atof(av.c_str());
-		toDouble = static_cast<double>(toFloat);
+	try {
+		if (literal.length() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0])) {
+			std::cout << "char: " << static_cast<char>( literal[0] ) << std::endl;
+			std::cout << "int: " << static_cast<int>( literal[0] ) << std::endl;
+			std::cout << "float: " << static_cast<float>( literal[0] ) << ".0f" << std::endl;
+			std::cout << "double: " << static_cast<double>( literal[0] ) << ".0" << std::endl;
+			return ;
+		}
 	}
-	else {
-		toDouble = std::atof(av.c_str());
-		toFloat = static_cast<float>(toDouble);
+	catch ( std::exception & e ) {
+		std::cout << "what(): " << e.what() << std::endl;
 	}
-	
-	for (int i = 0; i < 6; i++) {
-		if (!av.compare(limits[i])) {
-			toChar = "impossible";
+
+	isScalar = isOnlyDigits( literal );
+		
+	for ( i = 0; i < 12; i++ )  {
+		if ( literal == pseudoLiteral[i] ) {
+			isScalar = true;
 			break ;
 		}
 	}
-	
-	if (toChar == "" && (toInt >= 32 && toInt <= 126)) {
-		toChar = "'";
-		toChar += static_cast<char>(toInt);
-		toChar += "'";
-	}
-	else if (toChar == "")
-		toChar = "Non displayable";
 
-	std::cout << "char: " << toChar << std::endl;
-	if (toChar == "Non displayable" || toChar == "impossible")
+	if ( !isScalar ) {
+		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << toInt << std::endl;
-	
-	if ((toChar == "Non displayable" || toChar == "impossible") && toFloat == 0) {
 		std::cout << "float: impossible" << std::endl;
 		std::cout << "double: impossible" << std::endl;
+		return ;
 	}
-	else {
-		if (toChar != "Non displayable" && toFloat - static_cast<int>(toFloat) == 0) {
-			std::cout << "float: " << toFloat << ".0f" << std::endl;
-			std::cout << "double: " << toDouble << ".0" << std::endl;
+
+	toDouble = std::strtod( literal.c_str(), NULL );
+
+	try {
+		if ( toDouble >= 32 && toDouble <= 126 && toChar == "" ) {
+			toChar = "'";
+			toChar += static_cast< char >( toDouble );
+			toChar += "'";
+		}
+		else if ( i < 12 || toDouble < 0 || toDouble > 127 )
+			toChar = "impossible";
+		else
+			toChar = "Non displayable";
+	}
+	catch ( std::exception & e ) {
+		std::cout << "what(): " << e.what() << std::endl;
+	}
+
+	try {
+		toFloat = static_cast< float > ( toDouble );
+	}
+	catch ( std::exception & e ) {
+		std::cout << "what(): " << e.what() << std::endl;
+	}
+	
+	try {
+		if ( toDouble > std::numeric_limits< int >::max() || toDouble < std::numeric_limits< int >::min() || i < 12 ) {
+			std::cout << "char: " << toChar << std::endl;
+			std::cout << "int: impossible" << std::endl;
 		}
 		else {
-			std::cout << "float: " << toFloat << "f" << std::endl;
-			std::cout << "double: " << toDouble << std::endl;
+			std::cout << "char: " << toChar << std::endl;
+			std::cout << "int: " << static_cast< int >( toDouble ) << std::endl;
 		}
 	}
+	catch ( std::exception & e ) {
+		std::cout << "what(): " << e.what() << std::endl;
+	}
+
+	try {
+		if ( toFloat == std::numeric_limits< float >::infinity() )
+			std::cout << "float: " << toFloat << "f" << std::endl;
+		else if ( toFloat == -std::numeric_limits< float >::infinity() )
+			std::cout << "float: " << toFloat << "f" << std::endl;
+		else if ( toFloat - static_cast<int>(toFloat) == 0 )
+			std::cout << "float: " << toFloat << ".0f" << std::endl;
+		else
+			std::cout << "float: " << toFloat << "f" << std::endl;
+	}
+	catch ( std::exception & e ) {
+		std::cout << "what(): " << e.what() << std::endl;
+	}
+
+	try {
+		if ( toDouble == std::numeric_limits< double >::infinity() )
+			std::cout << "double: " << toDouble << std::endl;
+		else if ( toDouble == -std::numeric_limits< double >::infinity() )
+			std::cout << "double: " << toDouble << std::endl;
+		else if ( toFloat - static_cast<int>(toFloat) == 0)
+			std::cout << "double: " << toDouble << ".0" << std::endl;
+		else
+			std::cout << "double: " << toDouble << std::endl;
+	}
+	catch ( std::exception & e ) {
+		std::cout << "what(): " << e.what() << std::endl;
+	}
+}
+
+bool	isOnlyDigits( std::string literal )
+{
+	bool	error = false;
+	size_t	i = 0;
+
+	if (literal[0] == '+' || literal[0] == '-' )
+		i++;
+	while ( i < literal.length() - 1 )
+	{
+		if ( !isdigit(literal[i]) && literal[i] != '.' )
+			return ( false );
+		if ( literal[i] == '.' && !error )
+			error = true;
+		else if ( literal[i] == '.' && error )
+			return (false);
+		i++;
+	}
+	if ( !isdigit( literal[i] ) && literal[i] != 'f' )
+		return ( false );
+	return ( true );
 }

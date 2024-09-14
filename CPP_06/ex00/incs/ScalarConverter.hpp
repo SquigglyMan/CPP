@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 05:56:05 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/13 16:36:47 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/14 09:19:22 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <limits>
 
 # define COLOR_RESET	"\e[0m"
 # define ORANGE			"\e[38;5;215m"
@@ -40,5 +41,7 @@ class ScalarConverter {
 
 		static void	convert( std::string const & av );
 };
+
+bool	isOnlyDigits( std::string literal );
 
 #endif
