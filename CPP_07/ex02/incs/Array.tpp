@@ -6,9 +6,11 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:49:30 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/14 10:35:57 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/14 15:04:14 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Array.hpp"
 
 template<typename T>
 Array<T>::Array( void ) : _arraySize(0) {
@@ -17,8 +19,9 @@ Array<T>::Array( void ) : _arraySize(0) {
 }
 
 template<typename T>
-Array<T>::Array( Array const & src ) {
+Array<T>::Array( Array const & src ) : _arraySize(0) {
 	std::cout << BLUE << "Array copy constructor" << COLOR_RESET << std::endl;
+	_array = new T[0];
 	*this = src;
 }
 
@@ -41,7 +44,8 @@ template<typename T>
 Array<T>	&Array<T>::operator=( Array const & src ) {
 	std::cout << GREEN << "Array copy assignment operator" << COLOR_RESET << std::endl;
 	if (this != &src) {
-		this->elements = src->elements;
+		for (unsigned int i = 0; i < this->_arraySize; i++)
+				this->_array[i] = src._array[i];
 	}
 	return (*this);
 }

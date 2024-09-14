@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:57:08 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/14 10:35:38 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/14 14:19:17 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define GREEN			"\e[38;5;48m"
 # define YELLOW			"\e[38;5;226m"
 # define CYAN			"\e[38;5;51m"
+# define BROWN			"\e[38;5;130m"
+# define MAGENTA		"\e[38;5;127m"
 
 template<typename T>
 class Array {
