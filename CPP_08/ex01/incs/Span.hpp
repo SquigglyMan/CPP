@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:10:14 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/12 13:38:50 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/17 11:29:11 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <algorithm>
+# include <list>
 
 # define COLOR_RESET	"\e[0m"
 # define ORANGE			"\e[38;5;215m"
@@ -28,6 +30,7 @@
 class Span {
 	private:
 		unsigned int	_N;
+		std::list<int>	_span;
 
 	public:
 		Span( void );
@@ -42,8 +45,18 @@ class Span {
 		unsigned int	shortestSpan( void );
 		unsigned int	longestSpan( void );
 
-		class TooManyElementsException : public std::exception {
-			const char*	what() const throw();	
+		class ISpanException : public std::exception {
+			public:
+				virtual const char* what() const throw() = 0;
+		};
+		class TooManyElementsException : public ISpanException {
+			public:
+				const char*	what() const throw();	
+		};
+
+		class NotEnoughElementsException : public	ISpanException {
+			public:
+				const char*	what() const throw();
 		};
 };
 
