@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:09:43 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/18 17:39:27 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/18 21:51:27 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,7 +216,7 @@ int	main( void )
 		
 		srand(time(NULL));
 
-		unsigned int	spanSize = rand() % 20000;
+		unsigned int	spanSize = rand() % 50000;
 		Span	sp(spanSize);
 
 		std::cout << "\t" << "Span created with " << spanSize << " elements" << std::endl << std::endl;
@@ -238,7 +238,7 @@ int	main( void )
 		
 		srand(time(NULL));
 
-		std::list<int>	list(20000);
+		std::list<int>	list(50000);
 		std::generate( list.begin(), list.end(), std::rand);
 		
 		Span	sp(list.size());
