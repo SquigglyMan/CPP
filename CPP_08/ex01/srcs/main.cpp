@@ -6,9 +6,12 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:09:43 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/17 11:54:50 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/18 17:39:27 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <cstdlib>
+#include <climits>
 
 #include "Span.hpp"
 
@@ -183,5 +186,74 @@ int	main( void )
 		}
 		
 	}
+	std::cout << "}" << std::endl;
+	{
+		std::cout << MAGENTA << "----- Span with 10 000+ elements -----" << COLOR_RESET << std::endl;
+
+		std::cout << "{" << std::endl;
+		
+		srand(time(NULL));
+
+		unsigned int	spanSize = rand() % 20000;
+		Span	sp(spanSize);
+
+		std::cout << "\t" << "Span created with " << spanSize << " elements" << std::endl << std::endl;
+
+		for (unsigned int i = 0; i < spanSize; i++)  {
+			sp.addNumber(rand());
+		}
+		
+		std::cout << std::endl;
+
+		std::cout << "Shortest span : " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span : " << sp.longestSpan() << std::endl;
+	}
+	std::cout << "}" << std::endl;
+	{
+		std::cout << MAGENTA << "----- Span with 10 000+ elements -----" << COLOR_RESET << std::endl;
+
+		std::cout << "{" << std::endl;
+		
+		srand(time(NULL));
+
+		unsigned int	spanSize = rand() % 20000;
+		Span	sp(spanSize);
+
+		std::cout << "\t" << "Span created with " << spanSize << " elements" << std::endl << std::endl;
+
+		for (unsigned int i = 0; i < spanSize; i++)  {
+			sp.addNumber(rand());
+		}
+		
+		std::cout << std::endl;
+
+		std::cout << "Shortest span : " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span : " << sp.longestSpan() << std::endl;
+	}
+	std::cout << "}" << std::endl;
+	{
+		std::cout << MAGENTA << "----- Improved add number -----" << COLOR_RESET << std::endl;
+
+		std::cout << "{" << std::endl;
+		
+		srand(time(NULL));
+
+		std::list<int>	list(20000);
+		std::generate( list.begin(), list.end(), std::rand);
+		
+		Span	sp(list.size());
+
+		std::cout << "\t" << "Span created with " << list.size() << " elements" << std::endl << std::endl;
+
+		std::cout << "\t" << "Improved add number using lists" << std::endl;
+
+		sp.addNumber(list.begin(), list.end());
+		
+		std::cout << std::endl;
+
+		std::cout << "Shortest span : " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span : " << sp.longestSpan() << std::endl;
+	}
+	std::cout << "}" << std::endl;
 	return (0);
 }

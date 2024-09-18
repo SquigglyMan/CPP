@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:10:14 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/17 11:29:11 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/17 18:28:25 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class Span {
 		Span	&operator=( const Span & src );
 
 		void	addNumber( int n );
+		void	addNumber( std::list<int>::const_iterator, std::list<int>::const_iterator );
 		
 		unsigned int	shortestSpan( void );
 		unsigned int	longestSpan( void );

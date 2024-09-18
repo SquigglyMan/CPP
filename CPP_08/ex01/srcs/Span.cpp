@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:10:10 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/17 11:37:03 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/18 17:40:57 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,39 @@ void	Span::addNumber( int n ) {
 	if ((_span.size() + 1) > _N)
 		throw (Span::TooManyElementsException());
 	_span.push_back(n);
-	_span.sort();
+	// _span.sort();
+}
+
+void	Span::addNumber( std::list<int>::const_iterator itBegin, std::list<int>::const_iterator itEnd ) {
+	if (_span.size() > _N )
+		throw (Span::NotEnoughElementsException());
+	_span.insert(_span.end(), itBegin, itEnd);
 }
 
 unsigned int	Span::shortestSpan( void ) {
 	if (_span.empty() || _span.size() == 1)
 		throw (Span::NotEnoughElementsException());
-	std::list<int>::iterator i = _span.begin();
-	return (*(++i) - _span.front());
+	// std::list<int>::iterator i = _span.begin();
+	// return (*(++i) - _span.front());
+
+	int	min = *std::max_element(_span.begin(), _span.end());
+	int	secondMin = *std::max_element(_span.begin(), _span.end());
+	
+	for (std::list<int>::iterator i = _span.begin(); i != _span.end(); i++) {
+		if (*i < min) {
+			secondMin = min;
+			min = *i;
+		}
+		else if (*i < secondMin && *i != min)
+			secondMin = *i;
+	}
+	return (std::abs(secondMin - min));
 }
 
 unsigned int	Span::longestSpan( void ) {
 	if (_span.empty() || _span.size() == 1)
 		throw(Span::NotEnoughElementsException());
-	std::list<int>::iterator i = _span.begin();
-	return (_span.back() - *i);
+	return (*std::max_element(_span.begin(), _span.end()) - *std::min_element(_span.begin(), _span.end()));
 }
 
 const char*	Span::TooManyElementsException::what() const throw() {
