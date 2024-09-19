@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:10:14 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/17 18:28:25 by llarue           ###   ########.fr       */
+/*   Updated: 2024/09/18 23:27:48 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Span {
 	private:
 		unsigned int	_N;
 		std::list<int>	_span;
+		bool			_isSorted;
 
 	public:
 		Span( void );
