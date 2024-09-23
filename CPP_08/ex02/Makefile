@@ -6,11 +6,11 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 10:54:39 by llarue            #+#    #+#              #
-#    Updated: 2024/05/18 11:03:34 by llarue           ###   ########.fr        #
+#    Updated: 2024/09/21 09:52:00 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	easyfind
+NAME		=	MutantStack
 
 ############
 # COMPILER #
