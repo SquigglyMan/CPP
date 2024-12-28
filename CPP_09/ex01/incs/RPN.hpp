@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:24:22 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/24 18:26:21 by llarue           ###   ########.fr       */
+/*   Updated: 2024/12/28 11:42:28 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define RPN_HPP
 
 # include <iostream>
+# include <stack>
+# include <cstdlib>
 
 # define COLOR_RESET	"\e[0m"
 # define ORANGE			"\e[38;5;215m"
@@ -25,13 +27,20 @@
 # define CYAN			"\e[38;5;51m"
 # define MAGENTA		"\e[38;5;127m"
 
-class RPN {
+class RPN : public std::stack<int> {
 	public:
 		RPN( void );
 		RPN( RPN const & src );
 		~RPN( void );
 
-		RPN &opertor=( RPN const & src );
+		RPN &operator=( RPN const & src );
+
+		/* Operations */
+		bool	calculate( char input );
+		void	add( int a, int b );
+		void	sub( int a, int b );
+		void	mul( int a, int b );
+		void	div( int a, int b );
 };
 
 #endif
