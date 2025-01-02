@@ -6,11 +6,11 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 10:54:39 by llarue            #+#    #+#              #
-#    Updated: 2024/09/21 09:52:00 by llarue           ###   ########.fr        #
+#    Updated: 2024/12/28 13:24:48 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	MutantStack
+NAME		=	PmergeMe
 
 ############
 # COMPILER #
@@ -32,7 +32,7 @@ DEPS_FLAGS	=	-MMD -MF
 
 MAIN		=	main.cpp
 
-SRCS		=
+SRCS		=	PmergeMe.cpp
 
 OBJS		=	$(MAIN:.cpp=.o)	\
 				$(SRCS:.cpp=.o)
