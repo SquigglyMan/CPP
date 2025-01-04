@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:30:15 by llarue            #+#    #+#             */
-/*   Updated: 2025/01/04 18:05:54 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/04 18:35:15 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,19 @@ BitcoinExchange::BitcoinExchange( void ) : _validDataFile(false), _validInputFil
 
 		string	date = strTrim(line.substr(0, pos));
 		if (!validDataDate(date))
-			break ;
+			continue; ;
 		string	exchangeRate = strTrim(line.substr(pos + 1, line.length()));
 		if (!validExchangeRate(exchangeRate))
-			break ;
+			continue; ;
 
 		_data[date] = exchangeRate;
 	}
 
 	this->_validDataFile = true;
+	if (_data.empty()) {
+		std::cout << "Error: data file has no valid entries" << std::endl;
+		_validDataFile = false;
+	}
 	data.close();
 }
 
@@ -130,8 +134,9 @@ void	BitcoinExchange::validInputFile( const string & inputFilename) {
 		{
 			if (validFileValue(value)) {
 				std::map< string, string >::iterator lowerDate = _data.lower_bound(date);
-				if (lowerDate->first > date && lowerDate != _data.begin())
+				if (/*lowerDate->first > date &&*/ lowerDate != _data.begin())
 					--lowerDate;
+				std::cout << "lowerDate->first: " << lowerDate->first << std::endl;
 				std::cout << date << " => " << value << " = " << strtod(lowerDate->second.c_str(), NULL) * strtod(value.c_str(), NULL) << std::endl;
 			}
 		}
@@ -145,7 +150,7 @@ bool	validDataDate( string date ) {
 	double	year = strtod(date.c_str(), NULL);
 	
 	if (year < 2009 || year > 2024)
-		return (std::cout << "Error: Data file contains invalid year" << std::endl, false);
+		return (std::cout << "Error: data file contains invalid year" << std::endl, false);
 
 	size_t	first = date.find_first_of('-');
 	size_t	last = date.find_last_of('-');
@@ -153,12 +158,12 @@ bool	validDataDate( string date ) {
 	double	month = strtod((date.substr(first + 1, last)).c_str(), NULL);
 
 	if (month < 1 || month > 12)
-		return (std::cout << "Error: Data file contains invalid month" << std::endl, false);
+		return (std::cout << "Error: data file contains invalid month" << std::endl, false);
 
 	double	day = strtod(date.substr(last + 1, date.length()).c_str(), NULL);
 
 	if (day < 1 || day > 31)
-		return (std::cout << "Error: Data file contains invalid day" << std::endl, false);
+		return (std::cout << "Error: data file contains invalid day" << std::endl, false);
 	return (true);
 }
 
@@ -166,7 +171,7 @@ bool	validExchangeRate( string exchangeRate ) {
 	double	value = strtod(exchangeRate.c_str(), NULL);
 
 	if (value < 0)
-		return (std::cout << "Error: Data file contains invalid exchange rate" << std::endl, false);
+		return (std::cout << "Error: data file contains invalid exchange rate" << std::endl, false);
 	return (true);
 }
 
@@ -174,7 +179,8 @@ bool	validFileDate( string date ) {
 	double	year = strtod(date.c_str(), NULL);
 	
 	if (year < 2009 || year > 2024)
-		return (false);
+		return (std::cout << "Error: Invalid input date" << std::endl, false);
+
 
 	size_t	first = date.find_first_of('-');
 	size_t	last = date.find_last_of('-');
@@ -182,12 +188,14 @@ bool	validFileDate( string date ) {
 	double	month = strtod((date.substr(first + 1, last)).c_str(), NULL);
 
 	if (month < 1 || month > 12)
-		return (false);
+		return (std::cout << "Error: Invalid input date" << std::endl, false);
+
 
 	double	day = strtod(date.substr(last + 1, date.length()).c_str(), NULL);
 
 	if (day < 1 || day > 31)
-		return (false);
+		return (std::cout << "Error: Invalid input date" << std::endl, false);
+
 	return (true);
 }
 

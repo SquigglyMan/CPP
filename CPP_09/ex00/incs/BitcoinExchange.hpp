@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:29:09 by llarue            #+#    #+#             */
-/*   Updated: 2025/01/04 17:15:36 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/04 18:24:41 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ class BitcoinExchange {
 
 		void	execute( const string & inputFilename );
 		bool	getValidDataStatus( void );
+
+	class IBitcoinExchangeException : public std::exception {
+		public:
+			virtual const char	*what() const throw() = 0;
+	};
+
+	class InvalidDataFileException : public IBitcoinExchangeException {
+		public:
+			virtual const char	*what() const throw();
+	};
 };
 
 bool	validDataDate( string date );
