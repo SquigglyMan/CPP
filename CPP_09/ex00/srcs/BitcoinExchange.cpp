@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:30:15 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/25 17:17:43 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/04 18:05:54 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	BitcoinExchange::validInputFile( const string & inputFilename) {
 	
 	if (!inputFile.is_open())
 	{
-		std::cout << "Error: input file does not exist" << std::endl;
+		std::cout << "Error: could not open file" << std::endl;
 		return ;
 	}
 
@@ -128,8 +128,12 @@ void	BitcoinExchange::validInputFile( const string & inputFilename) {
 
 		if(validFileDate(date))
 		{
-			if (validFileValue(value))
-				std::cout << date << " => " << _data[date] << " = " << strtod(_data[date].c_str(), NULL) * strtod(value.c_str(), NULL) << std::endl;
+			if (validFileValue(value)) {
+				std::map< string, string >::iterator lowerDate = _data.lower_bound(date);
+				if (lowerDate->first > date && lowerDate != _data.begin())
+					--lowerDate;
+				std::cout << date << " => " << value << " = " << strtod(lowerDate->second.c_str(), NULL) * strtod(value.c_str(), NULL) << std::endl;
+			}
 		}
 		
 	}
