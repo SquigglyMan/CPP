@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:30:15 by llarue            #+#    #+#             */
-/*   Updated: 2025/01/04 18:35:15 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/06 16:10:50 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ BitcoinExchange::BitcoinExchange( void ) : _validDataFile(false), _validInputFil
 	}
 	while(std::getline(data, line))
 	{
+		if (line == "\n")
+			continue;
 		string::size_type pos = line.find(',');
 
 		string	date = strTrim(line.substr(0, pos));
@@ -134,7 +136,7 @@ void	BitcoinExchange::validInputFile( const string & inputFilename) {
 		{
 			if (validFileValue(value)) {
 				std::map< string, string >::iterator lowerDate = _data.lower_bound(date);
-				if (/*lowerDate->first > date &&*/ lowerDate != _data.begin())
+				if (lowerDate == _data.end() || (lowerDate->first > date && lowerDate != _data.begin()))
 					--lowerDate;
 				std::cout << "lowerDate->first: " << lowerDate->first << std::endl;
 				std::cout << date << " => " << value << " = " << strtod(lowerDate->second.c_str(), NULL) * strtod(value.c_str(), NULL) << std::endl;
@@ -148,8 +150,7 @@ void	BitcoinExchange::validInputFile( const string & inputFilename) {
 
 bool	validDataDate( string date ) {
 	double	year = strtod(date.c_str(), NULL);
-	
-	if (year < 2009 || year > 2024)
+	if (year < 2009 || year > 2024) 
 		return (std::cout << "Error: data file contains invalid year" << std::endl, false);
 
 	size_t	first = date.find_first_of('-');
@@ -162,6 +163,12 @@ bool	validDataDate( string date ) {
 
 	double	day = strtod(date.substr(last + 1, date.length()).c_str(), NULL);
 
+	if (month == 2 && (day < 1 || day > 28))
+		return (std::cout << "Error: Invalid data file: February only has 28 days during an ordinary year" << std::endl, false);
+		
+	else if ((year == 2000 || year == 2004 || year == 2008 || year == 2012 || year == 2016 || year == 2020 || year == 2024) && month == 2 && (day < 1 || day > 29))
+		return (std::cout << "Error: Invalid data file: February only has 29 days during a leap year" << std::endl, false);
+		
 	if (day < 1 || day > 31)
 		return (std::cout << "Error: data file contains invalid day" << std::endl, false);
 	return (true);
@@ -190,10 +197,15 @@ bool	validFileDate( string date ) {
 	if (month < 1 || month > 12)
 		return (std::cout << "Error: Invalid input date" << std::endl, false);
 
-
 	double	day = strtod(date.substr(last + 1, date.length()).c_str(), NULL);
 
-	if (day < 1 || day > 31)
+	if (month == 2 && (day < 1 || day > 28))
+		return (std::cout << "Error: Invalid input date: February only has 28 days during an ordinary year" << std::endl, false);
+		
+	else if ((year == 2000 || year == 2004 || year == 2008 || year == 2012 || year == 2016 || year == 2020 || year == 2024) && month == 2 && (day < 1 || day > 29))
+		return (std::cout << "Error: Invalid input date: February only has 29 days during a leap year" << std::endl, false);
+	
+	else if (day < 1 || day > 31)
 		return (std::cout << "Error: Invalid input date" << std::endl, false);
 
 	return (true);
