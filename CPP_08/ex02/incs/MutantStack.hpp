@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:10:05 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/21 09:55:13 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/12 19:27:30 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define MAGENTA		"\e[38;5;127m"
 
 template< typename T >
-class MutantStack : public std::stack< T, std::deque<T> > {
+class MutantStack : public std::stack< T > {
 	public:
 		MutantStack( void );
 		MutantStack( const MutantStack & src );
@@ -37,9 +37,12 @@ class MutantStack : public std::stack< T, std::deque<T> > {
 		MutantStack &operator=( const MutantStack & src );
 
 		typedef typename std::stack<T>::container_type::iterator	iterator;
+		typedef typename std::stack<T>::container_type::const_iterator	const_iterator;
 
 		iterator	begin( void );
 		iterator	end( void );
+		iterator	cbegin( void );
+		iterator	cend( void );
 };
 
 #include "MutantStack.tpp"
