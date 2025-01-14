@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:10:24 by llarue            #+#    #+#             */
-/*   Updated: 2025/01/13 17:39:38 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/14 18:07:22 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main( void )
 		list.push_back(5);
 		list.push_back(17);
 
-		std::cout << "\t" << "List Top : " << list.front() << std::endl;
+		std::cout << "\t" << "List Top : " << list.back() << std::endl;
 
 		std::cout << "\t" << "List size before pop : " << list.size() << std::endl;
 		list.pop_back();
@@ -86,6 +86,7 @@ int	main( void )
 			++it;
 		}
 	}
+	std::cout << "}" << std::endl;
 	
 	return (0);
 }

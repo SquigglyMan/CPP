@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 10:55:08 by llarue            #+#    #+#             */
-/*   Updated: 2025/01/13 17:44:09 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/14 18:07:33 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main( void )
 	{
 		std::cout << MAGENTA << "----- Main ------" << COLOR_RESET << std::endl;
 
-		std::cout << "{" << std::endl << std::endl;
+		std::cout << "{" << std::endl;
 		
 		int	container[] = {324, 131, 13, 324, 3653};
 
@@ -48,7 +48,7 @@ int	main( void )
 	{
 		std::cout << MAGENTA << "----- Conntainer with all same element ------" << COLOR_RESET << std::endl;
 
-		std::cout << "{" << std::endl << std::endl;
+		std::cout << "{" << std::endl;
 		
 		int	container[] = {13, 13, 13, 13, 13};
 
