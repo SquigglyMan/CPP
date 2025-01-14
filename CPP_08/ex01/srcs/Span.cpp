@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:10:10 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/18 23:29:41 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/12 19:23:35 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,6 @@ unsigned int	Span::shortestSpan( void ) {
 	}
 	std::list<int>::iterator i = _span.begin();
 	return (*(++i) - _span.front());
-
-	// int	min = *std::max_element(_span.begin(), _span.end());
-	// int	secondMin = *std::max_element(_span.begin(), _span.end());
-	
-	// for (std::list<int>::iterator i = _span.begin(); i != _span.end(); i++) {
-	// 	if (*i < min) {
-	// 		secondMin = min;
-	// 		min = *i;
-	// 	}
-	// 	else if (*i < secondMin && *i != min)
-	// 		secondMin = *i;
-	// }
-	// return (std::abs(secondMin - min));
 }
 
 unsigned int	Span::longestSpan( void ) {

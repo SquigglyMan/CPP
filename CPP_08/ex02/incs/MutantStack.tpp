@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:10:40 by llarue            #+#    #+#             */
-/*   Updated: 2025/01/14 16:25:17 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/14 16:29:04 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,14 @@ typename MutantStack< T >::iterator MutantStack< T >::begin( void ) {
 template< typename T >
 typename MutantStack< T >::iterator	MutantStack< T >::end( void ) {
 	return	(this->c.end());
+}
+
+template< typename T >
+typename MutantStack< T >::iterator	MutantStack< T >::cbegin( void ) {
+	return	(this->c.cbegin());
+}
+
+template< typename T >
+typename MutantStack< T >::iterator	MutantStack< T >::cend( void ) {
+	return	(this->c.cend());
 }
