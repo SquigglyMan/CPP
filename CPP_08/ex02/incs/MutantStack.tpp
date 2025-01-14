@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.cpp                                    :+:      :+:    :+:   */
+/*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:10:40 by llarue            #+#    #+#             */
-/*   Updated: 2024/09/21 09:09:42 by llarue           ###   ########.fr       */
+/*   Updated: 2025/01/14 16:25:17 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ MutantStack< T >::MutantStack( void ) {
 template< typename T >
 MutantStack< T >::MutantStack( const MutantStack & src ) {
 	std::cout << PURPLE << "MutantStack copy constructor" << COLOR_RESET << std::endl;
+	*this = src;
 }
 
 template< typename T >
