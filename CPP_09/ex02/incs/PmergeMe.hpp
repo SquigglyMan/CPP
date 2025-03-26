@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 12:39:34 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/26 14:54:22 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/26 15:19:42 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 # include <iomanip>
 # include <typeinfo>
 
-template <typename Container>
+template < typename Container >
 class PmergeMe {
 	
     Container container;
-	
+
 	public:
 	
         typedef typename Container::value_type ValueType;
@@ -38,27 +38,28 @@ class PmergeMe {
 		typename Container::iterator begin();
         typename Container::iterator end();
 
-        PmergeMe();
+        PmergeMe( void );
         PmergeMe( char **argv );
 		
-        void sort_time();
-        void sort();
-		
-    private:
+        void	sortTime( void );
+        void	sort( void );
+
+	private:
 	
-        time_t start_;
-        time_t end_;
+        time_t	start_;
+        time_t	end_;
 		
-        float time();
-        int Jacobsthal(int k);
-        size_t validStringCheck(std::string &str);    
-        void sort(Container &vec);
-        std::string container_type();
-        void insert(Container &main, Container &pend, ValueType odd, Container &left, Container &vec, bool is_odd, int order);
+        float	time( void );
+        int	Jacobsthal( int k );
+        size_t	validStringCheck( std::string &str );    
+        void	sort( Container &vec );
+        std::string	containerType( void );
+        void	insert( Container &main, Container &pend, ValueType odd, Container &left, Container &vec, bool is_odd, int order );
+
 };
 
-template <typename Container>
-std::ostream& operator<<(std::ostream &os, const PmergeMe<Container> &obj);
+template < typename Container >
+std::ostream& operator<<( std::ostream &os, const PmergeMe<Container> &obj );
 
 # include "PmergeMe.tpp"
 

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:51:36 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/26 14:54:36 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/26 15:17:27 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main( int argc, char **argv )
 {
-	if (argc < 2)
+	if ( argc < 2 )
 	{
 		std::cout << "Usage: ./PmergeMe [arguments to sort]" << std::endl;
-		return (1);
+		return ( 1 );
 	}
 
 	try {
@@ -30,8 +30,8 @@ int	main( int argc, char **argv )
 			vectorSequence.sort();
 			std::cout << "After : " << dequeSequence << std::endl;
 
-			dequeSequence.sort_time();
-			vectorSequence.sort_time();
+			dequeSequence.sortTime();
+			vectorSequence.sortTime();
 		}
 		else
 			throw "Too few arguments";
@@ -40,5 +40,5 @@ int	main( int argc, char **argv )
 		std::cerr << "Too few arguments" << std::endl;
 	}
 	
-	return (0);
+	return ( 0 );
 }

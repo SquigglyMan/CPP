@@ -6,24 +6,29 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 14:51:56 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/26 14:52:05 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/26 15:20:14 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 template < typename Container >
-typename Container::iterator PmergeMe<Container>::begin(){
+typename Container::iterator PmergeMe< Container >::begin(){
     return container.begin();
 }
 
 template < typename Container >
-typename Container::iterator PmergeMe<Container>::end(){
+typename Container::iterator PmergeMe< Container >::end(){
     return container.end();
 }
 
 template < typename Container >
-PmergeMe<Container>::PmergeMe( char **argv ){
+PmergeMe< Container >::PmergeMe( void ) {
+	std::cout << "Default constructor" << std::endl;
+}
+
+template < typename Container >
+PmergeMe< Container >::PmergeMe( char **argv ){
 	std::cout << " Parametric constructor" << std::endl;
     std::string args_string ;
     for (int i = 1 ;argv[i] ;i++){
@@ -43,7 +48,7 @@ PmergeMe<Container>::PmergeMe( char **argv ){
 }
 
 template < typename Container >
-size_t PmergeMe<Container>::validStringCheck(std::string &str){
+size_t PmergeMe< Container >::validStringCheck(std::string &str){
     int w = 0;
     for(int i = 0 ; str[i] != '\0' ; i++)
     {
@@ -61,17 +66,12 @@ size_t PmergeMe<Container>::validStringCheck(std::string &str){
 }
 
 template < typename Container >
-int PmergeMe<Container>::Jacobsthal(int k){
+int PmergeMe< Container >::Jacobsthal(int k){
     return round((pow(2, k + 1) + pow(-1, k)) / 3);
 }
 
 template < typename Container >
-PmergeMe<Container>::PmergeMe(){
-
-}
-
-template < typename Container >
-void PmergeMe<Container>::insert(Container &main, Container &pend, ValueType odd, Container &left, Container &vec, bool is_odd, int order) {
+void PmergeMe< Container >::insert(Container &main, Container &pend, ValueType odd, Container &left, Container &vec, bool is_odd, int order) {
     Iterator end;
     if (pend.size() == 1) {
         end = std::upper_bound(main.begin(), main.end(), *pend.begin());
@@ -115,12 +115,12 @@ void PmergeMe<Container>::insert(Container &main, Container &pend, ValueType odd
     vec = yaslam;
 }
 template < typename Container >
-void PmergeMe<Container>::sort(){
+void PmergeMe< Container >::sort(){
     sort(container);
 }
 
 template < typename Container >
-void PmergeMe<Container>::sort(Container &vec) {
+void PmergeMe< Container >::sort(Container &vec) {
     static int order = 1;
     if(order == 1)
         start_ = clock();
@@ -169,17 +169,17 @@ void PmergeMe<Container>::sort(Container &vec) {
 }
 
 template < typename Container >
-void PmergeMe<Container>::sort_time() {
+void PmergeMe< Container >::sortTime() {
     float elapsedTime = time();
-    std::cout << "Time to process a range of " << container.size() << " elements with " << container_type() << " : " << std::fixed << std::setprecision(6) << elapsedTime << " s" << std::endl;
+    std::cout << "Time to process a range of " << container.size() << " elements with " << containerType() << " : " << std::fixed << std::setprecision(6) << elapsedTime << " s" << std::endl;
 }
 template < typename Container >
-float PmergeMe<Container>::time() {
+float PmergeMe< Container >::time() {
     return static_cast<float>(end_ - start_) / CLOCKS_PER_SEC;
 }
 
 template < typename Container >
-std::string PmergeMe<Container>::container_type(){
+std::string PmergeMe< Container >::containerType(){
     if(typeid(container) == typeid(std::vector<typename Container::value_type>))
         return "std::vector";
     else if (typeid(container) == typeid(std::deque<typename Container::value_type>)){
@@ -191,7 +191,7 @@ std::string PmergeMe<Container>::container_type(){
 }
 
 template < typename Container >
-std::ostream& operator<<(std::ostream &os, PmergeMe<Container> &obj) {
+std::ostream& operator<<(std::ostream &os, PmergeMe< Container > &obj) {
         typename Container::iterator it;
         for (it = obj.begin(); it != obj.end(); ++it) {
             os << *it << " ";
