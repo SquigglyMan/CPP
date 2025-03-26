@@ -6,7 +6,7 @@
 #    By: llarue <llarue@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 10:54:39 by llarue            #+#    #+#              #
-#    Updated: 2024/12/28 13:24:48 by llarue           ###   ########.fr        #
+#    Updated: 2025/03/26 14:52:29 by llarue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ DEPS_FLAGS	=	-MMD -MF
 
 MAIN		=	main.cpp
 
-SRCS		=	PmergeMe.cpp
+SRCS		=	# PmergeMe.cpp
 
 OBJS		=	$(MAIN:.cpp=.o)	\
 				$(SRCS:.cpp=.o)
