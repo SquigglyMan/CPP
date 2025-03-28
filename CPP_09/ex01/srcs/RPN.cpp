@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:24:24 by llarue            #+#    #+#             */
-/*   Updated: 2024/12/28 11:44:37 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/28 19:35:31 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,15 @@ bool	RPN::calculate( char input ) {
 	void	(RPN::*operations[4])( int, int ) = { &RPN::add, &RPN::sub, &RPN::mul, &RPN::div };
 	for (int i = 0; i < 4; i++) {
 		if (input == "+-*/"[i]) {
+			if (input == '/' && a == 0) {
+				std::cerr << "Error: Division by zero" << std::endl;
+				return false;
+			}
 			(this->*operations[i])(a, b);
 			return true;
 			}
 	}
+	std::cerr << "Error" << std::endl;
 	return false;
 }
 

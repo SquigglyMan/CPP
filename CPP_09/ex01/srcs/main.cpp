@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:24:26 by llarue            #+#    #+#             */
-/*   Updated: 2024/12/28 11:45:09 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/28 19:35:39 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ int main( int argc, char **argv ) {
 			if (input[i] >=  '0' && input[i] <= '9') 
 				operations.push(input[i] - '0');
 			else if (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/') {
-				if (!operations.calculate(input[i])) {
-					std::cout << "Error" << std::endl;
+				if (!operations.calculate(input[i]))
 					return 1;
-				}
 			}
 			else if (!isspace(input[i]) && input[i] != '\0') {
 				std::cout << "Error" << std::endl;
