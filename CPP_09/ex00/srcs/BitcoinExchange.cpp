@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:30:15 by llarue            #+#    #+#             */
-/*   Updated: 2025/01/06 16:10:50 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/30 14:49:13 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ BitcoinExchange::BitcoinExchange( void ) : _validDataFile(false), _validInputFil
 	std::cout << ORANGE << "BitcoinExchange default constructor" << COLOR_RESET << std::endl;
 	
 	std::ifstream	data("data.csv");
-	// std::ifstream		data("fakeData.csv");
 	
 	if (!data.good())
 	{

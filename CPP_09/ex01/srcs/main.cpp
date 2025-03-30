@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:24:26 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/28 19:35:39 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/30 14:53:21 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int main( int argc, char **argv ) {
 					return 1;
 			}
 			else if (!isspace(input[i]) && input[i] != '\0') {
-				std::cout << "Error" << std::endl;
+				std::cerr << "Error: invalid character" << std::endl;
+
 				return 1;
 			}
 		}
@@ -37,6 +38,6 @@ int main( int argc, char **argv ) {
 			std::cout << operations.top() << std::endl;
 		return 0;
 	}
-	std::cout << ORANGE << "Usage: ./ex01 operations" << COLOR_RESET << std::endl;
+	std::cerr << ORANGE << "Usage: ./ex01 \"operations\"" << COLOR_RESET << std::endl;
 	return 1;
 }
