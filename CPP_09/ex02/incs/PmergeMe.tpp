@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 14:51:56 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/26 15:20:14 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/30 15:39:07 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,66 +29,67 @@ PmergeMe< Container >::PmergeMe( void ) {
 
 template < typename Container >
 PmergeMe< Container >::PmergeMe( char **argv ){
-	std::cout << " Parametric constructor" << std::endl;
-    std::string args_string ;
-    for (int i = 1 ;argv[i] ;i++){
-        args_string += argv[i] ;
+	std::cout << "Parametric constructor" << std::endl;
+    std::string inputString ;
+    for (int i = 1; argv[i]; i++){
+			inputString += argv[i] ;
         if(argv[i] != NULL)
-            args_string += " ";   
+            inputString += " ";   
     }
-    std::istringstream ss(args_string);
+    std::istringstream ss(inputString);
     ValueType  n;
     while(ss >> n){
-        if (std::find(container.begin(), container.end(), n) != container.end())
+        if ( std::find(container.begin(), container.end(), n) != container.end() ) {
             throw std::runtime_error("Duplicate value detected");
+		}
        container.push_back(n);
        }
-    if(container.size() != validStringCheck(args_string))
-        throw "Invalid input";
+    if(container.size() != validStringCheck(inputString))
+        throw ( std::invalid_argument( "Invalid input" ) );
 }
 
 template < typename Container >
 size_t PmergeMe< Container >::validStringCheck(std::string &str){
-    int w = 0;
-    for(int i = 0 ; str[i] != '\0' ; i++)
-    {
-        if(str[i] != ' ' && str[i] != '\0'){
-            w++;
-            while(str[i] != ' ' && str[i] != '\0')
-            {
+    int n = 0;
+    for( int i = 0 ; str[i] != '\0' ; i++ ) {
+        if(str[i] != ' ' && str[i] != '\0') {
+            n++;
+            while( str[i] != ' ' && str[i] != '\0' ) {
                 if(!std::isdigit( str[i]) && str[i] != '+')
-                    throw "Invalid input";
+					throw std::runtime_error("Invalid input");
+
                 i++;
             }
         }
     }
-    return w;
+    return n;
 }
 
 template < typename Container >
-int PmergeMe< Container >::Jacobsthal(int k){
+int PmergeMe< Container >::Jacobsthal(int k) {
     return round((pow(2, k + 1) + pow(-1, k)) / 3);
 }
 
 template < typename Container >
 void PmergeMe< Container >::insert(Container &main, Container &pend, ValueType odd, Container &left, Container &vec, bool is_odd, int order) {
     Iterator end;
-    if (pend.size() == 1) {
+    if ( pend.size() == 1 ) {
         end = std::upper_bound(main.begin(), main.end(), *pend.begin());
         main.insert(end, *pend.begin());
-    } else if (pend.size() > 1) {
+    } 
+	else if ( pend.size() > 1 ) {
         size_t jc = 3;
         size_t count = 0;
         size_t idx;
         size_t decrease;
         while (!pend.empty()) {
             idx = Jacobsthal(jc) - Jacobsthal(jc - 1);
-            if (idx > pend.size())
+            if ( idx > pend.size() )
                 idx = pend.size();
             decrease = 0;
             while (idx) {
                 end = main.begin();
-                if (Jacobsthal(jc + count) - decrease <= main.size())
+                if ( Jacobsthal(jc + count) - decrease <= main.size() )
                     end = main.begin() + Jacobsthal(jc + count) - decrease;
                 else 
                     end = main.end();
@@ -102,20 +103,20 @@ void PmergeMe< Container >::insert(Container &main, Container &pend, ValueType o
             jc++;
         }
     }
-    Container yaslam;
-    if (is_odd) {
+    Container temp;
+    if ( is_odd ) {
         end = std::upper_bound(main.begin(), main.end(), odd);
         main.insert(end, odd);
     }
     for (Iterator i = main.begin(); i != main.end(); i++) {
         Iterator it = std::find(vec.begin(), vec.end(), *i);
-        yaslam.insert(yaslam.end(), it - (order - 1), it + 1);
+        temp.insert(temp.end(), it - (order - 1), it + 1);
     }
-    yaslam.insert(yaslam.end(), left.begin(), left.end());
-    vec = yaslam;
+    temp.insert(temp.end(), left.begin(), left.end());
+    vec = temp;
 }
 template < typename Container >
-void PmergeMe< Container >::sort(){
+void PmergeMe< Container >::sort() {
     sort(container);
 }
 
@@ -125,14 +126,14 @@ void PmergeMe< Container >::sort(Container &vec) {
     if(order == 1)
         start_ = clock();
     int unit_size = vec.size() / order;
-    if (unit_size < 2) return;
+    if ( unit_size < 2 ) return;
 
     bool is_odd = unit_size % 2 == 1;
     Iterator start = vec.begin();
     Iterator end = vec.begin() + ((order * unit_size) - (is_odd * order));
 
     for (Iterator it = start; it < end; it += (order * 2)) {
-        if (*(it + (order - 1)) > *(it + ((order * 2) - 1))) {
+        if ( *(it + (order - 1)) > *(it + ((order * 2) - 1)) ) {
             for (int i = 0; i < order; i++) {
                 std::swap(*(it + i), *(it + i + order));
             }
@@ -157,11 +158,12 @@ void PmergeMe< Container >::sort(Container &vec) {
         main.push_back(*(it + order - 1));
     }
 
-    if (is_odd) odd = *(end + order - 1);
+    if ( is_odd ) 
+		odd = *(end + order - 1);
 
     left.insert(left.end(), end + (order * is_odd), vec.end());
 
-    if (is_odd || !pend.empty()) 
+    if ( is_odd || !pend.empty() ) 
         insert(main, pend, odd, left, vec, is_odd, order);
     if(order == 1)
         end_ = clock();
@@ -182,12 +184,12 @@ template < typename Container >
 std::string PmergeMe< Container >::containerType(){
     if(typeid(container) == typeid(std::vector<typename Container::value_type>))
         return "std::vector";
-    else if (typeid(container) == typeid(std::deque<typename Container::value_type>)){
+    else if ( typeid(container) == typeid(std::deque<typename Container::value_type>) ){
         return "std::deque";
-    }else if (typeid(container) == typeid(std::list<typename Container::value_type>)){
+    }else if ( typeid(container) == typeid(std::list<typename Container::value_type>) ){
         return "std::list";
     }
-    return "bad trip";
+    return "Error: Unknown container type";
 }
 
 template < typename Container >

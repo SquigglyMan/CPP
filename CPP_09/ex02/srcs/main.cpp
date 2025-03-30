@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:51:36 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/26 15:17:27 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/30 15:35:14 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ int	main( int argc, char **argv )
 			dequeSequence.sortTime();
 			vectorSequence.sortTime();
 		}
-		else
-			throw "Too few arguments";
 	}
-	catch( ... ) {
-		std::cerr << "Too few arguments" << std::endl;
+	catch ( std::exception &e ) {
+		std::cerr << "Error: " << e.what() << std::endl;
 	}
 	
 	return ( 0 );
