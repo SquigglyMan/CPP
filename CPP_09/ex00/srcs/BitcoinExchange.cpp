@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:30:15 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/30 14:49:13 by llarue           ###   ########.fr       */
+/*   Updated: 2025/03/31 11:54:26 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,6 @@ void	BitcoinExchange::validInputFile( const string & inputFilename) {
 				std::map< string, string >::iterator lowerDate = _data.lower_bound(date);
 				if (lowerDate == _data.end() || (lowerDate->first > date && lowerDate != _data.begin()))
 					--lowerDate;
-				std::cout << "lowerDate->first: " << lowerDate->first << std::endl;
 				std::cout << date << " => " << value << " = " << strtod(lowerDate->second.c_str(), NULL) * strtod(value.c_str(), NULL) << std::endl;
 			}
 		}
