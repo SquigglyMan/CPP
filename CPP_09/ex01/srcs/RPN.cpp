@@ -6,27 +6,27 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:24:24 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/30 14:58:35 by llarue           ###   ########.fr       */
+/*   Updated: 2025/04/03 17:59:18 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 RPN::RPN( void ) : std::stack<int>() {
-	std::cout << "RPN default constructor called" << std::endl;
+	// std::cout << "RPN default constructor called" << std::endl;
 }
 
 RPN::RPN( RPN const & src ) : std::stack<int>(src) {
-	std::cout << "RPN copy constructor called" << std::endl;
+	// std::cout << "RPN copy constructor called" << std::endl;
 	*this = src;
 }
 
 RPN::~RPN( void ) {
-	std::cout << "RPN destructor called" << std::endl;
+	// std::cout << "RPN destructor called" << std::endl;
 }
 
 RPN &RPN::operator=( RPN const & src ) {
-	std::cout << "RPN assignation operator called" << std::endl;
+	// std::cout << "RPN assignation operator called" << std::endl;
 	if (this != &src)
 		std::stack<int>::operator=(src);
 	return *this;

@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:24:26 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/30 14:53:21 by llarue           ###   ########.fr       */
+/*   Updated: 2025/04/03 18:05:14 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,14 @@ int main( int argc, char **argv ) {
 		RPN operations;
 
 		for (size_t i = 0; i < input.size(); i++) {
+			if (input[i] == '-' && input[i + 1] >= '0' && input[i + 1] <= '9') {
+				operations.push(-(input[i + 1] - '0'));
+				i += 2;
+			}
 			if (input[i] >=  '0' && input[i] <= '9') 
 				operations.push(input[i] - '0');
 			else if (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/') {
+				
 				if (!operations.calculate(input[i]))
 					return 1;
 			}
