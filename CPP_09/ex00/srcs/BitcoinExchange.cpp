@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:30:15 by llarue            #+#    #+#             */
-/*   Updated: 2025/03/31 11:54:26 by llarue           ###   ########.fr       */
+/*   Updated: 2025/04/04 17:10:55 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ void	BitcoinExchange::validInputFile( const string & inputFilename) {
 
 bool	validDataDate( string date ) {
 	double	year = strtod(date.c_str(), NULL);
+	
 	if (year < 2009 || year > 2024) 
 		return (std::cout << "Error: data file contains invalid year" << std::endl, false);
 
@@ -185,7 +186,6 @@ bool	validFileDate( string date ) {
 	
 	if (year < 2009 || year > 2024)
 		return (std::cout << "Error: Invalid input date" << std::endl, false);
-
 
 	size_t	first = date.find_first_of('-');
 	size_t	last = date.find_last_of('-');
