@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:24:24 by llarue            #+#    #+#             */
-/*   Updated: 2025/04/03 17:59:18 by llarue           ###   ########.fr       */
+/*   Updated: 2025/04/04 16:25:59 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	RPN::calculate( char input ) {
 	int a = this->top();
 	this->pop();
 	if (this->empty()) {
-		std::cerr << "Error: missing second variable for operation" << std::endl;
+		std::cerr << "Error: Missing second variable for operation" << std::endl;
 		return false;
 	}
 	int b = this->top();
