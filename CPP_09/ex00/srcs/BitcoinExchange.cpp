@@ -6,14 +6,14 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:30:15 by llarue            #+#    #+#             */
-/*   Updated: 2025/04/04 17:10:55 by llarue           ###   ########.fr       */
+/*   Updated: 2025/04/21 09:46:00 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange( void ) : _validDataFile(false), _validInputFile(false) {
-	std::cout << ORANGE << "BitcoinExchange default constructor" << COLOR_RESET << std::endl;
+	// std::cout << ORANGE << "BitcoinExchange default constructor" << COLOR_RESET << std::endl;
 	
 	std::ifstream	data("data.csv");
 	
@@ -57,16 +57,16 @@ BitcoinExchange::BitcoinExchange( void ) : _validDataFile(false), _validInputFil
 }
 
 BitcoinExchange::BitcoinExchange( BitcoinExchange const & src ) {
-	std::cout << PURPLE << "BitcoinExchange copy constructor" << COLOR_RESET << std::endl;
+	// std::cout << PURPLE << "BitcoinExchange copy constructor" << COLOR_RESET << std::endl;
 	*this = src;
 }
 
 BitcoinExchange::~BitcoinExchange( void ) {
-	std::cout << ORANGE << "BitcoinExchange default destructor" << COLOR_RESET << std::endl;
+	// std::cout << ORANGE << "BitcoinExchange default destructor" << COLOR_RESET << std::endl;
 }
 
 BitcoinExchange	&BitcoinExchange::operator=( BitcoinExchange const & src ) {
-	std::cout << BLUE << "BitcoinExchange copy assignment operator" << COLOR_RESET << std::endl;
+	// std::cout << BLUE << "BitcoinExchange copy assignment operator" << COLOR_RESET << std::endl;
 	if (this != &src)
 	{
 		this->_data = src._data;
@@ -92,7 +92,6 @@ bool	BitcoinExchange::getValidDataStatus( void ) {
 }
 
 void	BitcoinExchange::execute( const string & inputFilename ) {
-	std::cout << "Execute" << std::endl;
 	validInputFile(inputFilename);
 }
 

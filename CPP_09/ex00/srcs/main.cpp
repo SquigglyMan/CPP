@@ -6,7 +6,7 @@
 /*   By: llarue <llarue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 13:28:42 by llarue            #+#    #+#             */
-/*   Updated: 2025/01/04 18:06:55 by llarue           ###   ########.fr       */
+/*   Updated: 2025/04/21 09:48:12 by llarue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main( int ac, char **av )
 {	
 	if (ac != 2)
-		return (std::cout << "Usage: ./btc <filename>.txt" << std::endl, 1);
+		return (std::cout << "Usage: ./btc <filename>.csv" << std::endl, 1);
 	if (av[1])
 	{
 		if (!av[1][0])
@@ -23,8 +23,8 @@ int	main( int ac, char **av )
 
 		std::string	inputFile(av[1]);
 		
-		if (inputFile.substr(inputFile.find_last_of(".") + 1) != "txt")
-			return (std::cout << "Error: input file type should be a .txt" << std::endl,  1);
+		if ( inputFile.find_first_of(".") == std::string::npos || inputFile.substr(inputFile.find_first_of(".") + 1) != "csv" )
+			return (std::cout << "Error: input file should be of type .csv" << std::endl,  1);
 	}
 	
 	BitcoinExchange	btc;
